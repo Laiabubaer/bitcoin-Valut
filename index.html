@@ -11,224 +11,60 @@
   <meta name="author" content="Bitcoin Wallet: Vault Team">
   <link rel="canonical" href="https://btcsecurewallet.com">
   <meta name="language" content="en">
-  <meta name="geo.region" content="">
   <meta name="google-site-verification" content="IXURcUAJWMQx9J_lcVP5SID1t7fJ4IbUBGOTqTXIcUQ" />
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #fff;
+    body {margin: 0; font-family: Arial, sans-serif; background: #fff;}
+    .nav-container {display: flex; justify-content: space-between; align-items: center; background: #000; padding: 10px 20px;}
+    .logo-img {width: 40px; height: 40px;}
+    .menu-toggle {display: none; flex-direction: column; cursor: pointer;}
+    .menu-toggle div {width: 25px; height: 3px; background: white; margin: 4px 0;}
+    .nav-links {display: flex; gap: 15px;}
+    .nav-links a {color: #fff; text-decoration: none; font-size: 14px;}
+    @media(max-width:768px){
+      .menu-toggle{display:flex}
+      .nav-links{display:none;flex-direction:column;background:#000;position:absolute;top:55px;right:20px;width:180px;padding:10px;border-radius:6px;box-shadow:0 4px 8px rgba(0,0,0,0.2);text-align:right}
+      .nav-links.show{display:flex}
+      .nav-links a{padding:10px 0;border-bottom:1px solid #222}
     }
 
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #000;
-      padding: 10px 20px;
-    }
+    .section {text-align: center; padding: 40px 20px;}
+    .section-block {margin-bottom: 40px; max-width: 750px; margin-left: auto; margin-right: auto;}
+    .section h2 {font-size: 24px; font-weight: bold; margin-bottom: 10px; color: #1e293b;}
+    .section p {font-size: 16px; line-height: 1.6; color: #4b5563; margin: 0 auto;}
+    .section img {width: 100%; max-width: 500px; border-radius: 12px; margin-top: 20px; box-shadow: 0 4px 16px rgba(0,0,0,0.08);}
 
-    .logo-text {
-      font-size: 20px;
-      font-weight: bold;
-      color: white;
-    }
+    .google-play-badge {height: 60px; margin-top: 20px; transition: .3s;}
+    .google-play-badge:hover {transform: scale(1.05);}
 
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
+    .cta-section {background: #0a1f44; color: white; text-align: center; padding: 60px 20px;}
+    .cta-section h2 {font-size: 28px; margin-bottom: 25px;}
 
-    .menu-toggle div {
-      width: 25px;
-      height: 3px;
-      background: white;
-      margin: 4px 0;
-    }
+    .support-section-pro {background: #f0f6ff; padding: 50px 20px; text-align: center; border-top: 1px solid #dbeafe;}
+    .support-section-pro h2 {color: #0a1f44; font-size: 26px; margin-bottom: 10px;}
+    .support-section-pro p {color: #444; font-size: 16px; margin-bottom: 30px;}
+    .support-items {display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;}
+    .support-item {display: flex; align-items: center; gap: 10px; font-size: 16px; color: #0a1f44;}
+    .support-item img {height: 24px;}
+    .support-item a {color: #0a1f44; text-decoration: none; font-weight: bold;}
+    .support-item a:hover {text-decoration: underline;}
 
-    .nav-links {
-      display: flex;
-      gap: 15px;
-    }
+    .multisig-box-refined {background: #f1f5f9; border-left: 5px solid #2563eb; padding: 40px 30px; border-radius: 16px; box-shadow: 0 8px 16px rgba(0,0,0,0.05); max-width: 800px; margin: 40px auto; animation: fadeInUp 0.8s ease; text-align: center;}
+    .multisig-box-refined h2 {font-size: 26px; color: #1e3a8a; margin-bottom: 12px;}
+    .multisig-box-refined p {color: #374151; font-size: 17px; line-height: 1.7;}
 
-    .nav-links a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 14px;
-    }
+    @keyframes fadeInUp {0% {opacity: 0; transform: translateY(30px);} 100% {opacity: 1; transform: translateY(0);}}
 
-    @media(max-width: 768px) {
-      .menu-toggle {
-        display: flex;
-      }
-
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        background: #000;
-        position: absolute;
-        top: 55px;
-        right: 20px;
-        width: 180px;
-        padding: 10px;
-        border-radius: 6px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        text-align: right;
-      }
-
-      .nav-links.show {
-        display: flex;
-      }
-
-      .nav-links a {
-        padding: 10px 0;
-        border-bottom: 1px solid #222;
-      }
-    }
-
-    .section {
-      text-align: center;
-      padding: 40px 20px;
-    }
-
-    .section h2 {
-      font-size: 22px;
-      color: #222;
-      margin-top: 10px;
-    }
-
-    .section p {
-      font-size: 16px;
-      color: #555;
-      max-width: 700px;
-      margin: 10px auto;
-      line-height: 1.6;
-    }
-
-    .google-play-badge {
-      height: 60px;
-      margin-top: 20px;
-      transition: .3s;
-    }
-
-    .google-play-badge:hover {
-      transform: scale(1.05);
-    }
-
-    .cta-section {
-      background: #0a1f44;
-      color: white;
-      text-align: center;
-      padding: 60px 20px;
-    }
-
-    .cta-section h2 {
-      font-size: 28px;
-      margin-bottom: 25px;
-    }
-
-    .support-section-pro {
-      background: #f0f6ff;
-      padding: 50px 20px;
-      text-align: center;
-      border-top: 1px solid #dbeafe;
-    }
-
-    .support-section-pro h2 {
-      color: #0a1f44;
-      font-size: 26px;
-      margin-bottom: 10px;
-    }
-
-    .support-section-pro p {
-      color: #444;
-      font-size: 16px;
-      margin-bottom: 30px;
-    }
-
-    .support-items {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-    }
-
-    .support-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 16px;
-      color: #0a1f44;
-    }
-
-    .support-item img {
-      height: 24px;
-    }
-
-    .support-item a {
-      color: #0a1f44;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .support-item a:hover {
-      text-decoration: underline;
-    }
-
-    .multisig-box-refined {
-      background: #f1f5f9;
-      border-left: 5px solid #2563eb;
-      padding: 40px 30px;
-      border-radius: 16px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.05);
-      max-width: 800px;
-      margin: 40px auto;
-      animation: fadeInUp 0.8s ease;
-      text-align: center;
-    }
-
-    .multisig-box-refined h2 {
-      font-size: 26px;
-      color: #1e3a8a;
-      margin-bottom: 12px;
-    }
-
-    .multisig-box-refined p {
-      color: #374151;
-      font-size: 17px;
-      line-height: 1.7;
-    }
-
-    @keyframes fadeInUp {
-      0% {opacity: 0; transform: translateY(30px);}
-      100% {opacity: 1; transform: translateY(0);}
-    }
-
-    footer {
-      text-align: center;
-      background: #eee;
-      padding: 20px;
-      font-size: 14px;
-    }
-
-    .footer-links a {
-      margin: 0 10px;
-      color: #333;
-      text-decoration: none;
-    }
-
-    .footer-links a:hover {
-      text-decoration: underline;
-    }
+    footer {text-align: center; background: #eee; padding: 20px; font-size: 14px;}
+    .footer-links a {margin: 0 10px; color: #333; text-decoration: none;}
+    .footer-links a:hover {text-decoration: underline;}
   </style>
 </head>
 <body>
   <nav>
     <div class="nav-container">
-      <div class="logo-text">Vault</div>
+      <span style="color:white; font-size:18px; font-weight:bold;">Vault</span>
       <div class="menu-toggle" onclick="toggleMenu()"><div></div><div></div><div></div></div>
       <div class="nav-links" id="navLinks">
         <a href="index.html">Home</a>
@@ -248,31 +84,34 @@
     </a>
   </header>
 
-  <section class="section">
-    <h2>Empowering Your Bitcoin Journey</h2>
-    <p>Bitcoin Wallet: Vault gives you full control of your bitcoin. Easy to use, built for privacy and speed.</p>
+  <section class="section light">
+    <div class="section-block">
+      <h2>Empowering Your Bitcoin Journey</h2>
+      <p>Bitcoin Wallet: Vault gives you full control of your bitcoin. Easy to use, built for privacy and speed.</p>
+      <img src="assets/c1.png" alt="Vault Users">
+    </div>
+
+    <div class="section-block">
+      <h2>Bitcoin Wallet: Vault</h2>
+      <p>Experience self-custody with our intuitive wallet app designed for security and usability.</p>
+    </div>
+
+    <div class="section-block">
+      <h2>User-Friendly Interface</h2>
+      <p>Navigate with ease, whether you're a beginner or an expert.</p>
+    </div>
+
+    <div class="section-block">
+      <h2>Enhanced Security Features</h2>
+      <p>Protect your assets with encryption and multi-layer security protocols.</p>
+    </div>
   </section>
 
-  <section class="section">
-    <h2>Bitcoin Wallet: Vault</h2>
-    <p>Experience self-custody with our intuitive wallet app designed for security and usability.</p>
-    <h2>User-Friendly Interface</h2>
-    <p>Navigate with ease, whether you're a beginner or an expert.</p>
-  </section>
-
-  <section class="section">
-    <h2>Enhanced Security Features</h2>
-    <p>Protect your assets with encryption and multi-layer security protocols.</p>
-  </section>
-
-  <section class="section">
-    <h2>Instant Transaction Access</h2>
-    <p>Send and receive payments anytime with full control and transparency.</p>
-  </section>
-
-  <section class="section">
-    <h2>Lightning Network</h2>
-    <p>The Lightning Network is a second-layer solution built on Bitcoin, enabling instant and low-fee transactions. Bitcoin Wallet: Vault integrates it seamlessly.</p>
+  <section class="section light">
+    <div class="section-block">
+      <h2>Lightning Network</h2>
+      <p>The Lightning Network is a second-layer solution built on Bitcoin, enabling instant and low-fee transactions. Bitcoin Wallet: Vault integrates it seamlessly.</p>
+    </div>
   </section>
 
   <section class="section">
