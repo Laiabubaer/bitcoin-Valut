@@ -1,29 +1,36 @@
-<!-- ... (نفس الترويسة وباقي العناصر بدون تغيير) --><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Legal Compliance | Bitcoin Wallet: BTC Star</title>
+  <title>Legal Compliance | Bitcoin Wallet: Vault</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background-color: #fff;
       line-height: 1.6;
+      color:#222;
     }
 
+    /* Header (موحّد لكل الصفحات) */
+    nav { background-color: #000; color: #fff; }
     .nav-container {
+      max-width: 1200px;          /* نفس المقاس في كل الصفحات */
+      margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: #000;
+      gap: 16px;
       padding: 10px 20px;
-      flex-wrap: wrap;
+      position: relative;
     }
-
-    .logo-img {
-      width: 40px;
-      height: 40px;
+    .logo-text {
+      font-weight: bold;
+      font-size: 18px;
+      color: #fff;
+      margin-right: auto;          /* يلزّق Vault على زاوية اليسار */
+      letter-spacing: .2px;
     }
 
     .menu-toggle {
@@ -31,7 +38,6 @@
       flex-direction: column;
       cursor: pointer;
     }
-
     .menu-toggle div {
       width: 25px;
       height: 3px;
@@ -41,9 +47,8 @@
 
     .nav-links {
       display: flex;
-      gap: 15px;
+      gap: 25px;                  /* تباعد واضح بين الروابط */
     }
-
     .nav-links a {
       color: white;
       text-decoration: none;
@@ -51,10 +56,7 @@
     }
 
     @media (max-width: 768px) {
-      .menu-toggle {
-        display: flex;
-      }
-
+      .menu-toggle { display: flex; }
       .nav-links {
         display: none;
         flex-direction: column;
@@ -67,13 +69,16 @@
         border-radius: 6px;
         text-align: right;
         z-index: 999;
+        gap: 0;
       }
-
-      .nav-links.show {
-        display: flex;
+      .nav-links.show { display: flex; }
+      .nav-links a {
+        padding: 8px 0;
+        border-bottom: 1px solid #222;
       }
     }
 
+    /* Content */
     .content {
       max-width: 800px;
       margin: 40px auto;
@@ -111,18 +116,20 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
 
+    /* Footer */
     footer {
       text-align: center;
       background: #eee;
       padding: 20px;
       font-size: 14px;
+      color:#333;
     }
   </style>
 </head>
 <body>
   <nav>
     <div class="nav-container">
-      <img src="images/logo.png" alt="Logo" class="logo-img">
+      <div class="logo-text">Vault</div>
       <div class="menu-toggle" onclick="toggleMenu()">
         <div></div><div></div><div></div>
       </div>
@@ -139,7 +146,7 @@
   <div class="content">
     <h1>Legal Compliance Statement</h1>
 
-    <p><strong>Bitcoin Wallet: BTC Star</strong> is operated by <strong>A BOUQUET OF BALLOONS LLC</strong>, a registered Money Services Business (MSB) with the U.S. Department of the Treasury’s Financial Crimes Enforcement Network (FinCEN).</p>
+    <p><strong>Bitcoin Wallet: Vault</strong> is operated by <strong>A BOUQUET OF BALLOONS LLC</strong>, a registered Money Services Business (MSB) with the U.S. Department of the Treasury’s Financial Crimes Enforcement Network (FinCEN).</p>
 
     <p><strong>MSB Registration Number:</strong> 31000294613868</p>
     <p><strong>Registered Entity:</strong> A BOUQUET OF BALLOONS LLC</p>
@@ -147,16 +154,16 @@
     <p><strong>Business Type:</strong> Money Transmitter & Foreign Exchange Dealer</p>
 
     <h2>Non-Custodial Nature</h2>
-    <p>BTC Star is a <strong>non-custodial Bitcoin and Lightning wallet</strong>. Users maintain exclusive control over their private keys and funds at all times. We do <strong>not</strong> have access to, nor store, user funds or seed phrases.</p>
+    <p>Vault is a <strong>non-custodial Bitcoin and Lightning wallet</strong>. Users maintain exclusive control over their private keys and funds at all times. We do <strong>not</strong> have access to, nor store, user funds or seed phrases.</p>
 
     <h2>Compliance Commitment</h2>
     <p>We are committed to complying with all applicable financial regulations, including Anti-Money Laundering (AML) and Know Your Customer (KYC) obligations where required by law. This app does not offer custodial services, investment products, or financial advice.</p>
 
     <h2>Risk Disclosure</h2>
-    <p>Using Bitcoin and Lightning wallets involves financial risks, including the risk of partial or total loss of funds. BTC Star does not guarantee the value, stability, or legal treatment of Bitcoin. Users are responsible for complying with applicable laws in their respective jurisdictions.</p>
+    <p>Using Bitcoin and Lightning wallets involves financial risks, including the risk of partial or total loss of funds. Vault does not guarantee the value, stability, or legal treatment of Bitcoin. Users are responsible for complying with applicable laws in their respective jurisdictions.</p>
 
     <h2>Regulatory Disclaimer</h2>
-    <p>MSB registration with FinCEN indicates regulatory recognition in the United States. However, it does <strong>not</strong> imply endorsement, approval, or supervision by any U.S. government agency. BTC Star is not a licensed financial institution or investment advisor.</p>
+    <p>MSB registration with FinCEN indicates regulatory recognition in the United States. However, it does <strong>not</strong> imply endorsement, approval, or supervision by any U.S. government agency. Vault is not a licensed financial institution or investment advisor.</p>
 
     <p>You may verify our MSB registration status in the official FinCEN registry:<br>
       <a href="https://www.fincen.gov/msb-state-selector" target="_blank">https://www.fincen.gov/msb-state-selector</a>
@@ -168,7 +175,7 @@
   </div>
 
   <footer>
-    &copy; 2025 Bitcoin Wallet: BTC Star | Built for freedom
+    &copy; 2025 Bitcoin Wallet: Vault | Built for freedom
   </footer>
 
   <script>
