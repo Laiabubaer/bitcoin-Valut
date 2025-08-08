@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact Us - Secure Bitcoin Wallet</title>
+  <title>Contact Us – Bitcoin Wallet: Vault</title>
   <style>
     body {
       margin: 0;
@@ -12,18 +12,25 @@
       color: #fff;
     }
 
+    /* Header موحّد */
+    nav { background-color: #000; color: #fff; }
     .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
       background-color: #000;
       padding: 10px 20px;
       position: relative;
+      gap: 16px;
     }
-
-    .logo-img {
-      width: 40px;
-      height: 40px;
+    .logo-text{
+      font-weight: bold;
+      font-size: 18px;
+      color:#fff;
+      margin-right: auto; /* يلزّق Vault يسار */
+      letter-spacing: .2px;
     }
 
     .menu-toggle {
@@ -31,7 +38,6 @@
       flex-direction: column;
       cursor: pointer;
     }
-
     .menu-toggle div {
       width: 25px;
       height: 3px;
@@ -41,9 +47,8 @@
 
     .nav-links {
       display: flex;
-      gap: 15px;
+      gap: 25px; /* تباعد واضح بين الروابط */
     }
-
     .nav-links a {
       color: white;
       text-decoration: none;
@@ -51,10 +56,7 @@
     }
 
     @media (max-width: 768px) {
-      .menu-toggle {
-        display: flex;
-      }
-
+      .menu-toggle { display: flex; }
       .nav-links {
         display: none;
         flex-direction: column;
@@ -68,22 +70,17 @@
         box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         text-align: right;
         z-index: 99;
+        gap: 0;
       }
-
-      .nav-links.show {
-        display: flex;
-      }
-
+      .nav-links.show { display: flex; }
       .nav-links a {
         padding: 10px 0;
         border-bottom: 1px solid #222;
       }
-
-      .nav-links a:last-child {
-        border-bottom: none;
-      }
+      .nav-links a:last-child { border-bottom: none; }
     }
 
+    /* محتوى الصفحة */
     .container {
       max-width: 600px;
       margin: 80px auto;
@@ -117,10 +114,7 @@
       color: #000;
     }
 
-    textarea {
-      resize: vertical;
-      min-height: 80px;
-    }
+    textarea { resize: vertical; min-height: 80px; }
 
     button {
       width: 100%;
@@ -134,26 +128,20 @@
       cursor: pointer;
       transition: background 0.3s ease;
     }
-
-    button:hover {
-      background-color: #e08700;
-    }
+    button:hover { background-color: #e08700; }
 
     .contact-info {
       font-size: 13px;
       color: #ccc;
       margin-top: 30px;
+      text-align: left;
     }
-
     .contact-info img {
       width: 16px;
       vertical-align: middle;
       margin-right: 6px;
     }
-
-    .contact-info p {
-      margin: 6px 0;
-    }
+    .contact-info p { margin: 6px 0; }
 
     .privacy-note {
       font-size: 12px;
@@ -161,7 +149,6 @@
       text-align: center;
       margin-top: 10px;
     }
-
     .privacy-note a {
       color: #ffcc66;
       text-decoration: underline;
@@ -171,7 +158,6 @@
       margin-top: 30px;
       text-align: center;
     }
-
     .back-home a {
       display: inline-block;
       padding: 10px 20px;
@@ -182,21 +168,16 @@
       font-weight: bold;
       transition: background 0.3s ease;
     }
-
-    .back-home a:hover {
-      background-color: #e08700;
-    }
+    .back-home a:hover { background-color: #e08700; }
   </style>
 </head>
 <body>
 
   <nav>
     <div class="nav-container">
-      <img src="images/logo.png" alt="Logo" class="logo-img">
+      <div class="logo-text">Vault</div>
       <div class="menu-toggle" onclick="toggleMenu()">
-        <div></div>
-        <div></div>
-        <div></div>
+        <div></div><div></div><div></div>
       </div>
       <div class="nav-links" id="navLinks">
         <a href="index.html">Home</a>
@@ -210,9 +191,10 @@
 
   <div class="container">
     <h2>Contact Us</h2>
-    <p>For inquiries about Secure Bitcoin Wallet, our secure and self-custodial Bitcoin app, please use the form below or reach out directly.</p>
+    <p>For inquiries about <strong>Bitcoin Wallet: Vault</strong>, our secure and self-custodial Bitcoin app, please use the form below or reach out directly.</p>
 
-    <form action="https://formsubmit.co/support@btcstarwallet.com" method="POST">
+    <!-- حدّثنا إيميل الاستقبال -->
+    <form action="https://formsubmit.co/support@btcvaultwallet.com" method="POST">
       <input type="hidden" name="_next" value="https://laiabubaer.github.io/secure-wallet-site/thank-you.html">
       <input type="hidden" name="_captcha" value="false">
 
@@ -229,12 +211,12 @@
 
     <div class="contact-info">
       <p><strong>Business Address:</strong><br>
-      Secure Bitcoin Wallet<br>
+      Bitcoin Wallet: Vault<br>
       1209 Mountain Road Pl NE #5438<br>
       Albuquerque, NM 87110, USA</p>
 
       <p>
-        <img src="images/icons8-email-48.png" alt="Email Icon"> support@btcstarwallet.com
+        <img src="images/icons8-email-48.png" alt="Email Icon"> support@btcvaultwallet.com
       </p>
       <p>
         <img src="images/icons8-phone-24.png" alt="Phone Icon"> +1 512 369 8743
