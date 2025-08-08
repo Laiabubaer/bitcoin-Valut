@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - Secure Bitcoin Wallet</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #121624;
+      color: #fff;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #000;
+      padding: 10px 20px;
+      position: relative;
+    }
+
+    .logo-img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle div {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 4px 0;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #000;
+        position: absolute;
+        top: 55px;
+        right: 20px;
+        width: 180px;
+        padding: 10px;
+        border-radius: 6px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        text-align: right;
+        z-index: 99;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 10px 0;
+        border-bottom: 1px solid #222;
+      }
+
+      .nav-links a:last-child {
+        border-bottom: none;
+      }
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 80px auto;
+      padding: 35px 25px;
+      background-color: #1c1f2e;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 26px;
+    }
+
+    p {
+      text-align: center;
+      font-size: 14px;
+      color: #ccc;
+      margin-bottom: 25px;
+    }
+
+    input, textarea {
+      width: 94%;
+      padding: 6px 10px;
+      margin: 6px 0;
+      border: none;
+      border-radius: 6px;
+      font-size: 13px;
+      background-color: #fff;
+      color: #000;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    button {
+      width: 100%;
+      padding: 9px;
+      background-color: #ff9900;
+      border: none;
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e08700;
+    }
+
+    .contact-info {
+      font-size: 13px;
+      color: #ccc;
+      margin-top: 30px;
+    }
+
+    .contact-info img {
+      width: 16px;
+      vertical-align: middle;
+      margin-right: 6px;
+    }
+
+    .contact-info p {
+      margin: 6px 0;
+    }
+
+    .privacy-note {
+      font-size: 12px;
+      color: #aaa;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .privacy-note a {
+      color: #ffcc66;
+      text-decoration: underline;
+    }
+
+    .back-home {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .back-home a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #ff9900;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .back-home a:hover {
+      background-color: #e08700;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-container">
+      <img src="images/logo.png" alt="Logo" class="logo-img">
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
+        <a href="compliance.html">Compliance</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h2>Contact Us</h2>
+    <p>For inquiries about Secure Bitcoin Wallet, our secure and self-custodial Bitcoin app, please use the form below or reach out directly.</p>
+
+    <form action="https://formsubmit.co/support@btcstarwallet.com" method="POST">
+      <input type="hidden" name="_next" value="https://laiabubaer.github.io/secure-wallet-site/thank-you.html">
+      <input type="hidden" name="_captcha" value="false">
+
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+
+      <button type="submit">Send</button>
+    </form>
+
+    <div class="privacy-note">
+      We collect your contact information solely to respond to your inquiry. We do not share your data with third parties. By submitting this form, you agree to our <a href="privacy.html">Privacy Policy</a>.
+    </div>
+
+    <div class="contact-info">
+      <p><strong>Business Address:</strong><br>
+      Secure Bitcoin Wallet<br>
+      1209 Mountain Road Pl NE #5438<br>
+      Albuquerque, NM 87110, USA</p>
+
+      <p>
+        <img src="images/icons8-email-48.png" alt="Email Icon"> support@btcstarwallet.com
+      </p>
+      <p>
+        <img src="images/icons8-phone-24.png" alt="Phone Icon"> +1 512 369 8743
+      </p>
+    </div>
+
+    <div class="back-home">
+      <a href="index.html">Return to Home</a>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.toggle('show');
+    }
+  </script>
+
+</body>
+</html>

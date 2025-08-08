@@ -1,0 +1,181 @@
+<!-- ... (نفس الترويسة وباقي العناصر بدون تغيير) --><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Legal Compliance | Bitcoin Wallet: BTC Star</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      line-height: 1.6;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #000;
+      padding: 10px 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo-img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle div {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 4px 0;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #000;
+        position: absolute;
+        top: 55px;
+        right: 20px;
+        width: 180px;
+        padding: 10px;
+        border-radius: 6px;
+        text-align: right;
+        z-index: 999;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+    }
+
+    .content {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      text-align: left;
+    }
+
+    .content h1, .content h2 {
+      font-size: 22px;
+      color: #0a1f44;
+      margin-bottom: 16px;
+    }
+
+    .content p {
+      font-size: 16px;
+      color: #444;
+      margin-bottom: 16px;
+    }
+
+    .content a {
+      color: #0077cc;
+      word-break: break-word;
+    }
+
+    .img-wrapper {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .img-wrapper img {
+      max-width: 100%;
+      width: 500px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    footer {
+      text-align: center;
+      background: #eee;
+      padding: 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <img src="images/logo.png" alt="Logo" class="logo-img">
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <div></div><div></div><div></div>
+      </div>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
+        <a href="compliance.html">Compliance</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="content">
+    <h1>Legal Compliance Statement</h1>
+
+    <p><strong>Bitcoin Wallet: BTC Star</strong> is operated by <strong>A BOUQUET OF BALLOONS LLC</strong>, a registered Money Services Business (MSB) with the U.S. Department of the Treasury’s Financial Crimes Enforcement Network (FinCEN).</p>
+
+    <p><strong>MSB Registration Number:</strong> 31000294613868</p>
+    <p><strong>Registered Entity:</strong> A BOUQUET OF BALLOONS LLC</p>
+    <p><strong>Business Address:</strong> 1209 Mountain Road Pl NE #5438, Albuquerque, New Mexico 87110, USA</p>
+    <p><strong>Business Type:</strong> Money Transmitter & Foreign Exchange Dealer</p>
+
+    <h2>Non-Custodial Nature</h2>
+    <p>BTC Star is a <strong>non-custodial Bitcoin and Lightning wallet</strong>. Users maintain exclusive control over their private keys and funds at all times. We do <strong>not</strong> have access to, nor store, user funds or seed phrases.</p>
+
+    <h2>Compliance Commitment</h2>
+    <p>We are committed to complying with all applicable financial regulations, including Anti-Money Laundering (AML) and Know Your Customer (KYC) obligations where required by law. This app does not offer custodial services, investment products, or financial advice.</p>
+
+    <h2>Risk Disclosure</h2>
+    <p>Using Bitcoin and Lightning wallets involves financial risks, including the risk of partial or total loss of funds. BTC Star does not guarantee the value, stability, or legal treatment of Bitcoin. Users are responsible for complying with applicable laws in their respective jurisdictions.</p>
+
+    <h2>Regulatory Disclaimer</h2>
+    <p>MSB registration with FinCEN indicates regulatory recognition in the United States. However, it does <strong>not</strong> imply endorsement, approval, or supervision by any U.S. government agency. BTC Star is not a licensed financial institution or investment advisor.</p>
+
+    <p>You may verify our MSB registration status in the official FinCEN registry:<br>
+      <a href="https://www.fincen.gov/msb-state-selector" target="_blank">https://www.fincen.gov/msb-state-selector</a>
+    </p>
+
+    <div class="img-wrapper">
+      <img src="images/29CE1E7F-26A6-4EA6-AEBB-61073954D5B9.jpeg" alt="FinCEN MSB Registration Certificate">
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Bitcoin Wallet: BTC Star | Built for freedom
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.toggle('show');
+    }
+  </script>
+</body>
+</html>
