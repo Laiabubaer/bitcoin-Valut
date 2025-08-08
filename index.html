@@ -3,168 +3,166 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bitcoin Wallet – Vault | Secure & Lightning Fast</title>
+  <title>Vault – Secure Bitcoin Wallet</title>
 
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Bitcoin Wallet: Vault is the best self-custodial Bitcoin wallet, supporting Lightning payments with full control, privacy, and speed.">
-  <meta name="keywords" content="Bitcoin Wallet, Lightning Wallet, Vault, Crypto Wallet, Self Custody, Multisig Wallet">
-  <meta name="author" content="Bitcoin Wallet: Vault Team">
-  <link rel="canonical" href="https://btcsecurewallet.com">
-  <meta name="language" content="en">
-  <meta name="geo.region" content="">
-  <meta name="google-site-verification" content="IXURcUAJWMQx9J_lcVP5SID1t7fJ4IbUBGOTqTXIcUQ" />
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
-    body{margin:0;font-family:Arial,sans-serif;background:#fff}
-    .nav-container{display:flex;justify-content:space-between;align-items:center;background:#000;padding:10px 20px}
-    .logo-img{width:40px;height:40px}
-    .menu-toggle{display:none;flex-direction:column;cursor:pointer}
-    .menu-toggle div{width:25px;height:3px;background:white;margin:4px 0}
-    .nav-links{display:flex;gap:15px}
-    .nav-links a{color:#fff;text-decoration:none;font-size:14px}
-    @media(max-width:768px){
-      .menu-toggle{display:flex}
-      .nav-links{display:none;flex-direction:column;background:#000;position:absolute;top:55px;right:20px;width:180px;padding:10px;border-radius:6px;box-shadow:0 4px 8px rgba(0,0,0,0.2);text-align:right}
-      .nav-links.show{display:flex}
-      .nav-links a{padding:10px 0;border-bottom:1px solid #222}
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #ffffff;
+      color: #1e1e1e;
     }
 
-    .section{text-align:center;padding:40px 20px}
-    .section img{width:100%;max-width:400px;margin:20px auto;display:block;border-radius:10px;box-shadow:0 0 10px rgba(0,0,0,0.1)}
-    .section h2{font-size:22px;color:#222;margin-top:10px}
-    .section p{font-size:16px;color:#555;max-width:700px;margin:10px auto;line-height:1.6}
+    .nav {
+      background: #0d1b2a;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-    .google-play-badge{height:60px;margin-top:20px;transition:.3s}
-    .google-play-badge:hover{transform:scale(1.05)}
+    .nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 15px;
+    }
 
-    .cta-section{background:#0a1f44;color:white;text-align:center;padding:60px 20px}
-    .cta-section h2{font-size:28px;margin-bottom:25px}
+    .hero {
+      background: #0d1b2a;
+      color: white;
+      text-align: center;
+      padding: 80px 20px 60px;
+    }
 
-    .support-section-pro{background:#f0f6ff;padding:50px 20px;text-align:center;border-top:1px solid #dbeafe}
-    .support-section-pro h2{color:#0a1f44;font-size:26px;margin-bottom:10px}
-    .support-section-pro p{color:#444;font-size:16px;margin-bottom:30px}
-    .support-items{display:flex;flex-wrap:wrap;justify-content:center;gap:30px}
-    .support-item{display:flex;align-items:center;gap:10px;font-size:16px;color:#0a1f44}
-    .support-item img{height:24px}
-    .support-item a{color:#0a1f44;text-decoration:none;font-weight:bold}
-    .support-item a:hover{text-decoration:underline}
+    .hero h1 {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
 
-    .multisig-box-refined{background:#f1f5f9;border-left:5px solid #2563eb;padding:40px 30px;border-radius:16px;box-shadow:0 8px 16px rgba(0,0,0,0.05);max-width:800px;margin:40px auto;animation:fadeInUp 0.8s ease;text-align:center}
-    .multisig-box-refined h2{font-size:26px;color:#1e3a8a;margin-bottom:12px}
-    .multisig-box-refined p{color:#374151;font-size:17px;line-height:1.7}
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
 
-    @keyframes fadeInUp{0%{opacity:0;transform:translateY(30px)}100%{opacity:1;transform:translateY(0)}}
+    .hero img {
+      height: 55px;
+    }
 
-    footer{text-align:center;background:#eee;padding:20px;font-size:14px}
-    .footer-links a{margin:0 10px;color:#333;text-decoration:none}
-    .footer-links a:hover{text-decoration:underline}
-    .disclaimer{font-size:14px;color:#777;text-align:center;max-width:800px;margin:50px auto 30px;line-height:1.6;padding:0 20px}
+    .section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .section.light {
+      background: #f9f9f9;
+    }
+
+    .section h2 {
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .section p {
+      font-size: 16px;
+      max-width: 700px;
+      margin: 0 auto 30px;
+    }
+
+    .section img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .cta {
+      background: #1e1e1e;
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .cta a img {
+      height: 55px;
+      margin-top: 20px;
+    }
+
+    .footer {
+      background: #0d1b2a;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 14px;
+    }
+
+    .footer a {
+      color: #ccc;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
-  <nav>
-    <div class="nav-container">
-      <img src="images/logo.png" alt="Logo" class="logo-img">
-      <div class="menu-toggle" onclick="toggleMenu()"><div></div><div></div><div></div></div>
-      <div class="nav-links" id="navLinks">
-        <a href="index.html">Home</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
-        <a href="contact.html">Contact</a>
-        <a href="compliance.html">Compliance</a>
-      </div>
+  <nav class="nav">
+    <div style="font-weight: 600; font-size: 18px; color: white;">Vault Wallet</div>
+    <div>
+      <a href="#features">Features</a>
+      <a href="#lightning">Lightning</a>
+      <a href="#security">Security</a>
+      <a href="#support">Support</a>
+      <a href="#download">Download</a>
     </div>
   </nav>
 
-  <header class="cta-section">
-    <h1>Welcome to Bitcoin Wallet: Vault</h1>
-    <p>Your secure self-custodial Bitcoin & Lightning wallet — trusted worldwide</p>
-    <a href="https://apps.apple.com/app/id1234567890" target="_blank">
-      <img class="google-play-badge" src="images/app-store-badge.png" alt="Download on the App Store">
+  <header class="hero">
+    <h1>Welcome to Vault</h1>
+    <p>Your secure Bitcoin & Lightning wallet — trusted worldwide</p>
+    <a href="#download">
+      <img src="images/app-store-badge.png" alt="Download on the App Store">
     </a>
   </header>
 
-  <section class="section light">
-    <h2>Empowering Your Bitcoin Journey</h2>
-    <p>Bitcoin Wallet: Vault gives you full control of your bitcoin. Easy to use, built for privacy and speed.</p>
-    <img src="images/63ad251d-3a37-414c-b0cb-99f08c0f2c84.jpg" alt="Users">
+  <section class="section light" id="features">
+    <h2>Take Full Control</h2>
+    <p>Vault gives you complete control of your Bitcoin — with privacy, speed, and security in mind.</p>
+    <img src="images/feature.png" alt="App Features">
   </section>
 
-  <section class="section light">
-    <h2>Bitcoin Wallet: Vault</h2>
-    <p>Experience self-custody with our intuitive wallet app designed for security and usability.</p>
-    <img src="images/9b168b34-c9cf-4fdd-ba99-c218f2940108.jpg" alt="Bitcoin Wallet: Vault">
-    <h2>User-Friendly Interface</h2>
-    <p>Navigate with ease, whether you're a beginner or an expert.</p>
-  </section>
-
-  <section class="section light">
-    <img src="images/72797269-60b2-4d1c-8e99-e7a8781033fe.jpg" alt="Security Features">
-    <h2>Enhanced Security Features</h2>
-    <p>Protect your assets with encryption and multi-layer security protocols.</p>
-  </section>
-
-  <section class="section light">
-    <img src="images/a5ec3ba0-e59d-4e2d-8e62-70c65daa4e2c.jpg" alt="Transaction Access">
-    <h2>Instant Transaction Access</h2>
-    <p>Send and receive payments anytime with full control and transparency.</p>
-  </section>
-
-  <section class="section light">
+  <section class="section" id="lightning">
     <h2>Lightning Network</h2>
-    <p>The Lightning Network is a second-layer solution built on Bitcoin, enabling instant and low-fee transactions. Bitcoin Wallet: Vault integrates it seamlessly.</p>
+    <p>Send Bitcoin instantly and with lower fees using integrated Lightning Network support.</p>
+    <img src="images/lightning.png" alt="Lightning Network">
   </section>
 
-  <section class="section">
-    <div class="multisig-box-refined">
-      <h2>Multisig Security</h2>
-      <p>Bitcoin Wallet: Vault uses 2-of-2 multisig protocol to keep your funds safe. Even if you lose your phone, your bitcoin remains secure.</p>
-    </div>
+  <section class="section light" id="security">
+    <h2>Multisig Security</h2>
+    <p>With 2-of-2 multisig protection, your funds stay safe even if you lose your device.</p>
+    <img src="images/security.png" alt="Security">
   </section>
 
-  <section class="cta-section">
-    <h2>Experience the full power of bitcoin.</h2>
+  <section class="cta" id="download">
+    <h2>Download Vault Wallet</h2>
+    <p>Join thousands who trust Vault to store and use Bitcoin securely.</p>
     <a href="https://apps.apple.com/app/id1234567890" target="_blank">
-      <img class="google-play-badge" src="images/app-store-badge.png" alt="Download on the App Store">
+      <img src="images/app-store-badge.png" alt="Download on the App Store">
     </a>
   </section>
 
-  <section class="support-section-pro">
-    <h2>Need help or have a question?</h2>
-    <p>Our support team is ready to assist you. Reach out via email or phone.</p>
-    <div class="support-items">
-      <div class="support-item">
-        <img src="images/icons8-email-48.png" alt="Email Icon">
-        <a href="mailto:support@btcstarwallet.com">support@btcstarwallet.com</a>
-      </div>
-      <div class="support-item">
-        <img src="images/icons8-phone-24.png" alt="Phone Icon">
-        <span>+1 512 369 8743</span>
-      </div>
+  <footer class="footer" id="support">
+    <div>
+      <a href="privacy.html">Privacy</a> |
+      <a href="terms.html">Terms</a> |
+      <a href="contact.html">Contact</a>
     </div>
-  </section>
-
-  <div class="disclaimer">
-    <p>
-      Bitcoin Wallet: Vault is a self-custodial application. We do not offer custodial services, financial advice, or investment products. Users retain full control of their private keys and assets. Our MSB registration with FinCEN is for compliance purposes only and does not imply government approval or financial licensing.
-    </p>
-  </div>
-
-  <footer>
-    <div class="footer-links">
-      <a href="privacy.html">Privacy Policy</a> |
-      <a href="terms.html">Terms of Service</a> |
-      <a href="compliance.html">Legal Compliance</a> |
-      <a href="contact.html">Contact Us</a>
-    </div>
-    <p style="margin-top:10px;">&copy; 2025 Bitcoin Wallet: Vault. All rights reserved.</p>
+    <p>&copy; 2025 Vault Wallet. All rights reserved.</p>
   </footer>
-
-  <script>
-    function toggleMenu() {
-      document.getElementById('navLinks').classList.toggle('show');
-    }
-  </script>
 </body>
 </html>
