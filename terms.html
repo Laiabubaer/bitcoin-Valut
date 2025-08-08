@@ -23,9 +23,14 @@
       justify-content: space-between;
       align-items: center;
     }
-    .logo-img {
-      height: 40px;
+    /* شعار نصّي بدل الصورة ومثبت يسار */
+    .logo-text{
+      font-weight: bold;
+      font-size: 18px;
+      color:#fff;
+      margin-right: auto; /* يدز كل شي لليمين */
     }
+
     .menu-toggle {
       display: none;
       flex-direction: column;
@@ -47,9 +52,7 @@
       font-size: 14px;
     }
     @media (max-width: 768px) {
-      .menu-toggle {
-        display: flex;
-      }
+      .menu-toggle { display: flex; }
       .nav-links {
         display: none;
         position: absolute;
@@ -62,14 +65,13 @@
         width: 180px;
         z-index: 999;
       }
-      .nav-links.show {
-        display: flex;
-      }
+      .nav-links.show { display: flex; }
       .nav-links a {
         padding: 8px 0;
         border-bottom: 1px solid #222;
       }
     }
+
     main.content {
       max-width: 800px;
       margin: 40px auto;
@@ -92,9 +94,8 @@
       margin-bottom: 10px;
       color: #0a1f44;
     }
-    main.content ul {
-      margin-left: 20px;
-    }
+    main.content ul { margin-left: 20px; }
+
     footer {
       background: #0a1f44;
       color: #eee;
@@ -108,7 +109,7 @@
 
   <nav>
     <div class="nav-container">
-      <span style="font-weight: bold; font-size: 18px;">Vault</span>
+      <div class="logo-text">Vault</div>
       <div class="menu-toggle" onclick="toggleMenu()">
         <div></div><div></div><div></div>
       </div>
