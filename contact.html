@@ -29,54 +29,25 @@
       font-weight: bold;
       font-size: 18px;
       color:#fff;
-      margin-right: auto; /* يلزّق Vault يسار */
+      margin-right: auto;
       letter-spacing: .2px;
     }
+    .menu-toggle { display: none; flex-direction: column; cursor: pointer; }
+    .menu-toggle div { width: 25px; height: 3px; background-color: white; margin: 4px 0; }
 
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
-    .menu-toggle div {
-      width: 25px;
-      height: 3px;
-      background-color: white;
-      margin: 4px 0;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 25px; /* تباعد واضح بين الروابط */
-    }
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      font-size: 14px;
-    }
+    .nav-links { display: flex; gap: 25px; }
+    .nav-links a { color: white; text-decoration: none; font-size: 14px; }
 
     @media (max-width: 768px) {
       .menu-toggle { display: flex; }
       .nav-links {
-        display: none;
-        flex-direction: column;
-        background-color: #000;
-        position: absolute;
-        top: 55px;
-        right: 20px;
-        width: 180px;
-        padding: 10px;
-        border-radius: 6px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        text-align: right;
-        z-index: 99;
-        gap: 0;
+        display: none; flex-direction: column; background-color: #000;
+        position: absolute; top: 55px; right: 20px; width: 180px;
+        padding: 10px; border-radius: 6px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        text-align: right; z-index: 99; gap: 0;
       }
       .nav-links.show { display: flex; }
-      .nav-links a {
-        padding: 10px 0;
-        border-bottom: 1px solid #222;
-      }
+      .nav-links a { padding: 10px 0; border-bottom: 1px solid #222; }
       .nav-links a:last-child { border-bottom: none; }
     }
 
@@ -90,82 +61,54 @@
       box-shadow: 0 0 20px rgba(0,0,0,0.3);
     }
 
-    h2 {
-      text-align: center;
-      margin-bottom: 10px;
-      font-size: 26px;
-    }
+    h2 { text-align: center; margin-bottom: 10px; font-size: 26px; }
+    p  { text-align: center; font-size: 14px; color: #ccc; margin-bottom: 25px; }
 
-    p {
-      text-align: center;
+    .alert {
+      display:none;
+      margin: 0 0 18px 0;
+      padding: 12px 14px;
+      border-radius: 8px;
       font-size: 14px;
-      color: #ccc;
-      margin-bottom: 25px;
+      text-align: left;
     }
+    .alert.success { display:block; background:#0e9f6e; color:#fff; }
+    .alert.error   { display:block; background:#b91c1c; color:#fff; }
 
+    form { margin-top: 8px; }
     input, textarea {
       width: 94%;
       padding: 6px 10px;
       margin: 6px 0;
-      border: none;
-      border-radius: 6px;
-      font-size: 13px;
-      background-color: #fff;
-      color: #000;
+      border: none; border-radius: 6px;
+      font-size: 13px; background-color: #fff; color: #000;
     }
-
     textarea { resize: vertical; min-height: 80px; }
 
     button {
-      width: 100%;
-      padding: 9px;
-      background-color: #ff9900;
-      border: none;
-      color: white;
-      font-size: 14px;
-      font-weight: bold;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s ease;
+      width: 100%; padding: 9px;
+      background-color: #ff9900; border: none; color: white;
+      font-size: 14px; font-weight: bold; border-radius: 6px; cursor: pointer;
+      transition: background 0.3s ease, opacity .2s;
     }
     button:hover { background-color: #e08700; }
+    button:disabled { opacity:.6; cursor:not-allowed; }
 
     .contact-info {
-      font-size: 13px;
-      color: #ccc;
-      margin-top: 30px;
-      text-align: left;
+      font-size: 13px; color: #ccc; margin-top: 30px; text-align: left;
     }
-    .contact-info img {
-      width: 16px;
-      vertical-align: middle;
-      margin-right: 6px;
-    }
+    .contact-info img { width: 16px; vertical-align: middle; margin-right: 6px; }
     .contact-info p { margin: 6px 0; }
 
     .privacy-note {
-      font-size: 12px;
-      color: #aaa;
-      text-align: center;
-      margin-top: 10px;
+      font-size: 12px; color: #aaa; text-align: center; margin-top: 10px;
     }
-    .privacy-note a {
-      color: #ffcc66;
-      text-decoration: underline;
-    }
+    .privacy-note a { color: #ffcc66; text-decoration: underline; }
 
-    .back-home {
-      margin-top: 30px;
-      text-align: center;
-    }
+    .back-home { margin-top: 30px; text-align: center; }
     .back-home a {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #ff9900;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: bold;
+      display: inline-block; padding: 10px 20px; background-color: #ff9900;
+      color: white; text-decoration: none; border-radius: 6px; font-weight: bold;
       transition: background 0.3s ease;
     }
     .back-home a:hover { background-color: #e08700; }
@@ -193,16 +136,18 @@
     <h2>Contact Us</h2>
     <p>For inquiries about <strong>Bitcoin Wallet: Vault</strong>, our secure and self-custodial Bitcoin app, please use the form below or reach out directly.</p>
 
-    <!-- حدّثنا إيميل الاستقبال -->
-    <form action="https://formsubmit.co/support@btcvaultwallet.com" method="POST">
-      <input type="hidden" name="_next" value="https://laiabubaer.github.io/secure-wallet-site/thank-you.html">
+    <!-- رسالة نجاح/فشل تظهر فوق الفورم -->
+    <div id="alert" class="alert" role="status" aria-live="polite"></div>
+
+    <!-- إرسال AJAX بدون تنقل -->
+    <form id="contactForm">
       <input type="hidden" name="_captcha" value="false">
 
-      <input type="text" name="name" placeholder="Full Name" required>
-      <input type="email" name="email" placeholder="Email" required>
-      <textarea name="message" placeholder="Your Message" required></textarea>
+      <input type="text"   name="name"    placeholder="Full Name" required>
+      <input type="email"  name="email"   placeholder="Email" required>
+      <textarea            name="message" placeholder="Your Message" required></textarea>
 
-      <button type="submit">Send</button>
+      <button id="submitBtn" type="submit">Send</button>
     </form>
 
     <div class="privacy-note">
@@ -215,12 +160,8 @@
       1209 Mountain Road Pl NE #5438<br>
       Albuquerque, NM 87110, USA</p>
 
-      <p>
-        <img src="images/icons8-email-48.png" alt="Email Icon"> support@btcvaultwallet.com
-      </p>
-      <p>
-        <img src="images/icons8-phone-24.png" alt="Phone Icon"> +1 512 369 8743
-      </p>
+      <p><img src="images/icons8-email-48.png" alt="Email Icon"> support@btcvaultwallet.com</p>
+      <p><img src="images/icons8-phone-24.png" alt="Phone Icon"> +1 512 369 8743</p>
     </div>
 
     <div class="back-home">
@@ -233,6 +174,42 @@
       const navLinks = document.getElementById('navLinks');
       navLinks.classList.toggle('show');
     }
+
+    // إرسال AJAX إلى FormSubmit بدون تنقل
+    const form = document.getElementById('contactForm');
+    const alertBox = document.getElementById('alert');
+    const submitBtn = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      alertBox.className = 'alert'; // reset
+      alertBox.style.display = 'none';
+      submitBtn.disabled = true;
+
+      try {
+        const data = new FormData(form);
+
+        const res = await fetch('https://formsubmit.co/ajax/support@btcvaultwallet.com', {
+          method: 'POST',
+          body: data
+        });
+
+        if (!res.ok) throw new Error('Network response was not ok');
+
+        // نجاح
+        form.reset();
+        alertBox.textContent = '✅ تم إرسال الرسالة بنجاح. سنعاود التواصل معك قريبًا.';
+        alertBox.classList.add('success');
+        alertBox.style.display = 'block';
+      } catch (err) {
+        // فشل
+        alertBox.textContent = '❌ حدث خطأ أثناء الإرسال. حاول مرة أخرى لاحقًا.';
+        alertBox.classList.add('error');
+        alertBox.style.display = 'block';
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
   </script>
 
 </body>
