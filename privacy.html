@@ -5,116 +5,79 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Privacy Policy – Bitcoin Wallet: Vault</title>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
-      color: #333;
+    :root{
+      --container: 1200px;
+      --ink: #0f172a;
+      --brand: #0a1f44;
+      --muted: #475569;
+      --border: #e5e7eb;
+      --bg: #f9fafb;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: Arial, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--bg);
+      color:#111827;
     }
 
-    /* Header */
-    nav {
-      background: #000;
-      color: #fff;
-      padding: 10px 20px;
-    }
-    .nav-container {
-      max-width: 1200px;           /* نفس عرض الهيدر بكل الصفحات */
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    /* Header موحّد (نفس terms) */
+    nav{background:#000;color:#fff; position:sticky; top:0; z-index:50}
+    .nav-container{
+      max-width:var(--container);
+      margin:0 auto;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:12px 20px; gap:16px;
     }
     .logo-text{
-      font-weight: bold;
-      font-size: 18px;
-      color:#fff;
-      margin-right: auto;          /* تثبيت Vault يسار */
-      letter-spacing: .2px;
+      font-weight:800; font-size:18px; color:#fff; letter-spacing:.3px;
+      margin-right:auto;
     }
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
+    .menu-toggle{display:none; flex-direction:column; cursor:pointer}
+    .menu-toggle div{width:25px; height:3px; background:#fff; margin:4px 0; border-radius:2px}
+    .nav-links{display:flex; gap:22px}
+    .nav-links a{
+      color:#fff; text-decoration:none; font-size:14px; opacity:.92;
     }
-    .menu-toggle div {
-      width: 25px;
-      height: 3px;
-      background: #fff;
-      margin: 4px 0;
-    }
-    .nav-links {
-      display: flex;
-      gap: 25px;                   /* تباعد الروابط يمين */
-    }
-    .nav-links a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 14px;
-    }
-
-    @media (max-width: 768px) {
-      .menu-toggle { display: flex; }
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 60px;
-        right: 20px;
-        background: #000;
-        flex-direction: column;
-        padding: 10px;
-        border-radius: 5px;
-        width: 180px;
-        z-index: 999;
-        gap: 0;
+    .nav-links a:hover{opacity:1}
+    @media (max-width:768px){
+      .menu-toggle{display:flex}
+      .nav-links{
+        display:none; position:absolute; top:56px; right:20px; background:#000;
+        flex-direction:column; width:200px; padding:10px; border-radius:10px;
+        box-shadow:0 10px 30px rgba(0,0,0,.4);
       }
-      .nav-links.show { display: flex; }
-      .nav-links a {
-        padding: 8px 0;
-        border-bottom: 1px solid #222;
-      }
+      .nav-links.show{display:flex}
+      .nav-links a{padding:10px; border-bottom:1px solid #222}
+      .nav-links a:last-child{border-bottom:none}
     }
 
     /* Content */
-    main.content {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-      text-align: left;
+    main.content{
+      max-width:800px; margin:40px auto; padding:0 20px; text-align:left;
     }
-    main.content h1 {
-      font-size: 26px;
-      margin-bottom: 10px;
-      color: #0a1f44;
+    main.content h1{
+      font-size:26px; margin-bottom:10px; color:var(--brand);
     }
-    main.content p,
-    main.content li {
-      font-size: 16px;
-      line-height: 1.6;
-      margin-bottom: 15px;
+    main.content p, main.content li{
+      font-size:16px; line-height:1.7; margin-bottom:15px; color:#1f2937;
     }
-    main.content h2 {
-      font-size: 20px;
-      margin-top: 30px;
-      margin-bottom: 10px;
-      color: #0a1f44;
+    main.content h2{
+      font-size:20px; margin:30px 0 10px; color:var(--brand);
+      padding-bottom:6px; border-bottom:2px solid var(--border);
     }
-    main.content ul {
-      margin-left: 20px;
-      padding-left: 0;
-    }
+    main.content ul{margin-left:20px; padding-left:0}
 
-    /* Footer */
-    footer {
-      background-color: #0a1f44;
-      padding: 40px 20px;
-      text-align: center;
-      font-size: 14px;
-      color: #eee;
+    /* Footer موحّد */
+    footer{
+      background-color:#0a1f44; color:#e5e7eb;
+      padding:40px 20px; text-align:center; font-size:14px; margin-top:40px;
     }
-    footer a {
-      color: #ccc;
-      text-decoration: none;
+    footer a{color:#cbd5e1; text-decoration:none}
+    footer a:hover{text-decoration:underline}
+    footer .hr{
+      max-width:800px; margin:24px auto 0; border-top:1px solid #334155; padding-top:15px;
     }
   </style>
 </head>
@@ -202,7 +165,7 @@
       <p>This policy is governed by the laws of the United States.</p>
     </div>
 
-    <div style="margin-top: 30px; border-top: 1px solid #333; padding-top: 15px;">
+    <div class="hr">
       <p>&copy; 2025 Bitcoin Wallet: Vault | Built for freedom</p>
       <p><a href="https://laiabubaer.github.io">Visit our site</a></p>
     </div>
