@@ -26,10 +26,8 @@
   }
   </script>
 
-  <!-- Font Awesome للأيقونات -->
+  <!-- أيقونات + Chart.js -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-
-  <!-- Chart.js للمخطط -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 
   <style>
@@ -42,105 +40,47 @@
       --card:#ffffff;
       --border:#e5e7eb;
       --shadow:0 8px 24px rgba(0,0,0,.08);
-      --up:#22c55e;
-      --down:#ef4444;
+      --ink:#0f172a;
+      --up:#22c55e; --down:#ef4444;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:Arial,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-      background:#fff;color:#0f172a;
-    }
+    body{margin:0;font-family:Arial,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#fff;color:var(--ink)}
 
     /* Navbar */
     nav{background:#000;color:#fff;position:sticky;top:0;z-index:50}
-    .nav-container{
-      max-width:var(--container);
-      margin:0 auto;display:flex;align-items:center;justify-content:space-between;
-      padding:12px 20px;gap:16px;
-    }
+    .nav-container{max-width:var(--container);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 20px;gap:16px}
     .logo-text{font-weight:800;font-size:18px;letter-spacing:.3px;color:#fff;display:flex;align-items:center;gap:8px}
     .logo-text i{color:#60a5fa}
     .menu-toggle{display:none;flex-direction:column;cursor:pointer}
     .menu-toggle div{width:25px;height:3px;background:#fff;margin:4px 0;border-radius:2px}
     .nav-links{display:flex;gap:18px}
-    .nav-links a{
-      color:#fff;text-decoration:none;font-size:14px;opacity:.92;display:inline-flex;align-items:center;gap:6px
-    }
+    .nav-links a{color:#fff;text-decoration:none;font-size:14px;opacity:.92;display:inline-flex;align-items:center;gap:6px}
     .nav-links a:hover{opacity:1}
     @media (max-width:768px){
       .menu-toggle{display:flex}
-      .nav-links{
-        display:none;position:absolute;top:56px;right:20px;background:#000;flex-direction:column;
-        width:200px;padding:10px;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.4)
-      }
+      .nav-links{display:none;position:absolute;top:56px;right:20px;background:#000;flex-direction:column;width:200px;padding:10px;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.4)}
       .nav-links.show{display:flex}
       .nav-links a{padding:10px;border-bottom:1px solid #222}
       .nav-links a:last-child{border-bottom:none}
     }
 
     /* Trust bar */
-    .trust-bar{
-      background:#0b1228; color:#cbd5e1; font-size:13px;
-      border-top:1px solid #0f172a; border-bottom:1px solid #0f172a;
-    }
-    .trust-wrap{
-      max-width:var(--container); margin:0 auto; padding:8px 20px;
-      display:flex; gap:14px; align-items:center; justify-content:center; flex-wrap:wrap;
-    }
+    .trust-bar{background:#0b1228;color:#cbd5e1;font-size:13px;border-top:1px solid #0f172a;border-bottom:1px solid #0f172a}
+    .trust-wrap{max-width:var(--container);margin:0 auto;padding:8px 20px;display:flex;gap:14px;align-items:center;justify-content:center;flex-wrap:wrap}
     .trust-item{display:inline-flex;align-items:center;gap:8px}
     .trust-item i{color:var(--trust)}
 
     /* Hero */
-    .hero{
-      position:relative;
-      background: radial-gradient(1200px 500px at 50% -10%, #1b2140, transparent 70%), var(--hero-bg);
-      color:#fff;text-align:center;padding:84px 20px 70px;
-      overflow:hidden;
-    }
+    .hero{background:radial-gradient(1200px 500px at 50% -10%, #1b2140, transparent 70%), var(--hero-bg);color:#fff;text-align:center;padding:84px 20px 70px}
     .hero-content{max-width:900px;margin:0 auto}
     .hero h1{font-size:36px;margin:0 0 10px;display:flex;gap:10px;align-items:center;justify-content:center}
     .hero h1 i{color:#60a5fa}
     .hero p{font-size:16px;color:#d7d7d7;margin:0 auto 22px;max-width:720px;line-height:1.7}
-
     .store-badges{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
     .store-badges a{display:inline-flex;align-items:center;justify-content:center}
     .store-badges img{height:56px;display:block;transition:transform .25s}
     .store-badges img:hover{transform:scale(1.04)}
-
-    /* ===== Floating BTC widget (top-right of hero) ===== */
-    .btc-widget{
-      position:absolute; top:22px; right:22px;
-      width:300px; max-width:calc(100% - 44px);
-      background:rgba(15,23,42,.55);
-      border:1px solid rgba(148,163,184,.25);
-      border-radius:16px;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      padding:12px 14px;
-      color:#e5e7eb;
-      box-shadow:0 10px 30px rgba(0,0,0,.25);
-    }
-    .btc-top{
-      display:flex; align-items:center; justify-content:space-between; gap:8px;
-    }
-    .btc-left{display:flex; align-items:center; gap:10px}
-    .btc-coin{
-      display:inline-flex; align-items:center; justify-content:center;
-      width:34px; height:34px; border-radius:999px; background:#0f172a; border:1px solid rgba(148,163,184,.25);
-      box-shadow:inset 0 0 0 1px rgba(255,255,255,.03);
-    }
-    .btc-price{font-weight:800; font-size:18px; letter-spacing:.2px}
-    .btc-change{
-      font-weight:700; font-size:12px; padding:4px 8px; border-radius:8px; border:1px solid transparent;
-      display:inline-flex; align-items:center; gap:6px;
-    }
-    .change-up{background:rgba(34,197,94,.12); color:var(--up); border-color:rgba(34,197,94,.35)}
-    .change-down{background:rgba(239,68,68,.12); color:var(--down); border-color:rgba(239,68,68,.35)}
-    .btc-time{font-size:12px; opacity:.8}
-    .btc-chart{height:54px; margin-top:8px}
-    #btcSpark{width:100%; height:54px}
 
     /* Sections */
     section{padding:54px 20px}
@@ -154,11 +94,7 @@
     .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
     @media (max-width:1000px){.cards{grid-template-columns:repeat(2,1fr)}}
     @media (max-width:600px){.cards{grid-template-columns:1fr}}
-    .card{
-      border:1px solid var(--border);border-radius:14px;padding:18px;background:var(--card);
-      box-shadow:var(--shadow);transition:transform .2s, box-shadow .2s, border-color .2s;
-      opacity:0;transform:translateY(14px);
-    }
+    .card{border:1px solid var(--border);border-radius:14px;padding:18px;background:var(--card);box-shadow:var(--shadow);transition:transform .2s, box-shadow .2s, border-color .2s;opacity:0;transform:translateY(14px)}
     .card h3{margin:0 0 8px;font-size:18px;color:#111;display:flex;align-items:center;gap:8px}
     .card h3 i{color:var(--brand)}
     .card p{margin:0;color:#475569;line-height:1.6}
@@ -166,13 +102,34 @@
     .in-view{opacity:1 !important;transform:translateY(0) !important;transition:opacity .5s ease, transform .5s ease}
 
     /* Multisig band */
-    .band{
-      margin-top:28px;background:#f1f5f9;border-left:5px solid #2563eb;border-radius:14px;
-      padding:26px 20px;text-align:center
-    }
+    .band{margin-top:28px;background:#f1f5f9;border-left:5px solid #2563eb;border-radius:14px;padding:26px 20px;text-align:center}
     .band h3{margin:0 0 8px;font-size:20px;color:#1e3a8a;display:inline-flex;align-items:center;gap:8px}
     .band h3 i{color:#2563eb}
     .band p{margin:0;color:#374151}
+
+    /* ===== BTC section at the END (before footer) ===== */
+    .btc-section{padding:34px 20px 46px;background:linear-gradient(180deg,#0b1228 0%,#0f172a 100%)}
+    .btc-wrap{max-width:900px;margin:0 auto}
+    .btc-card{
+      border:1px solid rgba(148,163,184,.25);
+      background:rgba(15,23,42,.6);
+      color:#e5e7eb;
+      border-radius:18px;
+      padding:14px 16px;
+      backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+      box-shadow:0 18px 40px rgba(0,0,0,.35);
+    }
+    .btc-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .btc-left{display:flex;align-items:center;gap:12px}
+    .btc-coin{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:999px;background:#0f172a;border:1px solid rgba(148,163,184,.25)}
+    .btc-price{font-weight:800;font-size:20px;letter-spacing:.2px}
+    .btc-change{font-weight:700;font-size:12px;padding:4px 8px;border-radius:8px;border:1px solid transparent;display:inline-flex;align-items:center;gap:6px}
+    .up{background:rgba(34,197,94,.12);color:var(--up);border-color:rgba(34,197,94,.35)}
+    .down{background:rgba(239,68,68,.12);color:var(--down);border-color:rgba(239,68,68,.35)}
+    .btc-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:6px}
+    .btc-time{font-size:12px;opacity:.85}
+    .btc-chart{height:60px;margin-top:8px}
+    #btcSpark{width:100%;height:60px}
 
     /* Footer */
     footer{background:#0f172a;text-align:center;padding:24px 16px;font-size:14px;color:#cbd5e1}
@@ -198,7 +155,7 @@
     </div>
   </nav>
 
-  <!-- Trust Bar with icons -->
+  <!-- Trust Bar -->
   <div class="trust-bar">
     <div class="trust-wrap">
       <span class="trust-item"><i class="fa-solid fa-key"></i>Non-custodial</span>
@@ -209,24 +166,8 @@
     </div>
   </div>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <header class="hero">
-    <!-- Floating BTC widget -->
-    <div class="btc-widget">
-      <div class="btc-top">
-        <div class="btc-left">
-          <div class="btc-coin"><i class="fa-brands fa-bitcoin"></i></div>
-          <div class="btc-price" id="btcPrice">$--</div>
-        </div>
-        <div class="btc-change" id="btcChange">--%</div>
-      </div>
-      <div class="btc-bottom" style="display:flex;justify-content:space-between;align-items:center;margin-top:6px;">
-        <small class="btc-time" id="btcTime">Updating…</small>
-        <small class="btc-time">USD</small>
-      </div>
-      <div class="btc-chart"><canvas id="btcSpark"></canvas></div>
-    </div>
-
     <div class="hero-content">
       <h1><i class="fa-solid fa-bitcoin-sign"></i>Bitcoin Wallet: Vault</h1>
       <p><i class="fa-solid fa-lock"></i> Secure & Lightning Fast. Take full control of your Bitcoin with Vault Wallet — privacy-first, self-custodial, and built for speed.</p>
@@ -241,28 +182,13 @@
   <!-- Features -->
   <section id="features">
     <div class="container">
-      <div class="section-head">
-        <i class="fa-solid fa-sparkles"></i>
-        <h2 class="section-title">Features</h2>
-      </div>
+      <div class="section-head"><i class="fa-solid fa-sparkles"></i><h2 class="section-title">Features</h2></div>
       <p class="section-sub">Vault Wallet offers unmatched security, speed, and privacy for your Bitcoin journey.</p>
       <div class="cards">
-        <div class="card observe">
-          <h3><i class="fa-solid fa-key"></i>Self Custody</h3>
-          <p>You hold the keys. Full control over your assets at all times.</p>
-        </div>
-        <div class="card observe">
-          <h3><i class="fa-solid fa-gauge-high"></i>Fast & Reliable</h3>
-          <p>Optimized for instant, smooth performance with minimal fees.</p>
-        </div>
-        <div class="card observe">
-          <h3><i class="fa-solid fa-user-shield"></i>Private by Design</h3>
-          <p>No tracking or analytics. Your data stays with you.</p>
-        </div>
-        <div class="card observe">
-          <h3><i class="fa-solid fa-circle-check"></i>Simple UX</h3>
-          <p>A clean interface that works for beginners and pros alike.</p>
-        </div>
+        <div class="card observe"><h3><i class="fa-solid fa-key"></i>Self Custody</h3><p>You hold the keys. Full control over your assets at all times.</p></div>
+        <div class="card observe"><h3><i class="fa-solid fa-gauge-high"></i>Fast & Reliable</h3><p>Optimized for instant, smooth performance with minimal fees.</p></div>
+        <div class="card observe"><h3><i class="fa-solid fa-user-shield"></i>Private by Design</h3><p>No tracking or analytics. Your data stays with you.</p></div>
+        <div class="card observe"><h3><i class="fa-solid fa-circle-check"></i>Simple UX</h3><p>A clean interface that works for beginners and pros alike.</p></div>
       </div>
     </div>
   </section>
@@ -270,10 +196,7 @@
   <!-- Security -->
   <section id="security">
     <div class="container">
-      <div class="section-head">
-        <i class="fa-solid fa-shield"></i>
-        <h2 class="section-title">Security</h2>
-      </div>
+      <div class="section-head"><i class="fa-solid fa-shield"></i><h2 class="section-title">Security</h2></div>
       <p class="section-sub">Advanced encryption and best-practice key management — no one can access your funds but you.</p>
       <div class="cards">
         <div class="card observe"><h3><i class="fa-solid fa-lock"></i>Local Encryption</h3><p>Keys are generated and stored on-device with robust encryption.</p></div>
@@ -287,10 +210,7 @@
   <!-- Lightning -->
   <section id="lightning">
     <div class="container">
-      <div class="section-head">
-        <i class="fa-solid fa-bolt"></i>
-        <h2 class="section-title">Lightning Network</h2>
-      </div>
+      <div class="section-head"><i class="fa-solid fa-bolt"></i><h2 class="section-title">Lightning Network</h2></div>
       <p class="section-sub">Send and receive instantly with low fees. Vault integrates Lightning seamlessly for everyday payments.</p>
       <div class="cards">
         <div class="card observe"><h3><i class="fa-solid fa-bolt"></i>Instant Payments</h3><p>Settle transactions in seconds, not minutes.</p></div>
@@ -304,14 +224,31 @@
   <!-- Multisig -->
   <section id="multisig">
     <div class="container">
-      <div class="section-head">
-        <i class="fa-solid fa-user-lock"></i>
-        <h2 class="section-title">Multisig Security</h2>
-      </div>
+      <div class="section-head"><i class="fa-solid fa-user-lock"></i><h2 class="section-title">Multisig Security</h2></div>
       <p class="section-sub">Add an extra layer of protection with multi-signature flows that keep your funds safe even if a device is lost.</p>
       <div class="band observe">
         <h3><i class="fa-solid fa-lock"></i>2-of-2 & 2-of-3 Options</h3>
         <p>Flexible policies for personal or team setups — security without friction.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BTC live section (end of page) ===== -->
+  <section class="btc-section">
+    <div class="btc-wrap">
+      <div class="btc-card">
+        <div class="btc-top">
+          <div class="btc-left">
+            <div class="btc-coin"><i class="fa-brands fa-bitcoin"></i></div>
+            <div class="btc-price" id="btcPrice">$--</div>
+          </div>
+          <div class="btc-change" id="btcChange">--%</div>
+        </div>
+        <div class="btc-bottom">
+          <small class="btc-time" id="btcTime">Initializing…</small>
+          <small class="btc-time">USD</small>
+        </div>
+        <div class="btc-chart"><canvas id="btcSpark"></canvas></div>
       </div>
     </div>
   </section>
@@ -328,62 +265,70 @@
 
   <script>
     // Mobile menu
-    function toggleMenu() {
-      const navLinks = document.getElementById('navLinks');
-      navLinks.classList.toggle('show');
-    }
+    function toggleMenu(){ document.getElementById('navLinks').classList.toggle('show'); }
 
-    // ظهور البطاقات
-    const items = document.querySelectorAll('.observe');
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){ entry.target.classList.add('in-view'); io.unobserve(entry.target); }
-      });
-    }, {threshold: 0.12});
+    // ظهور الكروت
+    const items=document.querySelectorAll('.observe');
+    const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-view');io.unobserve(e.target)}})},{threshold:.12});
     items.forEach(el=>io.observe(el));
 
-    // ===== BTC widget (polling كل دقيقة) =====
-    const priceEl = document.getElementById('btcPrice');
-    const changeEl = document.getElementById('btcChange');
-    const timeEl = document.getElementById('btcTime');
-    const sparkCtx = document.getElementById('btcSpark').getContext('2d');
-    let spark;
+    // ===== BTC widget (poll يُحدّث كل دقيقة) =====
+    const priceEl=document.getElementById('btcPrice');
+    const changeEl=document.getElementById('btcChange');
+    const timeEl=document.getElementById('btcTime');
+    const ctx=document.getElementById('btcSpark').getContext('2d');
+    let chart;
 
-    const fmtUSD = (n)=>"$" + Number(n).toLocaleString(undefined,{maximumFractionDigits:2});
-    const fmtPct = (n)=>((n>=0?"+":"") + n.toFixed(2) + "%");
+    const usd=(n)=>"$"+Number(n).toLocaleString(undefined,{maximumFractionDigits:2});
+    const pct=(n)=>((n>=0?"+":"")+Number(n).toFixed(2)+"%");
 
-    function paintChange(pct){
-      changeEl.classList.remove('change-up','change-down');
-      const up = pct>=0;
-      changeEl.classList.add(up?'change-up':'change-down');
-      changeEl.innerHTML = (up?'<i class="fa-solid fa-arrow-up"></i>':'<i class="fa-solid fa-arrow-down"></i>') + " " + fmtPct(pct);
+    function paintChange(v){
+      changeEl.classList.remove('up','down');
+      const up=v>=0;
+      changeEl.classList.add(up?'up':'down');
+      changeEl.innerHTML=(up?'<i class="fa-solid fa-arrow-up"></i> ':'<i class="fa-solid fa-arrow-down"></i> ')+pct(v);
     }
 
-    async function fetchPrice(){
-      const res = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true');
-      const j = await res.json();
-      return { price: j.bitcoin.usd, change: j.bitcoin.usd_24h_change || 0 };
+    async function priceFromCoinGecko(){
+      const r=await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true');
+      const j=await r.json();
+      return { price:j.bitcoin.usd, change:j.bitcoin.usd_24h_change };
+    }
+    async function sparkFromCoinGecko(){
+      const r=await fetch('https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=1&interval=minute');
+      const j=await r.json();
+      return j.prices.slice(-90).map(p=>p[1]);
     }
 
-    async function fetchSpark(){
-      const r = await fetch('https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=1&interval=minute');
-      const j = await r.json();
-      // آخر 90 نقطة تقريباً
-      const pts = j.prices.slice(-90).map(p=>p[1]);
-      return pts;
+    // Fallback: Binance (بحال فشل CG)
+    async function priceFromBinance(){
+      const r=await fetch('https://api.binance.com/api/v3/ticker/24hr?symbol=BTCUSDT');
+      const j=await r.json();
+      return { price: parseFloat(j.lastPrice), change: parseFloat(j.priceChangePercent) };
+    }
+    async function sparkFromBinance(){
+      const r=await fetch('https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1m&limit=90');
+      const j=await r.json();
+      return j.map(k=>parseFloat(k[4])); // close
     }
 
-    function makeSpark(data){
-      spark = new Chart(sparkCtx,{
+    async function getPrice(){
+      try{ return await priceFromCoinGecko(); }catch{ return await priceFromBinance(); }
+    }
+    async function getSpark(){
+      try{ return await sparkFromCoinGecko(); }catch{ return await sparkFromBinance(); }
+    }
+
+    function makeChart(data){
+      chart=new Chart(ctx,{
         type:'line',
-        data:{ labels: data.map((_,i)=>i), datasets:[{
+        data:{ labels:data.map((_,i)=>i), datasets:[{
           data, borderWidth:2, tension:.25, pointRadius:0,
           borderColor:'#38bdf8', backgroundColor:'rgba(56,189,248,.12)', fill:true
         }]},
-        options:{
-          responsive:true, maintainAspectRatio:false,
-          plugins:{legend:{display:false}, tooltip:{enabled:false}},
-          scales:{ x:{display:false}, y:{display:false} },
+        options:{ responsive:true, maintainAspectRatio:false,
+          plugins:{legend:{display:false},tooltip:{enabled:false}},
+          scales:{x:{display:false},y:{display:false}},
           animation:false
         }
       });
@@ -391,41 +336,34 @@
 
     async function initTicker(){
       try{
-        const [{price,change}, sparkData] = await Promise.all([fetchPrice(), fetchSpark()]);
-        priceEl.textContent = fmtUSD(price);
+        const [{price,change}, spark]=await Promise.all([getPrice(), getSpark()]);
+        priceEl.textContent=usd(price);
         paintChange(change);
-        timeEl.textContent = "Updated " + new Date().toLocaleTimeString();
-        makeSpark(sparkData);
+        timeEl.textContent="Updated "+new Date().toLocaleTimeString();
+        makeChart(spark);
       }catch(e){
-        timeEl.textContent = "Init failed, retrying…";
+        timeEl.textContent="Init failed, retrying…";
         console.error(e);
       }
     }
 
     async function refreshTicker(){
       try{
-        const {price,change} = await fetchPrice();
-        priceEl.textContent = fmtUSD(price);
+        const {price,change}=await getPrice();
+        priceEl.textContent=usd(price);
         paintChange(change);
-        timeEl.textContent = "Updated " + new Date().toLocaleTimeString();
+        timeEl.textContent="Updated "+new Date().toLocaleTimeString();
 
-        const data = await fetchSpark();
-        spark.data.datasets[0].data = data;
-        // غيّر اللون حسب آخر حركة
-        const len = data.length;
-        const up = len>1 ? data[len-1] >= data[len-2] : true;
-        spark.data.datasets[0].borderColor = up ? '#22c55e' : '#ef4444';
-        spark.data.datasets[0].backgroundColor = up ? 'rgba(34,197,94,.12)' : 'rgba(239,68,68,.12)';
-        spark.update('none');
-      }catch(e){
-        console.error(e);
-      }
+        const data=await getSpark();
+        chart.data.datasets[0].data=data;
+        const up=data.length>1? data.at(-1)>=data.at(-2):true;
+        chart.data.datasets[0].borderColor=up?'#22c55e':'#ef4444';
+        chart.data.datasets[0].backgroundColor=up?'rgba(34,197,94,.12)':'rgba(239,68,68,.12)';
+        chart.update('none');
+      }catch(e){ console.error(e); }
     }
 
-    initTicker().then(()=>{
-      // تحديث كل دقيقة
-      setInterval(refreshTicker, 60_000);
-    });
+    initTicker().then(()=> setInterval(refreshTicker, 60_000));
   </script>
 </body>
 </html>
