@@ -42,16 +42,15 @@
       --card:#ffffff;
       --border:#e5e7eb;
       --shadow:0 8px 24px rgba(0,0,0,.08);
-      --up:#16a34a;
-      --down:#dc2626;
-      --ink:#0f172a;
+      --up:#22c55e;
+      --down:#ef4444;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
       font-family:Arial,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-      background:#fff;color:var(--ink);
+      background:#fff;color:#0f172a;
     }
 
     /* Navbar */
@@ -93,29 +92,12 @@
     .trust-item{display:inline-flex;align-items:center;gap:8px}
     .trust-item i{color:var(--trust)}
 
-    /* ====== Price Ticker + Mini Chart ====== */
-    .price-wrap{max-width:var(--container);margin:14px auto 0;padding:0 20px}
-    .price-card{
-      display:grid;grid-template-columns:1fr 2fr;gap:16px;
-      border:1px solid #dfe3ea;background:#f8fafc;border-radius:14px;padding:14px 16px;align-items:center;
-    }
-    @media (max-width:800px){.price-card{grid-template-columns:1fr}}
-    .price-left{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-    .price-badge{
-      background:#111827;color:#fff;border-radius:999px;padding:6px 10px;font-weight:700;letter-spacing:.2px;display:inline-flex;align-items:center;gap:8px
-    }
-    .change-badge{
-      font-weight:700;padding:4px 8px;border-radius:8px;display:inline-flex;align-items:center;gap:6px;
-    }
-    .change-up{background:rgba(22,163,74,.12);color:var(--up);border:1px solid rgba(22,163,74,.3)}
-    .change-down{background:rgba(220,38,38,.12);color:var(--down);border:1px solid rgba(220,38,38,.3)}
-    .price-right{height:60px}
-    #btcMiniChart{width:100%;height:60px}
-
     /* Hero */
     .hero{
+      position:relative;
       background: radial-gradient(1200px 500px at 50% -10%, #1b2140, transparent 70%), var(--hero-bg);
-      color:#fff;text-align:center;padding:64px 20px 70px;
+      color:#fff;text-align:center;padding:84px 20px 70px;
+      overflow:hidden;
     }
     .hero-content{max-width:900px;margin:0 auto}
     .hero h1{font-size:36px;margin:0 0 10px;display:flex;gap:10px;align-items:center;justify-content:center}
@@ -123,23 +105,49 @@
     .hero p{font-size:16px;color:#d7d7d7;margin:0 auto 22px;max-width:720px;line-height:1.7}
 
     .store-badges{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-    .store-badges a{
-      display:inline-flex;align-items:center;justify-content:center;
-      text-decoration:none;border:0;outline:0;
-    }
+    .store-badges a{display:inline-flex;align-items:center;justify-content:center}
     .store-badges img{height:56px;display:block;transition:transform .25s}
     .store-badges img:hover{transform:scale(1.04)}
+
+    /* ===== Floating BTC widget (top-right of hero) ===== */
+    .btc-widget{
+      position:absolute; top:22px; right:22px;
+      width:300px; max-width:calc(100% - 44px);
+      background:rgba(15,23,42,.55);
+      border:1px solid rgba(148,163,184,.25);
+      border-radius:16px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding:12px 14px;
+      color:#e5e7eb;
+      box-shadow:0 10px 30px rgba(0,0,0,.25);
+    }
+    .btc-top{
+      display:flex; align-items:center; justify-content:space-between; gap:8px;
+    }
+    .btc-left{display:flex; align-items:center; gap:10px}
+    .btc-coin{
+      display:inline-flex; align-items:center; justify-content:center;
+      width:34px; height:34px; border-radius:999px; background:#0f172a; border:1px solid rgba(148,163,184,.25);
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,.03);
+    }
+    .btc-price{font-weight:800; font-size:18px; letter-spacing:.2px}
+    .btc-change{
+      font-weight:700; font-size:12px; padding:4px 8px; border-radius:8px; border:1px solid transparent;
+      display:inline-flex; align-items:center; gap:6px;
+    }
+    .change-up{background:rgba(34,197,94,.12); color:var(--up); border-color:rgba(34,197,94,.35)}
+    .change-down{background:rgba(239,68,68,.12); color:var(--down); border-color:rgba(239,68,68,.35)}
+    .btc-time{font-size:12px; opacity:.8}
+    .btc-chart{height:54px; margin-top:8px}
+    #btcSpark{width:100%; height:54px}
 
     /* Sections */
     section{padding:54px 20px}
     .container{max-width:var(--container);margin:0 auto}
-    .section-head{
-      display:flex;align-items:center;justify-content:center;gap:10px;margin:0 0 10px
-    }
+    .section-head{display:flex;align-items:center;justify-content:center;gap:10px;margin:0 0 10px}
     .section-head i{color:var(--brand)}
-    h2.section-title{
-      text-align:center;font-size:26px;color:var(--brand);margin:0
-    }
+    h2.section-title{text-align:center;font-size:26px;color:var(--brand);margin:0}
     p.section-sub{color:var(--muted);text-align:center;max-width:760px;margin:8px auto 28px;line-height:1.7}
 
     /* Cards */
@@ -151,9 +159,7 @@
       box-shadow:var(--shadow);transition:transform .2s, box-shadow .2s, border-color .2s;
       opacity:0;transform:translateY(14px);
     }
-    .card h3{
-      margin:0 0 8px;font-size:18px;color:#111;display:flex;align-items:center;gap:8px
-    }
+    .card h3{margin:0 0 8px;font-size:18px;color:#111;display:flex;align-items:center;gap:8px}
     .card h3 i{color:var(--brand)}
     .card p{margin:0;color:#475569;line-height:1.6}
     .card:hover{transform:translateY(-2px);box-shadow:0 12px 34px rgba(0,0,0,.1);border-color:#d1d5db}
@@ -203,34 +209,30 @@
     </div>
   </div>
 
-  <!-- ====== BTC Live Price & Sparkline ====== -->
-  <div class="price-wrap">
-    <div class="price-card">
-      <div class="price-left">
-        <span class="price-badge">
-          <i class="fa-brands fa-bitcoin"></i>
-          <span id="btcPrice">$--</span>
-        </span>
-        <span id="btcChange" class="change-badge">--%</span>
-        <small id="btcTime" style="color:#64748b">Live</small>
-      </div>
-      <div class="price-right">
-        <canvas id="btcMiniChart"></canvas>
-      </div>
-    </div>
-  </div>
-
   <!-- Hero Section -->
   <header class="hero">
+    <!-- Floating BTC widget -->
+    <div class="btc-widget">
+      <div class="btc-top">
+        <div class="btc-left">
+          <div class="btc-coin"><i class="fa-brands fa-bitcoin"></i></div>
+          <div class="btc-price" id="btcPrice">$--</div>
+        </div>
+        <div class="btc-change" id="btcChange">--%</div>
+      </div>
+      <div class="btc-bottom" style="display:flex;justify-content:space-between;align-items:center;margin-top:6px;">
+        <small class="btc-time" id="btcTime">Updating…</small>
+        <small class="btc-time">USD</small>
+      </div>
+      <div class="btc-chart"><canvas id="btcSpark"></canvas></div>
+    </div>
+
     <div class="hero-content">
       <h1><i class="fa-solid fa-bitcoin-sign"></i>Bitcoin Wallet: Vault</h1>
       <p><i class="fa-solid fa-lock"></i> Secure & Lightning Fast. Take full control of your Bitcoin with Vault Wallet — privacy-first, self-custodial, and built for speed.</p>
       <div class="store-badges">
-        <!-- زر App Store الرسمي (SVG) -->
         <a href="https://apps.apple.com/app/id1234567890" target="_blank" rel="noopener" aria-label="Download on the App Store">
-          <img
-            src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-            alt="Download on the App Store">
+          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
         </a>
       </div>
     </div>
@@ -274,22 +276,10 @@
       </div>
       <p class="section-sub">Advanced encryption and best-practice key management — no one can access your funds but you.</p>
       <div class="cards">
-        <div class="card observe">
-          <h3><i class="fa-solid fa-lock"></i>Local Encryption</h3>
-          <p>Keys are generated and stored on-device with robust encryption.</p>
-        </div>
-        <div class="card observe">
-          <h3><i class="fa-solid fa-cloud-arrow-up"></i>Backup Ready</h3>
-          <p>Protect access with secure backups and recovery options.</p>
-        </div>
-        <div class="card observe">
-          <h3><i class="fa-solid fa-code-branch"></i>Open Standards</h3>
-          <p>Built on well-tested Bitcoin standards for maximum compatibility.</p>
-        </div>
-        <div class="card observe">
-          <h3><i class="fa-regular fa-hand"></i>No Custody</h3>
-          <p>We never touch your coins or keys — ever.</p>
-        </div>
+        <div class="card observe"><h3><i class="fa-solid fa-lock"></i>Local Encryption</h3><p>Keys are generated and stored on-device with robust encryption.</p></div>
+        <div class="card observe"><h3><i class="fa-solid fa-cloud-arrow-up"></i>Backup Ready</h3><p>Protect access with secure backups and recovery options.</p></div>
+        <div class="card observe"><h3><i class="fa-solid fa-code-branch"></i>Open Standards</h3><p>Built on well-tested Bitcoin standards for maximum compatibility.</p></div>
+        <div class="card observe"><h3><i class="fa-regular fa-hand"></i>No Custody</h3><p>We never touch your coins or keys — ever.</p></div>
       </div>
     </div>
   </section>
@@ -303,22 +293,10 @@
       </div>
       <p class="section-sub">Send and receive instantly with low fees. Vault integrates Lightning seamlessly for everyday payments.</p>
       <div class="cards">
-        <div class="card observe">
-          <h3><i class="fa-solid fa-bolt"></i>Instant Payments</h3>
-          <p>Settle transactions in seconds, not minutes.</p>
-        </div>
-        <div class="card observe">
-          <h3><i class="fa-solid fa-coins"></i>Low Fees</h3>
-          <p>Keep more of your sats with efficient routing.</p>
-        </div>
-        <div class="card observe">
-          <h3><i class="fa-solid fa-globe"></i>Global Ready</h3>
-          <p>Pay anyone, anywhere, with interoperable invoices.</p>
-        </div>
-        <div class="card observe">
-          <h3><i class="fa-solid fa-wand-magic-sparkles"></i>Smooth UX</h3>
-          <p>Lightning without the complexity — it just works.</p>
-        </div>
+        <div class="card observe"><h3><i class="fa-solid fa-bolt"></i>Instant Payments</h3><p>Settle transactions in seconds, not minutes.</p></div>
+        <div class="card observe"><h3><i class="fa-solid fa-coins"></i>Low Fees</h3><p>Keep more of your sats with efficient routing.</p></div>
+        <div class="card observe"><h3><i class="fa-solid fa-globe"></i>Global Ready</h3><p>Pay anyone, anywhere, with interoperable invoices.</p></div>
+        <div class="card observe"><h3><i class="fa-solid fa-wand-magic-sparkles"></i>Smooth UX</h3><p>Lightning without the complexity — it just works.</p></div>
       </div>
     </div>
   </section>
@@ -355,139 +333,99 @@
       navLinks.classList.toggle('show');
     }
 
-    // IntersectionObserver لتفعيل أنيميشن الظهور
+    // ظهور البطاقات
     const items = document.querySelectorAll('.observe');
     const io = new IntersectionObserver((entries)=>{
       entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          entry.target.classList.add('in-view');
-          io.unobserve(entry.target);
-        }
+        if(entry.isIntersecting){ entry.target.classList.add('in-view'); io.unobserve(entry.target); }
       });
     }, {threshold: 0.12});
     items.forEach(el=>io.observe(el));
 
-    // ====== BTC Price + Live Sparkline ======
+    // ===== BTC widget (polling كل دقيقة) =====
     const priceEl = document.getElementById('btcPrice');
     const changeEl = document.getElementById('btcChange');
     const timeEl = document.getElementById('btcTime');
-    const ctx = document.getElementById('btcMiniChart').getContext('2d');
+    const sparkCtx = document.getElementById('btcSpark').getContext('2d');
+    let spark;
 
-    let chart, lastPrice = null, initialChange = 0;
+    const fmtUSD = (n)=>"$" + Number(n).toLocaleString(undefined,{maximumFractionDigits:2});
+    const fmtPct = (n)=>((n>=0?"+":"") + n.toFixed(2) + "%");
 
-    function fmt(n){ return "$" + Number(n).toLocaleString(undefined,{maximumFractionDigits:2}); }
-    function fmtPct(n){ const s = (n>=0? "+" : "") + n.toFixed(2) + "%"; return s; }
-    function setChangeBadge(pct){
-      changeEl.textContent = fmtPct(pct);
+    function paintChange(pct){
       changeEl.classList.remove('change-up','change-down');
-      changeEl.classList.add(pct>=0 ? 'change-up' : 'change-down');
-      changeEl.innerHTML = (pct>=0 ? '▲ ' : '▼ ') + changeEl.textContent;
+      const up = pct>=0;
+      changeEl.classList.add(up?'change-up':'change-down');
+      changeEl.innerHTML = (up?'<i class="fa-solid fa-arrow-up"></i>':'<i class="fa-solid fa-arrow-down"></i>') + " " + fmtPct(pct);
     }
 
-    async function loadInitial(){
-      try{
-        // 1) سعر + نسبة 24h من CoinGecko
-        const cgSimple = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true');
-        const simple = await cgSimple.json();
-        const price = simple.bitcoin.usd;
-        initialChange = simple.bitcoin.usd_24h_change || 0;
-        priceEl.textContent = fmt(price);
-        setChangeBadge(initialChange);
-        lastPrice = price;
-        timeEl.textContent = 'Live';
-
-        // 2) بيانات مصغّرة لآخر 24 ساعة (sparkline)
-        const cgChart = await fetch('https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=1&interval=minute');
-        const chartJson = await cgChart.json();
-        const points = chartJson.prices.map(p=>({t:new Date(p[0]), y:p[1]}));
-        // احتفظ بآخر ~120 نقطة فقط لسرعة الرسم
-        const seed = points.slice(-120);
-        makeChart(seed);
-      }catch(e){
-        console.error('Init error:', e);
-        timeEl.textContent = 'Init failed, retrying...';
-      }
+    async function fetchPrice(){
+      const res = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true');
+      const j = await res.json();
+      return { price: j.bitcoin.usd, change: j.bitcoin.usd_24h_change || 0 };
     }
 
-    function makeChart(seed){
-      const labels = seed.map(p=>p.t);
-      const data = seed.map(p=>p.y);
-      chart = new Chart(ctx,{
+    async function fetchSpark(){
+      const r = await fetch('https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=1&interval=minute');
+      const j = await r.json();
+      // آخر 90 نقطة تقريباً
+      const pts = j.prices.slice(-90).map(p=>p[1]);
+      return pts;
+    }
+
+    function makeSpark(data){
+      spark = new Chart(sparkCtx,{
         type:'line',
-        data:{
-          labels,
-          datasets:[{
-            data,
-            borderWidth:2,
-            tension:.25,
-            pointRadius:0,
-            borderColor:'#0ea5e9',       // أزرق
-            backgroundColor:'rgba(14,165,233,.1)',
-            fill:true
-          }]
-        },
+        data:{ labels: data.map((_,i)=>i), datasets:[{
+          data, borderWidth:2, tension:.25, pointRadius:0,
+          borderColor:'#38bdf8', backgroundColor:'rgba(56,189,248,.12)', fill:true
+        }]},
         options:{
-          responsive:true,
-          maintainAspectRatio:false,
-          plugins:{legend:{display:false},tooltip:{enabled:false}},
-          scales:{
-            x:{display:false},
-            y:{display:false}
-          },
+          responsive:true, maintainAspectRatio:false,
+          plugins:{legend:{display:false}, tooltip:{enabled:false}},
+          scales:{ x:{display:false}, y:{display:false} },
           animation:false
         }
       });
-      openWS();
     }
 
-    // Binance WebSocket
-    let ws, retry = 0;
-    function openWS(){
+    async function initTicker(){
       try{
-        ws = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@trade');
-        ws.onopen = ()=>{ retry=0; timeEl.textContent='Live'; };
-        ws.onmessage = (ev)=>{
-          const msg = JSON.parse(ev.data);
-          const p = parseFloat(msg.p); // trade price
-          if(!isFinite(p)) return;
-
-          lastPrice = p;
-          priceEl.textContent = fmt(p);
-
-          // حدث المخطط: أضف السعر الحالي مع الوقت
-          const now = new Date();
-          chart.data.labels.push(now);
-          chart.data.datasets[0].data.push(p);
-
-          // قصّ البيانات إلى آخر 150 نقطة
-          if(chart.data.labels.length > 150){
-            chart.data.labels.shift();
-            chart.data.datasets[0].data.shift();
-          }
-
-          // لون الخط يتغير حسب آخر حركة
-          const arr = chart.data.datasets[0].data;
-          const prev = arr.length>1 ? arr[arr.length-2] : p;
-          chart.data.datasets[0].borderColor = (p >= prev) ? '#16a34a' : '#dc2626';
-          chart.data.datasets[0].backgroundColor = (p >= prev) ? 'rgba(22,163,74,.12)' : 'rgba(220,38,38,.12)';
-
-          chart.update('none'); // بدون أنيميشن
-        };
-        ws.onclose = ()=>scheduleReconnect();
-        ws.onerror = ()=>{ try{ws.close();}catch(_){} };
+        const [{price,change}, sparkData] = await Promise.all([fetchPrice(), fetchSpark()]);
+        priceEl.textContent = fmtUSD(price);
+        paintChange(change);
+        timeEl.textContent = "Updated " + new Date().toLocaleTimeString();
+        makeSpark(sparkData);
       }catch(e){
-        scheduleReconnect();
+        timeEl.textContent = "Init failed, retrying…";
+        console.error(e);
       }
     }
 
-    function scheduleReconnect(){
-      retry++;
-      const wait = Math.min(10000, 1000 * retry);
-      timeEl.textContent = 'Reconnecting...';
-      setTimeout(openWS, wait);
+    async function refreshTicker(){
+      try{
+        const {price,change} = await fetchPrice();
+        priceEl.textContent = fmtUSD(price);
+        paintChange(change);
+        timeEl.textContent = "Updated " + new Date().toLocaleTimeString();
+
+        const data = await fetchSpark();
+        spark.data.datasets[0].data = data;
+        // غيّر اللون حسب آخر حركة
+        const len = data.length;
+        const up = len>1 ? data[len-1] >= data[len-2] : true;
+        spark.data.datasets[0].borderColor = up ? '#22c55e' : '#ef4444';
+        spark.data.datasets[0].backgroundColor = up ? 'rgba(34,197,94,.12)' : 'rgba(239,68,68,.12)';
+        spark.update('none');
+      }catch(e){
+        console.error(e);
+      }
     }
 
-    loadInitial();
+    initTicker().then(()=>{
+      // تحديث كل دقيقة
+      setInterval(refreshTicker, 60_000);
+    });
   </script>
 </body>
 </html>
