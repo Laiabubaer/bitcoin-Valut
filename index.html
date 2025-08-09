@@ -107,9 +107,9 @@
     .band h3 i{color:#2563eb}
     .band p{margin:0;color:#374151}
 
-    /* ===== BTC section at the END (before footer) ===== */
-    .btc-section{padding:34px 20px 46px;background:linear-gradient(180deg,#0b1228 0%,#0f172a 100%)}
-    .btc-wrap{max-width:900px;margin:0 auto}
+    /* ===== BTC widget (نفس التصميم) لكن على الخلفية البيضاء فوق Features ===== */
+    .btc-inline{padding:0 20px 32px;background:#fff}
+    .btc-wrap{max-width:900px;margin:-20px auto 0} /* قربناه قليلاً من نهاية الهيرو */
     .btc-card{
       border:1px solid rgba(148,163,184,.25);
       background:rgba(15,23,42,.6);
@@ -117,7 +117,7 @@
       border-radius:18px;
       padding:14px 16px;
       backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
-      box-shadow:0 18px 40px rgba(0,0,0,.35);
+      box-shadow:0 18px 40px rgba(0,0,0,.12);
     }
     .btc-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
     .btc-left{display:flex;align-items:center;gap:12px}
@@ -179,6 +179,26 @@
     </div>
   </header>
 
+  <!-- ===== BTC widget فوق Features على الخلفية البيضاء ===== -->
+  <section class="btc-inline">
+    <div class="btc-wrap">
+      <div class="btc-card">
+        <div class="btc-top">
+          <div class="btc-left">
+            <div class="btc-coin"><i class="fa-brands fa-bitcoin"></i></div>
+            <div class="btc-price" id="btcPrice">$--</div>
+          </div>
+          <div class="btc-change" id="btcChange">--%</div>
+        </div>
+        <div class="btc-bottom">
+          <small class="btc-time" id="btcTime">Initializing…</small>
+          <small class="btc-time">USD</small>
+        </div>
+        <div class="btc-chart"><canvas id="btcSpark"></canvas></div>
+      </div>
+    </div>
+  </section>
+
   <!-- Features -->
   <section id="features">
     <div class="container">
@@ -233,26 +253,6 @@
     </div>
   </section>
 
-  <!-- ===== BTC live section (end of page) ===== -->
-  <section class="btc-section">
-    <div class="btc-wrap">
-      <div class="btc-card">
-        <div class="btc-top">
-          <div class="btc-left">
-            <div class="btc-coin"><i class="fa-brands fa-bitcoin"></i></div>
-            <div class="btc-price" id="btcPrice">$--</div>
-          </div>
-          <div class="btc-change" id="btcChange">--%</div>
-        </div>
-        <div class="btc-bottom">
-          <small class="btc-time" id="btcTime">Initializing…</small>
-          <small class="btc-time">USD</small>
-        </div>
-        <div class="btc-chart"><canvas id="btcSpark"></canvas></div>
-      </div>
-    </div>
-  </section>
-
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 Bitcoin Wallet: Vault | Built for Freedom</p>
@@ -300,7 +300,7 @@
       return j.prices.slice(-90).map(p=>p[1]);
     }
 
-    // Fallback: Binance (بحال فشل CG)
+    // Fallback: Binance
     async function priceFromBinance(){
       const r=await fetch('https://api.binance.com/api/v3/ticker/24hr?symbol=BTCUSDT');
       const j=await r.json();
@@ -312,12 +312,8 @@
       return j.map(k=>parseFloat(k[4])); // close
     }
 
-    async function getPrice(){
-      try{ return await priceFromCoinGecko(); }catch{ return await priceFromBinance(); }
-    }
-    async function getSpark(){
-      try{ return await sparkFromCoinGecko(); }catch{ return await sparkFromBinance(); }
-    }
+    async function getPrice(){ try{ return await priceFromCoinGecko(); }catch{ return await priceFromBinance(); } }
+    async function getSpark(){ try{ return await sparkFromCoinGecko(); }catch{ return await sparkFromBinance(); } }
 
     function makeChart(data){
       chart=new Chart(ctx,{
