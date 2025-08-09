@@ -96,9 +96,14 @@
     .hero h1{font-size:36px;margin:0 0 10px;display:flex;gap:10px;align-items:center;justify-content:center}
     .hero h1 i{color:#60a5fa}
     .hero p{font-size:16px;color:#d7d7d7;margin:0 auto 22px;max-width:720px;line-height:1.7}
+
     .store-badges{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-    .store-badges a img{height:60px;display:block;transition:transform .25s}
-    .store-badges a img:hover{transform:scale(1.04)}
+    .store-badges a{
+      display:inline-flex;align-items:center;justify-content:center;
+      text-decoration:none;border:0;outline:0;
+    }
+    .store-badges img{height:56px;display:block;transition:transform .25s}
+    .store-badges img:hover{transform:scale(1.04)}
 
     /* Sections */
     section{padding:54px 20px}
@@ -179,8 +184,11 @@
       <h1><i class="fa-solid fa-bitcoin-sign"></i>Bitcoin Wallet: Vault</h1>
       <p><i class="fa-solid fa-lock"></i> Secure & Lightning Fast. Take full control of your Bitcoin with Vault Wallet — privacy-first, self-custodial, and built for speed.</p>
       <div class="store-badges">
-        <a href="https://apps.apple.com/app/id1234567890" target="_blank" rel="noopener">
-          <img src="images/app-store-badge.png" alt="Download on the App Store" loading="lazy">
+        <!-- زر App Store الرسمي (SVG) -->
+        <a href="https://apps.apple.com/app/id1234567890" target="_blank" rel="noopener" aria-label="Download on the App Store">
+          <img
+            src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+            alt="Download on the App Store">
         </a>
       </div>
     </div>
