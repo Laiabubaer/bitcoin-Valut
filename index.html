@@ -29,6 +29,9 @@
   <!-- Font Awesome للأيقونات -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
+  <!-- Chart.js للمخطط -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
   <style>
     :root{
       --container:1200px;
@@ -39,13 +42,16 @@
       --card:#ffffff;
       --border:#e5e7eb;
       --shadow:0 8px 24px rgba(0,0,0,.08);
+      --up:#16a34a;
+      --down:#dc2626;
+      --ink:#0f172a;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
       font-family:Arial,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-      background:#fff;color:#0f172a;
+      background:#fff;color:var(--ink);
     }
 
     /* Navbar */
@@ -87,10 +93,29 @@
     .trust-item{display:inline-flex;align-items:center;gap:8px}
     .trust-item i{color:var(--trust)}
 
+    /* ====== Price Ticker + Mini Chart ====== */
+    .price-wrap{max-width:var(--container);margin:14px auto 0;padding:0 20px}
+    .price-card{
+      display:grid;grid-template-columns:1fr 2fr;gap:16px;
+      border:1px solid #dfe3ea;background:#f8fafc;border-radius:14px;padding:14px 16px;align-items:center;
+    }
+    @media (max-width:800px){.price-card{grid-template-columns:1fr}}
+    .price-left{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+    .price-badge{
+      background:#111827;color:#fff;border-radius:999px;padding:6px 10px;font-weight:700;letter-spacing:.2px;display:inline-flex;align-items:center;gap:8px
+    }
+    .change-badge{
+      font-weight:700;padding:4px 8px;border-radius:8px;display:inline-flex;align-items:center;gap:6px;
+    }
+    .change-up{background:rgba(22,163,74,.12);color:var(--up);border:1px solid rgba(22,163,74,.3)}
+    .change-down{background:rgba(220,38,38,.12);color:var(--down);border:1px solid rgba(220,38,38,.3)}
+    .price-right{height:60px}
+    #btcMiniChart{width:100%;height:60px}
+
     /* Hero */
     .hero{
       background: radial-gradient(1200px 500px at 50% -10%, #1b2140, transparent 70%), var(--hero-bg);
-      color:#fff;text-align:center;padding:84px 20px 70px;
+      color:#fff;text-align:center;padding:64px 20px 70px;
     }
     .hero-content{max-width:900px;margin:0 auto}
     .hero h1{font-size:36px;margin:0 0 10px;display:flex;gap:10px;align-items:center;justify-content:center}
@@ -175,6 +200,23 @@
       <span class="trust-item"><i class="fa-solid fa-shield-halved"></i>MSB Registered</span>
       <span>•</span>
       <span class="trust-item"><i class="fa-solid fa-bolt"></i>Lightning Ready</span>
+    </div>
+  </div>
+
+  <!-- ====== BTC Live Price & Sparkline ====== -->
+  <div class="price-wrap">
+    <div class="price-card">
+      <div class="price-left">
+        <span class="price-badge">
+          <i class="fa-brands fa-bitcoin"></i>
+          <span id="btcPrice">$--</span>
+        </span>
+        <span id="btcChange" class="change-badge">--%</span>
+        <small id="btcTime" style="color:#64748b">Live</small>
+      </div>
+      <div class="price-right">
+        <canvas id="btcMiniChart"></canvas>
+      </div>
     </div>
   </div>
 
@@ -324,6 +366,128 @@
       });
     }, {threshold: 0.12});
     items.forEach(el=>io.observe(el));
+
+    // ====== BTC Price + Live Sparkline ======
+    const priceEl = document.getElementById('btcPrice');
+    const changeEl = document.getElementById('btcChange');
+    const timeEl = document.getElementById('btcTime');
+    const ctx = document.getElementById('btcMiniChart').getContext('2d');
+
+    let chart, lastPrice = null, initialChange = 0;
+
+    function fmt(n){ return "$" + Number(n).toLocaleString(undefined,{maximumFractionDigits:2}); }
+    function fmtPct(n){ const s = (n>=0? "+" : "") + n.toFixed(2) + "%"; return s; }
+    function setChangeBadge(pct){
+      changeEl.textContent = fmtPct(pct);
+      changeEl.classList.remove('change-up','change-down');
+      changeEl.classList.add(pct>=0 ? 'change-up' : 'change-down');
+      changeEl.innerHTML = (pct>=0 ? '▲ ' : '▼ ') + changeEl.textContent;
+    }
+
+    async function loadInitial(){
+      try{
+        // 1) سعر + نسبة 24h من CoinGecko
+        const cgSimple = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true');
+        const simple = await cgSimple.json();
+        const price = simple.bitcoin.usd;
+        initialChange = simple.bitcoin.usd_24h_change || 0;
+        priceEl.textContent = fmt(price);
+        setChangeBadge(initialChange);
+        lastPrice = price;
+        timeEl.textContent = 'Live';
+
+        // 2) بيانات مصغّرة لآخر 24 ساعة (sparkline)
+        const cgChart = await fetch('https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=1&interval=minute');
+        const chartJson = await cgChart.json();
+        const points = chartJson.prices.map(p=>({t:new Date(p[0]), y:p[1]}));
+        // احتفظ بآخر ~120 نقطة فقط لسرعة الرسم
+        const seed = points.slice(-120);
+        makeChart(seed);
+      }catch(e){
+        console.error('Init error:', e);
+        timeEl.textContent = 'Init failed, retrying...';
+      }
+    }
+
+    function makeChart(seed){
+      const labels = seed.map(p=>p.t);
+      const data = seed.map(p=>p.y);
+      chart = new Chart(ctx,{
+        type:'line',
+        data:{
+          labels,
+          datasets:[{
+            data,
+            borderWidth:2,
+            tension:.25,
+            pointRadius:0,
+            borderColor:'#0ea5e9',       // أزرق
+            backgroundColor:'rgba(14,165,233,.1)',
+            fill:true
+          }]
+        },
+        options:{
+          responsive:true,
+          maintainAspectRatio:false,
+          plugins:{legend:{display:false},tooltip:{enabled:false}},
+          scales:{
+            x:{display:false},
+            y:{display:false}
+          },
+          animation:false
+        }
+      });
+      openWS();
+    }
+
+    // Binance WebSocket
+    let ws, retry = 0;
+    function openWS(){
+      try{
+        ws = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@trade');
+        ws.onopen = ()=>{ retry=0; timeEl.textContent='Live'; };
+        ws.onmessage = (ev)=>{
+          const msg = JSON.parse(ev.data);
+          const p = parseFloat(msg.p); // trade price
+          if(!isFinite(p)) return;
+
+          lastPrice = p;
+          priceEl.textContent = fmt(p);
+
+          // حدث المخطط: أضف السعر الحالي مع الوقت
+          const now = new Date();
+          chart.data.labels.push(now);
+          chart.data.datasets[0].data.push(p);
+
+          // قصّ البيانات إلى آخر 150 نقطة
+          if(chart.data.labels.length > 150){
+            chart.data.labels.shift();
+            chart.data.datasets[0].data.shift();
+          }
+
+          // لون الخط يتغير حسب آخر حركة
+          const arr = chart.data.datasets[0].data;
+          const prev = arr.length>1 ? arr[arr.length-2] : p;
+          chart.data.datasets[0].borderColor = (p >= prev) ? '#16a34a' : '#dc2626';
+          chart.data.datasets[0].backgroundColor = (p >= prev) ? 'rgba(22,163,74,.12)' : 'rgba(220,38,38,.12)';
+
+          chart.update('none'); // بدون أنيميشن
+        };
+        ws.onclose = ()=>scheduleReconnect();
+        ws.onerror = ()=>{ try{ws.close();}catch(_){} };
+      }catch(e){
+        scheduleReconnect();
+      }
+    }
+
+    function scheduleReconnect(){
+      retry++;
+      const wait = Math.min(10000, 1000 * retry);
+      timeEl.textContent = 'Reconnecting...';
+      setTimeout(openWS, wait);
+    }
+
+    loadInitial();
   </script>
 </body>
 </html>
