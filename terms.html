@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Terms and Conditions – Bitcoin Wallet: Vault</title>
 
+  <!-- Font Awesome للأيقونات -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
   <style>
     :root{
       --container: 1200px;
@@ -23,7 +26,7 @@
       color:#111827;
     }
 
-    /* Navbar (موحّد وبسيط) */
+    /* Navbar */
     nav{background:#000;color:#fff; position:sticky; top:0; z-index:50}
     .nav-container{
       max-width:var(--container);
@@ -39,8 +42,9 @@
     .menu-toggle div{width:25px; height:3px; background:#fff; margin:4px 0; border-radius:2px}
     .nav-links{display:flex; gap:22px}
     .nav-links a{
-      color:#fff; text-decoration:none; font-size:14px; opacity:.92;
+      color:#fff; text-decoration:none; font-size:14px; opacity:.92; display:inline-flex; align-items:center; gap:8px;
     }
+    .nav-links a i{font-size:14px; line-height:0}
     .nav-links a:hover{opacity:1}
     @media (max-width:768px){
       .menu-toggle{display:flex}
@@ -65,7 +69,7 @@
       color:var(--muted); line-height:1.7; margin:0 0 22px;
     }
 
-    /* ترقيم تلقائي للعناوين الفرعية بدون أيقونات */
+    /* ترقيم تلقائي للعناوين الفرعية */
     .sections{counter-reset: section}
     .section-title{
       counter-increment: section;
@@ -82,7 +86,6 @@
     p, li{font-size:16px; line-height:1.75}
     ul{margin:0 0 10px 20px}
 
-    /* صندوق خفيف لبعض الفقرات */
     .card{
       background:#fff; border:1px solid var(--border); border-radius:12px;
       padding:16px 16px; margin:14px 0;
@@ -110,10 +113,10 @@
         <div></div><div></div><div></div>
       </div>
       <div class="nav-links" id="navLinks">
-        <a href="index.html">Home</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.html"><i class="fa-solid fa-house"></i><span>Home</span></a>
+        <a href="privacy.html"><i class="fa-solid fa-lock"></i><span>Privacy</span></a>
+        <a href="terms.html"><i class="fa-solid fa-file-contract"></i><span>Terms</span></a>
+        <a href="contact.html"><i class="fa-solid fa-phone"></i><span>Contact</span></a>
       </div>
     </div>
   </nav>
