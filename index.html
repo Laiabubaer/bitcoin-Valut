@@ -1,120 +1,114 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Terms and Conditions – Bitcoin Wallet: Vault</title>
+  <title>Bitcoin Wallet – Vault | Secure & Lightning Fast</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Bitcoin Wallet: Vault is the best self-custodial Bitcoin wallet, supporting Lightning payments with full control, privacy, and speed.">
+  <meta name="keywords" content="Bitcoin Wallet, Lightning Wallet, Vault, Crypto Wallet, Self Custody, Multisig Wallet">
+  <meta name="author" content="Bitcoin Wallet: Vault Team">
+  <meta name="language" content="en">
+
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
-      color: #333;
+    :root{
+      --container:1200px;
+      --brand:#0a1f44;
+      --hero-bg:#121624;
     }
-    nav {
-      background: #000;
-      color: #fff;
-      padding: 10px 20px;
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Arial,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      background:#fff;color:#000;
     }
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+
+    /* Navbar (موحّد) */
+    nav{background:#000;color:#fff}
+    .nav-container{
+      max-width:var(--container);
+      margin:0 auto;display:flex;align-items:center;justify-content:space-between;
+      padding:10px 20px;gap:16px;
     }
-    .logo-text {
-      font-weight: bold;
-      font-size: 18px;
-    }
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
-    .menu-toggle div {
-      width: 25px;
-      height: 3px;
-      background: #fff;
-      margin: 4px 0;
-    }
-    .nav-links {
-      display: flex;
-      gap: 25px; /* مسافة أكبر بين الروابط */
-    }
-    .nav-links a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 14px;
-    }
-    @media (max-width: 768px) {
-      .menu-toggle {
-        display: flex;
+    .logo-text{font-weight:700;font-size:18px;letter-spacing:.3px;color:#fff;margin-right:auto}
+    .menu-toggle{display:none;flex-direction:column;cursor:pointer}
+    .menu-toggle div{width:25px;height:3px;background:#fff;margin:4px 0;border-radius:2px}
+    .nav-links{display:flex;gap:25px}
+    .nav-links a{color:#fff;text-decoration:none;font-size:14px}
+    @media (max-width:768px){
+      .menu-toggle{display:flex}
+      .nav-links{
+        display:none;position:absolute;top:55px;right:20px;background:#000;flex-direction:column;
+        width:180px;padding:10px;border-radius:6px;text-align:right;z-index:99
       }
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 60px;
-        right: 20px;
-        background: #000;
-        flex-direction: column;
-        padding: 10px;
-        border-radius: 5px;
-        width: 180px;
-        z-index: 999;
-      }
-      .nav-links.show {
-        display: flex;
-      }
-      .nav-links a {
-        padding: 8px 0;
-        border-bottom: 1px solid #222;
-      }
+      .nav-links.show{display:flex}
+      .nav-links a{padding:10px 0;border-bottom:1px solid #222}
+      .nav-links a:last-child{border-bottom:none}
     }
-    main.content {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-      text-align: left;
+
+    /* Hero */
+    .hero{
+      background: radial-gradient(1200px 500px at 50% -10%, #1b2140, transparent 70%) , var(--hero-bg);
+      color:#fff;text-align:center;padding:80px 20px 70px;
     }
-    main.content h1 {
-      font-size: 28px;
-      margin-bottom: 10px;
-      color: #0a1f44;
+    .hero-content{max-width:900px;margin:0 auto}
+    .hero h1{font-size:36px;margin:0 0 10px}
+    .hero p{font-size:16px;color:#d7d7d7;margin:0 auto 22px;max-width:700px;line-height:1.6}
+    .store-badges{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+    .store-badges a img{height:60px;display:block;transition:transform .25s}
+    .store-badges a img:hover{transform:scale(1.04)}
+
+    /* Sections */
+    section{padding:50px 20px}
+    .container{max-width:var(--container);margin:0 auto}
+    h2.section-title{
+      text-align:center;font-size:26px;color:var(--brand);margin:0 0 10px
     }
-    main.content p, main.content li {
-      font-size: 16px;
-      line-height: 1.6;
-      margin-bottom: 15px;
+    p.section-sub{color:#555;text-align:center;max-width:760px;margin:0 auto 28px;line-height:1.7}
+
+    /* Cards */
+    .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    @media (max-width:1000px){.cards{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:600px){.cards{grid-template-columns:1fr}}
+    .card{
+      border:1px solid #e5e7eb;border-radius:14px;padding:18px;background:#fff;
+      box-shadow:0 2px 10px rgba(0,0,0,.04);transition:transform .2s, box-shadow .2s, border-color .2s;
+      opacity:0;transform:translateY(14px);
     }
-    main.content h2 {
-      font-size: 22px;
-      margin-top: 30px;
-      margin-bottom: 10px;
-      color: #0a1f44;
+    .card h3{margin:0 0 8px;font-size:18px;color:#111}
+    .card p{margin:0;color:#555;line-height:1.6}
+    .card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.08);border-color:#d1d5db}
+    .in-view{opacity:1 !important;transform:translateY(0) !important;transition:opacity .5s ease, transform .5s ease}
+
+    /* Multisig band */
+    .band{
+      margin-top:28px;background:#f1f5f9;border-left:5px solid #2563eb;border-radius:14px;
+      padding:26px 20px;text-align:center
     }
-    main.content ul {
-      margin-left: 20px;
-    }
-    footer {
-      background: #0a1f44;
-      color: #eee;
-      text-align: center;
-      padding: 30px 20px;
-      font-size: 14px;
-    }
+    .band h3{margin:0 0 8px;font-size:20px;color:#1e3a8a}
+    .band p{margin:0;color:#374151}
+
+    /* Footer */
+    footer{background:#eee;text-align:center;padding:20px;font-size:14px;color:#333}
+
   </style>
 </head>
 <body>
 
+  <!-- Navigation -->
   <nav>
     <div class="nav-container">
-      <span class="logo-text">Vault</span>
+      <div class="logo-text">Vault</div>
       <div class="menu-toggle" onclick="toggleMenu()">
         <div></div><div></div><div></div>
       </div>
       <div class="nav-links" id="navLinks">
-        <a href="index.html">Home</a>
+        <a href="#features">Features</a>
+        <a href="#security">Security</a>
+        <a href="#lightning">Lightning</a>
+        <a href="#multisig">Multisig</a>
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
         <a href="contact.html">Contact</a>
@@ -123,84 +117,97 @@
     </div>
   </nav>
 
-  <main class="content">
-    <h1>Terms &amp; Conditions</h1>
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Bitcoin Wallet: Vault</h1>
+      <p>Secure & Lightning Fast. Take full control of your Bitcoin with Vault Wallet — privacy-first, self-custodial, and built for speed.</p>
+      <div class="store-badges">
+        <!-- App Store فقط كما طلبت -->
+        <a href="https://apps.apple.com/app/id1234567890" target="_blank" rel="noopener">
+          <img src="images/app-store-badge.png" alt="Download on the App Store">
+        </a>
+      </div>
+    </div>
+  </header>
 
-    <p>Welcome to Bitcoin Wallet: Vault (the “App”), operated by the Bitcoin Wallet: Vault Team (“we”, “us” or “our”). By downloading, installing, or using the App, you (“you” or “User”) agree to be bound by these Terms &amp; Conditions (“Terms”). If you do not agree, please do not use the App.</p>
+  <!-- Features -->
+  <section id="features">
+    <div class="container">
+      <h2 class="section-title">Features</h2>
+      <p class="section-sub">Vault Wallet offers unmatched security, speed, and privacy for your Bitcoin journey.</p>
+      <div class="cards">
+        <div class="card observe"><h3>Self Custody</h3><p>You hold the keys. Full control over your assets at all times.</p></div>
+        <div class="card observe"><h3>Fast & Reliable</h3><p>Optimized for instant, smooth performance with minimal fees.</p></div>
+        <div class="card observe"><h3>Private by Design</h3><p>No tracking or analytics. Your data stays with you.</p></div>
+        <div class="card observe"><h3>Simple UX</h3><p>A clean interface that works for beginners and pros alike.</p></div>
+      </div>
+    </div>
+  </section>
 
-    <h2>1. Acceptance of Terms</h2>
-    <p>These Terms govern your use of the Bitcoin Wallet: Vault mobile application. We may update these Terms from time to time. The latest version will be posted within the App or on our website. Continued use after changes constitutes acceptance.</p>
+  <!-- Security -->
+  <section id="security">
+    <div class="container">
+      <h2 class="section-title">Security</h2>
+      <p class="section-sub">Advanced encryption and best-practice key management — no one can access your funds but you.</p>
+      <div class="cards">
+        <div class="card observe"><h3>Local Encryption</h3><p>Keys are generated and stored on-device with robust encryption.</p></div>
+        <div class="card observe"><h3>Backup Ready</h3><p>Protect access with secure backups and recovery options.</p></div>
+        <div class="card observe"><h3>Open Standards</h3><p>Built on well-tested Bitcoin standards for maximum compatibility.</p></div>
+        <div class="card observe"><h3>No Custody</h3><p>We never touch your coins or keys — ever.</p></div>
+      </div>
+    </div>
+  </section>
 
-    <h2>2. App Description</h2>
-    <p>Bitcoin Wallet: Vault is a non-custodial wallet app that enables users to generate, store, and manage their Bitcoin addresses and private keys locally on their devices. We do not hold, access, or control your Bitcoin, private keys, or related data.</p>
-    <p>The App does not support buying, selling, or exchanging cryptocurrencies. It is not a brokerage, exchange, or custodial service provider.</p>
+  <!-- Lightning -->
+  <section id="lightning">
+    <div class="container">
+      <h2 class="section-title">Lightning Network</h2>
+      <p class="section-sub">Send and receive instantly with low fees. Vault integrates Lightning seamlessly for everyday payments.</p>
+      <div class="cards">
+        <div class="card observe"><h3>Instant Payments</h3><p>Settle transactions in seconds, not minutes.</p></div>
+        <div class="card observe"><h3>Low Fees</h3><p>Keep more of your sats with efficient routing.</p></div>
+        <div class="card observe"><h3>Global Ready</h3><p>Pay anyone, anywhere, with interoperable invoices.</p></div>
+        <div class="card observe"><h3>Smooth UX</h3><p>Lightning without the complexity — it just works.</p></div>
+      </div>
+    </div>
+  </section>
 
-    <h2>3. Eligibility</h2>
-    <p>The App is available to individuals in jurisdictions where its use is legal. By using the App, you confirm that you are at least 18 years of age and that your use of the App complies with all applicable local and international laws.</p>
+  <!-- Multisig -->
+  <section id="multisig">
+    <div class="container">
+      <h2 class="section-title">Multisig Security</h2>
+      <p class="section-sub">Add an extra layer of protection with multi-signature flows that keep your funds safe even if a device is lost.</p>
+      <div class="band observe">
+        <h3>2-of-2 & 2-of-3 Options</h3>
+        <p>Flexible policies for personal or team setups — security without friction.</p>
+      </div>
+    </div>
+  </section>
 
-    <h2>4. User Responsibilities</h2>
-    <ul>
-      <li><strong>Device Security:</strong> You are responsible for securing your device and backup keys. We are not responsible for any losses resulting from loss or theft of your device or keys.</li>
-      <li><strong>Legal Use:</strong> You agree to use the App lawfully and in accordance with all applicable laws and regulations.</li>
-      <li><strong>No Reverse Engineering:</strong> Do not decompile, reverse engineer, or modify the App unless explicitly permitted by law.</li>
-      <li><strong>Risk Acknowledgment:</strong> You understand and accept the risks associated with cryptocurrency usage, including price volatility and irreversible transactions.</li>
-    </ul>
-
-    <h2>5. Our Responsibilities &amp; Limitations</h2>
-    <ul>
-      <li><strong>Non-Custodial Nature:</strong> We do not have access to or control over your private keys or funds. We cannot retrieve lost wallets or funds.</li>
-      <li><strong>No Warranties:</strong> The App is provided “as is” and “as available” with no warranties of any kind, express or implied.</li>
-      <li><strong>No Third-Party Dependencies:</strong> The App does not rely on third-party tracking or data collection services.</li>
-    </ul>
-
-    <h2>6. Intellectual Property</h2>
-    <p>The App and all related content (including code, branding, and design) are owned by the Bitcoin Wallet: Vault Team. You are granted a limited, non-transferable license to use the App for personal, non-commercial purposes.</p>
-
-    <h2>7. Prohibited Activities</h2>
-    <ul>
-      <li>Using the App for unlawful activities such as money laundering or fraud.</li>
-      <li>Distributing malware or disrupting the App’s functionality.</li>
-      <li>Reproducing, selling, or redistributing the App without written permission.</li>
-      <li>Violating the rights of others or breaching these Terms.</li>
-    </ul>
-
-    <h2>8. Termination</h2>
-    <p>We reserve the right to suspend or terminate your access to the App without notice if you violate these Terms. You may discontinue use at any time by uninstalling the App.</p>
-
-    <h2>9. Limitation of Liability</h2>
-    <p>To the extent permitted by law, we are not liable for any direct, indirect, or consequential damages arising from your use of the App, including loss of funds or access.</p>
-
-    <h2>10. Indemnification</h2>
-    <p>You agree to indemnify and hold harmless the Bitcoin Wallet: Vault Team from any claims or liabilities resulting from your use of the App or violation of these Terms.</p>
-
-    <h2>11. Governing Law &amp; Jurisdiction</h2>
-    <p>These Terms are governed by the laws of the United States or the jurisdiction where the App is operated. Any legal disputes will be resolved through local courts.</p>
-
-    <h2>12. No Financial Advice</h2>
-    <p>This App does not provide financial, legal, or investment advice. You are solely responsible for your decisions and actions.</p>
-
-    <h2>13. Regulatory Disclaimer</h2>
-    <p>Bitcoin Wallet: Vault is a non-custodial tool and does not fall under the classification of a financial service provider in most jurisdictions. No licensing is required as we do not hold or manage user funds.</p>
-
-    <h2>14. Force Majeure</h2>
-    <p>We are not liable for delays or failures caused by events outside our control, such as natural disasters, regulatory actions, or network issues.</p>
-
-    <h2>15. Contact Us</h2>
-    <p>If you have any questions about these Terms, contact us at <a href="mailto:support@btcvaultwallet.com">support@btcvaultwallet.com</a> or by phone at +1 512 369 8743.</p>
-
-    <h2>16. Entire Agreement</h2>
-    <p>These Terms, along with our <a href="privacy.html">Privacy Policy</a>, constitute the entire agreement between you and Bitcoin Wallet: Vault Team regarding the App.</p>
-  </main>
-
+  <!-- Footer -->
   <footer>
-    &copy; 2025 Bitcoin Wallet: Vault | Built for freedom
+    <p>&copy; 2025 Bitcoin Wallet: Vault | Built for Freedom</p>
   </footer>
 
   <script>
+    // Mobile menu
     function toggleMenu() {
-      document.getElementById('navLinks').classList.toggle('show');
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.toggle('show');
     }
-  </script>
 
+    // IntersectionObserver لتفعيل أنيميشن الظهور
+    const items = document.querySelectorAll('.observe');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold: 0.12});
+    items.forEach(el=>io.observe(el));
+  </script>
 </body>
 </html>
