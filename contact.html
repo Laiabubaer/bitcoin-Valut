@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact Us – Bitcoin Wallet: Vault</title>
 
@@ -9,117 +9,148 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #121624;
-      color: #fff;
+    :root{
+      --container: 1200px;
+      --bg-grad-1:#0f172a;   /* slate-900 */
+      --bg-grad-2:#1b2140;   /* hero tone */
+      --card:#111827aa;      /* glass */
+      --card-border:#37415188;
+      --accent:#ff9900;
+      --accent-hover:#e08700;
+      --muted:#a3a3a3;
+      --text:#ffffff;
+      --success:#10b981;
+      --danger:#ef4444;
+      --focus:#60a5fa;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: Arial,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      color:var(--text);
+      background: radial-gradient(1000px 500px at 50% -10%, var(--bg-grad-2), transparent 70%), var(--bg-grad-1);
+      min-height:100dvh;
     }
 
-    /* Header موحّد */
-    nav { background-color: #000; color: #fff; }
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #000;
-      padding: 10px 20px;
-      position: relative;
-      gap: 16px;
+    /* Navbar موحّد */
+    nav{background:#000;color:#fff;position:sticky;top:0;z-index:50}
+    .nav-container{
+      max-width:var(--container);margin:0 auto;display:flex;align-items:center;justify-content:space-between;
+      padding:12px 20px;gap:16px;
     }
-    .logo-text{
-      font-weight: bold;
-      font-size: 18px;
-      color:#fff;
-      margin-right: auto;
-      letter-spacing: .2px;
-    }
-    .menu-toggle { display: none; flex-direction: column; cursor: pointer; }
-    .menu-toggle div { width: 25px; height: 3px; background-color: white; margin: 4px 0; }
-
-    .nav-links { display: flex; gap: 25px; }
-    .nav-links a { color: white; text-decoration: none; font-size: 14px; }
-
-    @media (max-width: 768px) {
-      .menu-toggle { display: flex; }
-      .nav-links {
-        display: none; flex-direction: column; background-color: #000;
-        position: absolute; top: 55px; right: 20px; width: 180px;
-        padding: 10px; border-radius: 6px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        text-align: right; z-index: 99; gap: 0;
+    .logo-text{font-weight:700;font-size:18px;letter-spacing:.3px}
+    .menu-toggle{display:none;flex-direction:column;cursor:pointer}
+    .menu-toggle div{width:25px;height:3px;background:#fff;margin:4px 0;border-radius:2px}
+    .nav-links{display:flex;gap:24px}
+    .nav-links a{color:#fff;text-decoration:none;font-size:14px;opacity:.9}
+    .nav-links a:hover{opacity:1}
+    @media (max-width:768px){
+      .menu-toggle{display:flex}
+      .nav-links{
+        display:none;position:absolute;top:56px;right:20px;background:#000;flex-direction:column;
+        width:200px;padding:10px;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.4)
       }
-      .nav-links.show { display: flex; }
-      .nav-links a { padding: 10px 0; border-bottom: 1px solid #222; }
-      .nav-links a:last-child { border-bottom: none; }
+      .nav-links.show{display:flex}
+      .nav-links a{padding:10px 0;border-bottom:1px solid #222}
+      .nav-links a:last-child{border-bottom:none}
     }
 
-    /* محتوى الصفحة */
-    .container {
-      max-width: 600px;
-      margin: 80px auto;
-      padding: 35px 25px;
-      background-color: #1c1f2e;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    /* Section wrapper */
+    .wrap{
+      max-width: var(--container);
+      margin: 40px auto;
+      padding: 0 20px 40px;
     }
 
-    h2 { text-align: center; margin-bottom: 10px; font-size: 26px; }
-    p  { text-align: center; font-size: 14px; color: #ccc; margin-bottom: 25px; }
-
-    .alert {
-      display:none;
-      margin: 0 0 18px 0;
-      padding: 12px 14px;
-      border-radius: 8px;
-      font-size: 14px;
-      text-align: left;
+    .page-title{
+      text-align:center;margin:24px 0 10px;font-size:28px
     }
-    .alert.success { display:block; background:#0e9f6e; color:#fff; }
-    .alert.error   { display:block; background:#b91c1c; color:#fff; }
-
-    form { margin-top: 8px; }
-    input, textarea {
-      width: 94%;
-      padding: 6px 10px;
-      margin: 6px 0;
-      border: none; border-radius: 6px;
-      font-size: 13px; background-color: #fff; color: #000;
+    .page-sub{
+      text-align:center;color:var(--muted);max-width:720px;margin:0 auto 26px;line-height:1.7
     }
-    textarea { resize: vertical; min-height: 80px; }
 
-    button {
-      width: 100%; padding: 9px;
-      background-color: #ff9900; border: none; color: white;
-      font-size: 14px; font-weight: bold; border-radius: 6px; cursor: pointer;
-      transition: background 0.3s ease, opacity .2s;
+    /* Card Grid */
+    .grid{
+      display:grid;grid-template-columns: 1.2fr .8fr;gap:22px;
     }
-    button:hover { background-color: #e08700; }
-    button:disabled { opacity:.6; cursor:not-allowed; }
+    @media (max-width:900px){ .grid{grid-template-columns:1fr} }
 
-    .contact-info {
-      font-size: 13px; color: #ccc; margin-top: 30px; text-align: left;
+    .card{
+      background: var(--card);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
     }
-    .contact-info p { margin: 8px 0; display:flex; align-items:center; gap:8px; }
-    .contact-info i { color:#ffcc66; min-width: 18px; text-align:center; }
 
-    .privacy-note {
-      font-size: 12px; color: #aaa; text-align: center; margin-top: 10px;
+    /* Form */
+    form .row{
+      display:grid;grid-template-columns:1fr 1fr;gap:12px
     }
-    .privacy-note a { color: #ffcc66; text-decoration: underline; }
+    @media (max-width:600px){ form .row{grid-template-columns:1fr} }
 
-    .back-home { margin-top: 30px; text-align: center; }
-    .back-home a {
-      display: inline-block; padding: 10px 20px; background-color: #ff9900;
-      color: white; text-decoration: none; border-radius: 6px; font-weight: bold;
-      transition: background 0.3s ease;
+    .field{
+      position:relative;margin-bottom:12px;
     }
-    .back-home a:hover { background-color: #e08700; }
+    .field i{
+      position:absolute;left:12px;top:50%;transform:translateY(-50%);opacity:.9
+    }
+    .input, .textarea{
+      width:100%;border:1px solid #2b2f43;background:rgba(255,255,255,.08);color:#fff;
+      border-radius:10px;padding:12px 12px 12px 38px;font-size:14px;outline:none;
+      transition: border .2s, box-shadow .2s, background .2s;
+    }
+    .textarea{min-height:120px;resize:vertical}
+    .input::placeholder,.textarea::placeholder{color:#cbd5e180}
+    .input:focus,.textarea:focus{
+      border-color:var(--focus);
+      box-shadow:0 0 0 3px #60a5fa33;
+      background:rgba(255,255,255,.12);
+    }
+
+    .actions{
+      display:flex;align-items:center;gap:12px;margin-top:6px
+    }
+    .btn{
+      appearance:none;border:none;border-radius:10px;padding:12px 16px;font-weight:700;
+      background:var(--accent);color:#111;cursor:pointer;transition:transform .15s, background .2s, opacity .2s;
+      width: fit-content;
+    }
+    .btn:hover{background:var(--accent-hover)}
+    .btn:active{transform:translateY(1px)}
+    .btn:disabled{opacity:.6;cursor:not-allowed}
+
+    .small-note{color:var(--muted);font-size:12px;margin-left:auto}
+
+    /* Sidebar info */
+    .info-title{font-size:18px;margin:0 0 8px}
+    .info-item{display:flex;align-items:flex-start;gap:10px;margin:10px 0;color:#e5e7eb}
+    .info-item i{color:#ffcc66; margin-top:2px}
+    .info-item a{color:#ffcc66;text-decoration:none}
+    .info-item a:hover{text-decoration:underline}
+    .divider{height:1px;background:#2b2f43;margin:16px 0}
+
+    /* Toast */
+    .toast{
+      position: fixed; right: 20px; top: 80px; z-index: 60;
+      display:none; min-width: 260px; max-width: 360px;
+      padding: 12px 14px; border-radius: 12px; font-size: 14px;
+      background:#0b3327; color:#dcfce7; border:1px solid #14532d; box-shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    .toast.error{ background:#3a1010; color:#fee2e2; border-color:#7f1d1d }
+    .toast.show{ display:block; animation: fadeIn .25s ease, fadeOut .25s ease 4s forwards }
+    @keyframes fadeIn{ from{opacity:0; transform:translateY(-6px)} to{opacity:1; transform:translateY(0)} }
+    @keyframes fadeOut{ to{opacity:0; transform:translateY(-6px)} }
+
+    /* Footer */
+    footer{ color:#cbd5e1; text-align:center; padding:24px 12px; opacity:.9 }
   </style>
 </head>
 <body>
 
+  <!-- Navbar -->
   <nav>
     <div class="nav-container">
       <div class="logo-text">Vault</div>
@@ -127,95 +158,143 @@
         <div></div><div></div><div></div>
       </div>
       <div class="nav-links" id="navLinks">
-        <a href="index.html">Home</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="privacy.html"><i class="fa-solid fa-user-shield"></i> Privacy</a>
+        <a href="terms.html"><i class="fa-solid fa-file-contract"></i> Terms</a>
+        <a href="contact.html"><i class="fa-solid fa-envelope-open-text"></i> Contact</a>
       </div>
     </div>
   </nav>
 
-  <div class="container">
-    <h2>Contact Us</h2>
-    <p>For inquiries about <strong>Bitcoin Wallet: Vault</strong>, our secure and self-custodial Bitcoin app, please use the form below or reach out directly.</p>
+  <div class="wrap">
+    <h1 class="page-title">Contact Us</h1>
+    <p class="page-sub">Questions, feedback, or partnership ideas? We’d love to hear from you. Fill the form and we’ll get back shortly.</p>
 
-    <!-- رسالة نجاح/فشل تظهر فوق الفورم -->
-    <div id="alert" class="alert" role="status" aria-live="polite"></div>
+    <div class="grid">
+      <!-- Form Card -->
+      <div class="card">
+        <form id="contactForm" novalidate>
+          <div class="row">
+            <div class="field">
+              <i class="fa-solid fa-user"></i>
+              <input class="input" type="text" name="name" placeholder="Full Name" required>
+            </div>
+            <div class="field">
+              <i class="fa-solid fa-at"></i>
+              <input class="input" type="email" name="email" placeholder="Email" required>
+            </div>
+          </div>
 
-    <!-- إرسال AJAX بدون تنقل -->
-    <form id="contactForm">
-      <input type="hidden" name="_captcha" value="false">
+          <div class="field">
+            <i class="fa-solid fa-message"></i>
+            <textarea class="textarea" name="message" placeholder="Your Message" required></textarea>
+          </div>
 
-      <input type="text"   name="name"    placeholder="Full Name" required>
-      <input type="email"  name="email"   placeholder="Email" required>
-      <textarea            name="message" placeholder="Your Message" required></textarea>
+          <input type="hidden" name="_captcha" value="false">
 
-      <button id="submitBtn" type="submit">Send</button>
-    </form>
+          <div class="actions">
+            <button id="submitBtn" class="btn" type="submit">
+              <i class="fa-solid fa-paper-plane"></i> Send
+            </button>
+            <span class="small-note">We reply within 24–48h.</span>
+          </div>
+        </form>
+      </div>
 
-    <div class="privacy-note">
-      We collect your contact information solely to respond to your inquiry. We do not share your data with third parties. By submitting this form, you agree to our <a href="privacy.html">Privacy Policy</a>.
-    </div>
+      <!-- Sidebar Card -->
+      <aside class="card">
+        <h3 class="info-title"><i class="fa-solid fa-circle-info"></i> Company Info</h3>
+        <div class="info-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <div>
+            <strong>Business Address</strong><br/>
+            Bitcoin Wallet: Vault<br/>
+            1209 Mountain Road Pl NE #5438<br/>
+            Albuquerque, NM 87110, USA
+          </div>
+        </div>
 
-    <div class="contact-info">
-      <p><i class="fa-solid fa-location-dot"></i>
-        <span><strong>Business Address:</strong><br>
-        Bitcoin Wallet: Vault<br>
-        1209 Mountain Road Pl NE #5438<br>
-        Albuquerque, NM 87110, USA</span>
-      </p>
+        <div class="info-item">
+          <i class="fa-solid fa-envelope"></i>
+          <a href="mailto:support@btcvaultwallet.com">support@btcvaultwallet.com</a>
+        </div>
 
-      <p><i class="fa-solid fa-envelope"></i> support@btcvaultwallet.com</p>
-      <p><i class="fa-solid fa-phone"></i> +1 512 369 8743</p>
-    </div>
+        <div class="info-item">
+          <i class="fa-solid fa-phone"></i>
+          <span>+1 512 369 8743</span>
+        </div>
 
-    <div class="back-home">
-      <a href="index.html">Return to Home</a>
+        <div class="divider"></div>
+
+        <h3 class="info-title"><i class="fa-solid fa-shield-halved"></i> Privacy</h3>
+        <div class="info-item" style="color:#cbd5e1">
+          <i class="fa-solid fa-user-shield"></i>
+          We only use your details to answer your message. No tracking, no third-party sharing.
+        </div>
+        <div class="info-item">
+          <i class="fa-solid fa-file-shield"></i>
+          <a href="privacy.html">Read our Privacy Policy</a>
+        </div>
+      </aside>
     </div>
   </div>
 
+  <!-- Toast -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <footer>
+    &copy; 2025 Bitcoin Wallet: Vault — Built for Freedom
+  </footer>
+
   <script>
-    function toggleMenu() {
-      const navLinks = document.getElementById('navLinks');
-      navLinks.classList.toggle('show');
+    // Mobile menu
+    function toggleMenu(){
+      document.getElementById('navLinks').classList.toggle('show');
     }
 
-    // إرسال AJAX إلى FormSubmit بدون تنقل
+    // Helpers
+    const toast = (msg, type='success')=>{
+      const el = document.getElementById('toast');
+      el.className = 'toast ' + (type==='error' ? 'error' : '');
+      el.textContent = msg;
+      el.classList.add('show');
+      // remove after animation completes
+      setTimeout(()=>{ el.classList.remove('show') }, 4500);
+    };
+
+    // Form submit via AJAX (FormSubmit)
     const form = document.getElementById('contactForm');
-    const alertBox = document.getElementById('alert');
-    const submitBtn = document.getElementById('submitBtn');
+    const btn  = document.getElementById('submitBtn');
 
-    form.addEventListener('submit', async (e) => {
+    form.addEventListener('submit', async (e)=>{
       e.preventDefault();
-      alertBox.className = 'alert'; // reset
-      alertBox.style.display = 'none';
-      submitBtn.disabled = true;
 
-      try {
+      // basic front validation
+      const name = form.elements['name'].value.trim();
+      const email = form.elements['email'].value.trim();
+      const message = form.elements['message'].value.trim();
+      if(!name || !email || !message){
+        toast('❌ الرجاء تعبئة جميع الحقول.', 'error');
+        return;
+      }
+
+      btn.disabled = true;
+
+      try{
         const data = new FormData(form);
-
         const res = await fetch('https://formsubmit.co/ajax/support@btcvaultwallet.com', {
-          method: 'POST',
-          body: data
+          method:'POST',
+          body:data
         });
-
-        if (!res.ok) throw new Error('Network response was not ok');
-
-        // نجاح
+        if(!res.ok) throw new Error('Network error');
         form.reset();
-        alertBox.textContent = '✅ تم إرسال الرسالة بنجاح. سنعاود التواصل معك قريبًا.';
-        alertBox.classList.add('success');
-        alertBox.style.display = 'block';
-      } catch (err) {
-        // فشل
-        alertBox.textContent = '❌ حدث خطأ أثناء الإرسال. حاول مرة أخرى لاحقًا.';
-        alertBox.classList.add('error');
-        alertBox.style.display = 'block';
-      } finally {
-        submitBtn.disabled = false;
+        toast('✅ تم إرسال الرسالة بنجاح. سنعاود التواصل معك قريبًا.');
+      }catch(err){
+        toast('❌ حدث خطأ أثناء الإرسال. حاول لاحقًا.', 'error');
+      }finally{
+        btn.disabled = false;
       }
     });
   </script>
-
 </body>
 </html>
