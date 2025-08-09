@@ -6,90 +6,104 @@
   <title>Privacy Policy – Bitcoin Wallet: Vault</title>
   <style>
     :root{
-      --container: 1200px;
-      --ink: #0f172a;
-      --brand: #0a1f44;
-      --muted: #475569;
-      --border: #e5e7eb;
-      --bg: #f9fafb;
+      --container: 880px;
+      --ink: #0b1220;
+      --muted:#5b6472;
+      --brand:#0a1f44;
+      --border:#e6e8ec;
+      --bg:#ffffff;
+      --nav-bg:#ffffff;
+      --nav-border:#f0f1f3;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family: Arial, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      background: var(--bg);
-      color:#111827;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      color:var(--ink);
+      background:var(--bg);
+      -webkit-font-smoothing:antialiased;
+      line-height:1.6;
     }
 
-    /* Header موحّد (نفس terms) */
-    nav{background:#000;color:#fff; position:sticky; top:0; z-index:50}
-    .nav-container{
-      max-width:var(--container);
-      margin:0 auto;
-      display:flex; align-items:center; justify-content:space-between;
-      padding:12px 20px; gap:16px;
+    /* Header – بسيط ومسطّح */
+    nav{
+      position:sticky; top:0; z-index:50;
+      background:var(--nav-bg);
+      border-bottom:1px solid var(--nav-border);
     }
-    .logo-text{
-      font-weight:800; font-size:18px; color:#fff; letter-spacing:.3px;
-      margin-right:auto;
+    .nav-wrap{
+      max-width:1100px; margin:0 auto;
+      display:flex; align-items:center; gap:24px;
+      padding:14px 20px;
     }
-    .menu-toggle{display:none; flex-direction:column; cursor:pointer}
-    .menu-toggle div{width:25px; height:3px; background:#fff; margin:4px 0; border-radius:2px}
-    .nav-links{display:flex; gap:22px}
-    .nav-links a{
-      color:#fff; text-decoration:none; font-size:14px; opacity:.92;
+    .brand{margin-right:auto; font-weight:800; letter-spacing:.2px; color:#0b0f18}
+    .brand span{display:inline-block; font-size:18px}
+    .links{display:flex; gap:20px}
+    .links a{
+      color:#1f2430; text-decoration:none; font-size:14px; opacity:.9
     }
-    .nav-links a:hover{opacity:1}
-    @media (max-width:768px){
-      .menu-toggle{display:flex}
-      .nav-links{
-        display:none; position:absolute; top:56px; right:20px; background:#000;
-        flex-direction:column; width:200px; padding:10px; border-radius:10px;
-        box-shadow:0 10px 30px rgba(0,0,0,.4);
+    .links a:hover{opacity:1; text-decoration:underline}
+    .menu{display:none; flex-direction:column; gap:4px; cursor:pointer}
+    .menu i{width:22px; height:2px; background:#222}
+    @media (max-width:760px){
+      .menu{display:flex}
+      .links{
+        position:absolute; right:16px; top:56px; background:#fff; border:1px solid var(--nav-border);
+        box-shadow:0 10px 30px rgba(0,0,0,.06);
+        padding:10px; border-radius:10px; display:none; flex-direction:column; width:180px;
       }
-      .nav-links.show{display:flex}
-      .nav-links a{padding:10px; border-bottom:1px solid #222}
-      .nav-links a:last-child{border-bottom:none}
+      .links.show{display:flex}
+      .links a{padding:8px 6px; border-bottom:1px solid #f1f2f4}
+      .links a:last-child{border-bottom:none}
     }
 
-    /* Content */
-    main.content{
-      max-width:800px; margin:40px auto; padding:0 20px; text-align:left;
+    /* Page */
+    .page{
+      max-width:var(--container);
+      margin:56px auto; padding:0 20px;
     }
-    main.content h1{
-      font-size:26px; margin-bottom:10px; color:var(--brand);
+    .kicker{
+      display:inline-block; font-size:12px; letter-spacing:.12em; text-transform:uppercase;
+      color:var(--muted); margin-bottom:6px;
     }
-    main.content p, main.content li{
-      font-size:16px; line-height:1.7; margin-bottom:15px; color:#1f2937;
+    h1{
+      margin:0 0 6px; font-size:32px; line-height:1.2; color:#0a0f1e; font-weight:800;
     }
-    main.content h2{
-      font-size:20px; margin:30px 0 10px; color:var(--brand);
-      padding-bottom:6px; border-bottom:2px solid var(--border);
-    }
-    main.content ul{margin-left:20px; padding-left:0}
+    .meta{color:var(--muted); font-size:14px; margin-bottom:22px}
 
-    /* Footer موحّد */
+    /* Section headings بخط سفلي بسيط */
+    h2{
+      margin:34px 0 10px; font-size:20px; color:var(--brand); font-weight:700;
+      padding-bottom:8px; border-bottom:1px solid var(--border);
+    }
+
+    p, li{font-size:16px; color:#1c2532}
+    ul{margin:0 0 18px 22px}
+    strong{font-weight:700}
+
+    /* Footer بسيط */
     footer{
-      background-color:#0a1f44; color:#e5e7eb;
-      padding:40px 20px; text-align:center; font-size:14px; margin-top:40px;
+      border-top:1px solid var(--nav-border);
+      margin-top:60px; padding:28px 20px; text-align:center; color:#606b79; font-size:14px;
+      background:#fafbfc;
     }
-    footer a{color:#cbd5e1; text-decoration:none}
+    footer a{color:#475569; text-decoration:none}
     footer a:hover{text-decoration:underline}
-    footer .hr{
-      max-width:800px; margin:24px auto 0; border-top:1px solid #334155; padding-top:15px;
+    .footer-grid{
+      max-width:1100px; margin:0 auto; display:grid; gap:10px;
     }
   </style>
 </head>
 <body>
 
   <nav>
-    <div class="nav-container">
-      <div class="logo-text">Vault</div>
-      <div class="menu-toggle" onclick="toggleMenu()">
-        <div></div><div></div><div></div>
+    <div class="nav-wrap">
+      <div class="brand"><span>Vault</span></div>
+      <div class="menu" onclick="document.getElementById('links').classList.toggle('show')">
+        <i></i><i></i><i></i>
       </div>
-      <div class="nav-links" id="navLinks">
+      <div id="links" class="links">
         <a href="index.html">Home</a>
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
@@ -98,9 +112,10 @@
     </div>
   </nav>
 
-  <main class="content">
+  <main class="page">
+    <span class="kicker">Policy</span>
     <h1>Privacy Policy</h1>
-    <p><em>Effective Date: May 19, 2025</em></p>
+    <div class="meta"><em>Effective Date: May 19, 2025</em></div>
 
     <p>Welcome to Bitcoin Wallet: Vault (“the App”), operated by the <strong>Bitcoin Wallet: Vault Team</strong> (“we”, “us”, or “our”). We are committed to protecting your privacy. This Privacy Policy outlines how we handle your information.</p>
 
@@ -151,31 +166,15 @@
   </main>
 
   <footer>
-    <div>
-      <p><strong>Contact Us</strong></p>
-      <p>
-        <img src="images/icons8-email-48.png" alt="Email Icon" style="height:18px; vertical-align:middle; margin-right:5px;">
-        <a href="mailto:support@btcvaultwallet.com">support@btcvaultwallet.com</a>
-      </p>
-      <p>Operated by: Bitcoin Wallet: Vault Team, USA</p>
-    </div>
-
-    <div style="margin-top: 20px;">
-      <p><strong>Governing Law</strong></p>
-      <p>This policy is governed by the laws of the United States.</p>
-    </div>
-
-    <div class="hr">
-      <p>&copy; 2025 Bitcoin Wallet: Vault | Built for freedom</p>
-      <p><a href="https://laiabubaer.github.io">Visit our site</a></p>
+    <div class="footer-grid">
+      <div>&copy; 2025 Bitcoin Wallet: Vault | Built for freedom</div>
+      <div><a href="https://laiabubaer.github.io">Visit our site</a></div>
     </div>
   </footer>
 
   <script>
-    function toggleMenu() {
-      document.getElementById('navLinks').classList.toggle('show');
-    }
+    // mobile menu
+    function toggleMenu(){ document.getElementById('links').classList.toggle('show'); }
   </script>
-
 </body>
 </html>
