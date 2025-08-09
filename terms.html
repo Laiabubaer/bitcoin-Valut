@@ -4,195 +4,195 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Terms and Conditions – Bitcoin Wallet: Vault</title>
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
-      color: #333;
+    :root{
+      --container:1200px;
+      --brand:#0a1f44;
+      --ink:#0f172a;
+      --muted:#556070;
+      --border:#e5e7eb;
+      --card:#ffffff;
     }
-    nav {
-      background: #000;
-      color: #fff;
-      padding: 10px 20px;
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:Arial,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      background:#f9f9f9; color:#333;
     }
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+
+    /* Navbar (موحّد) */
+    nav{background:#000;color:#fff; position:sticky; top:0; z-index:50}
+    .nav-container{
+      max-width:var(--container); margin:0 auto;
+      display:flex; justify-content:space-between; align-items:center;
+      padding:12px 20px; gap:16px;
     }
-    /* شعار نصّي بدل الصورة ومثبت يسار */
     .logo-text{
-      font-weight: bold;
-      font-size: 18px;
-      color:#fff;
-      margin-right: auto; /* يدز كل شي لليمين */
+      font-weight:800; font-size:18px; color:#fff; margin-right:auto;
+      display:flex; align-items:center; gap:8px; letter-spacing:.3px;
     }
-
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
+    .logo-text i{color:#60a5fa}
+    .menu-toggle{display:none; flex-direction:column; cursor:pointer}
+    .menu-toggle div{width:25px; height:3px; background:#fff; margin:4px 0; border-radius:2px}
+    .nav-links{display:flex; gap:22px}
+    .nav-links a{
+      color:#fff; text-decoration:none; font-size:14px; opacity:.92;
+      display:inline-flex; align-items:center; gap:6px;
     }
-    .menu-toggle div {
-      width: 25px;
-      height: 3px;
-      background: #fff;
-      margin: 4px 0;
-    }
-    .nav-links {
-      display: flex;
-      gap: 15px;
-    }
-    .nav-links a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 14px;
-    }
-    @media (max-width: 768px) {
-      .menu-toggle { display: flex; }
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 60px;
-        right: 20px;
-        background: #000;
-        flex-direction: column;
-        padding: 10px;
-        border-radius: 5px;
-        width: 180px;
-        z-index: 999;
+    .nav-links a:hover{opacity:1}
+    @media (max-width:768px){
+      .menu-toggle{display:flex}
+      .nav-links{
+        display:none; position:absolute; top:56px; right:20px; background:#000;
+        flex-direction:column; width:200px; padding:10px; border-radius:10px;
+        box-shadow:0 10px 30px rgba(0,0,0,.4);
       }
-      .nav-links.show { display: flex; }
-      .nav-links a {
-        padding: 8px 0;
-        border-bottom: 1px solid #222;
-      }
+      .nav-links.show{display:flex}
+      .nav-links a{padding:10px; border-bottom:1px solid #222}
+      .nav-links a:last-child{border-bottom:none}
     }
 
-    main.content {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-      text-align: left;
+    /* Content */
+    main.content{
+      max-width:800px; margin:40px auto; padding:0 20px; text-align:left;
     }
-    main.content h1 {
-      font-size: 28px;
-      margin-bottom: 10px;
-      color: #0a1f44;
+    .page-title{
+      display:flex; align-items:center; gap:10px; color:var(--brand);
+      font-size:28px; margin:0 0 10px;
     }
-    main.content p, main.content li {
-      font-size: 16px;
-      line-height: 1.6;
-      margin-bottom: 15px;
+    .page-title i{color:#2563eb}
+    .lead{font-size:16px; line-height:1.7; color:#444; margin-bottom:18px}
+    h2.section{
+      display:flex; align-items:center; gap:8px;
+      font-size:22px; color:var(--brand); margin:28px 0 10px;
     }
-    main.content h2 {
-      font-size: 22px;
-      margin-top: 30px;
-      margin-bottom: 10px;
-      color: #0a1f44;
-    }
-    main.content ul { margin-left: 20px; }
+    h2.section i{color:#2563eb}
+    p, li{font-size:16px; line-height:1.7; color:#333}
+    ul{margin:0 0 10px 20px}
 
-    footer {
-      background: #0a1f44;
-      color: #eee;
-      text-align: center;
-      padding: 30px 20px;
-      font-size: 14px;
+    /* نقاط بقائمة مع أيقونات */
+    .icon-list{list-style:none; padding-left:0; margin-left:0}
+    .icon-list li{display:flex; gap:10px; align-items:flex-start; margin-bottom:10px}
+    .icon-list i{color:#16a34a; margin-top:3px}
+
+    /* Card نمط خفيف لبعض الأقسام */
+    .card{
+      background:var(--card); border:1px solid var(--border); border-radius:12px;
+      padding:16px 16px; margin:14px 0;
     }
+
+    /* Footer */
+    footer{
+      background:#0a1f44; color:#eee; text-align:center; padding:30px 20px; font-size:14px;
+    }
+    .footer-links{display:flex; gap:16px; justify-content:center; align-items:center; margin-top:6px; font-size:13px}
+    .footer-links span{display:inline-flex; align-items:center; gap:6px; opacity:.95}
+    .footer-links a{color:#cbd5e1; text-decoration:none}
+    .footer-links i{color:#94a3b8}
   </style>
 </head>
 <body>
 
   <nav>
     <div class="nav-container">
-      <div class="logo-text">Vault</div>
+      <div class="logo-text"><i class="fa-solid fa-vault"></i>Vault</div>
       <div class="menu-toggle" onclick="toggleMenu()">
         <div></div><div></div><div></div>
       </div>
       <div class="nav-links" id="navLinks">
-        <a href="index.html">Home</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="privacy.html"><i class="fa-solid fa-user-shield"></i> Privacy</a>
+        <a href="terms.html"><i class="fa-solid fa-file-contract"></i> Terms</a>
+        <a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a>
       </div>
     </div>
   </nav>
 
   <main class="content">
-    <h1>Terms &amp; Conditions</h1>
+    <h1 class="page-title"><i class="fa-solid fa-scale-balanced"></i>Terms &amp; Conditions</h1>
 
-    <p>Welcome to Bitcoin Wallet: Vault (the “App”), operated by the Bitcoin Wallet: Vault Team (“we”, “us” or “our”). By downloading, installing, or using the App, you (“you” or “User”) agree to be bound by these Terms &amp; Conditions (“Terms”). If you do not agree, please do not use the App.</p>
+    <p class="lead">
+      Welcome to Bitcoin Wallet: Vault (the “App”), operated by the Bitcoin Wallet: Vault Team (“we”, “us”, or “our”).
+      By downloading, installing, or using the App, you (“you” or “User”) agree to be bound by these Terms &amp; Conditions (“Terms”).
+      If you do not agree, please do not use the App.
+    </p>
 
-    <h2>1. Acceptance of Terms</h2>
+    <h2 class="section"><i class="fa-solid fa-circle-check"></i>1. Acceptance of Terms</h2>
     <p>These Terms govern your use of the Bitcoin Wallet: Vault mobile application. We may update these Terms from time to time. The latest version will be posted within the App or on our website. Continued use after changes constitutes acceptance.</p>
 
-    <h2>2. App Description</h2>
-    <p>Bitcoin Wallet: Vault is a non-custodial wallet app that enables users to generate, store, and manage their Bitcoin addresses and private keys locally on their devices. We do not hold, access, or control your Bitcoin, private keys, or related data.</p>
-    <p>The App does not support buying, selling, or exchanging cryptocurrencies. It is not a brokerage, exchange, or custodial service provider.</p>
+    <h2 class="section"><i class="fa-solid fa-mobile-screen"></i>2. App Description</h2>
+    <div class="card">
+      <p>Bitcoin Wallet: Vault is a non-custodial wallet app that enables users to generate, store, and manage their Bitcoin addresses and private keys locally on their devices. We do not hold, access, or control your Bitcoin, private keys, or related data.</p>
+      <p>The App does not support buying, selling, or exchanging cryptocurrencies. It is not a brokerage, exchange, or custodial service provider.</p>
+    </div>
 
-    <h2>3. Eligibility</h2>
+    <h2 class="section"><i class="fa-solid fa-id-card"></i>3. Eligibility</h2>
     <p>The App is available to individuals in jurisdictions where its use is legal. By using the App, you confirm that you are at least 18 years of age and that your use of the App complies with all applicable local and international laws.</p>
 
-    <h2>4. User Responsibilities</h2>
-    <ul>
-      <li><strong>Device Security:</strong> You are responsible for securing your device and backup keys. We are not responsible for any losses resulting from loss or theft of your device or keys.</li>
-      <li><strong>Legal Use:</strong> You agree to use the App lawfully and in accordance with all applicable laws and regulations.</li>
-      <li><strong>No Reverse Engineering:</strong> Do not decompile, reverse engineer, or modify the App unless explicitly permitted by law.</li>
-      <li><strong>Risk Acknowledgment:</strong> You understand and accept the risks associated with cryptocurrency usage, including price volatility and irreversible transactions.</li>
+    <h2 class="section"><i class="fa-solid fa-user-gear"></i>4. User Responsibilities</h2>
+    <ul class="icon-list">
+      <li><i class="fa-solid fa-shield-halved"></i><span><strong>Device Security:</strong> You are responsible for securing your device and backup keys. We are not responsible for any losses resulting from loss or theft of your device or keys.</span></li>
+      <li><i class="fa-solid fa-scale-balanced"></i><span><strong>Legal Use:</strong> You agree to use the App lawfully and in accordance with all applicable laws and regulations.</span></li>
+      <li><i class="fa-solid fa-code"></i><span><strong>No Reverse Engineering:</strong> Do not decompile, reverse engineer, or modify the App unless explicitly permitted by law.</span></li>
+      <li><i class="fa-solid fa-triangle-exclamation"></i><span><strong>Risk Acknowledgment:</strong> You understand and accept the risks associated with cryptocurrency usage, including price volatility and irreversible transactions.</span></li>
     </ul>
 
-    <h2>5. Our Responsibilities &amp; Limitations</h2>
-    <ul>
-      <li><strong>Non-Custodial Nature:</strong> We do not have access to or control over your private keys or funds. We cannot retrieve lost wallets or funds.</li>
-      <li><strong>No Warranties:</strong> The App is provided “as is” and “as available” with no warranties of any kind, express or implied.</li>
-      <li><strong>No Third-Party Dependencies:</strong> The App does not rely on third-party tracking or data collection services.</li>
+    <h2 class="section"><i class="fa-solid fa-circle-info"></i>5. Our Responsibilities &amp; Limitations</h2>
+    <ul class="icon-list">
+      <li><i class="fa-solid fa-key"></i><span><strong>Non-Custodial Nature:</strong> We do not have access to or control over your private keys or funds. We cannot retrieve lost wallets or funds.</span></li>
+      <li><i class="fa-solid fa-thumbs-down"></i><span><strong>No Warranties:</strong> The App is provided “as is” and “as available” with no warranties of any kind, express or implied.</span></li>
+      <li><i class="fa-solid fa-user-secret"></i><span><strong>No Third-Party Dependencies:</strong> The App does not rely on third-party tracking or data collection services.</span></li>
     </ul>
 
-    <h2>6. Intellectual Property</h2>
+    <h2 class="section"><i class="fa-solid fa-copyright"></i>6. Intellectual Property</h2>
     <p>The App and all related content (including code, branding, and design) are owned by the Bitcoin Wallet: Vault Team. You are granted a limited, non-transferable license to use the App for personal, non-commercial purposes.</p>
 
-    <h2>7. Prohibited Activities</h2>
-    <ul>
-      <li>Using the App for unlawful activities such as money laundering or fraud.</li>
-      <li>Distributing malware or disrupting the App’s functionality.</li>
-      <li>Reproducing, selling, or redistributing the App without written permission.</li>
-      <li>Violating the rights of others or breaching these Terms.</li>
+    <h2 class="section"><i class="fa-solid fa-ban"></i>7. Prohibited Activities</h2>
+    <ul class="icon-list">
+      <li><i class="fa-solid fa-circle-xmark"></i><span>Using the App for unlawful activities such as money laundering or fraud.</span></li>
+      <li><i class="fa-solid fa-bug"></i><span>Distributing malware or disrupting the App’s functionality.</span></li>
+      <li><i class="fa-solid fa-clone"></i><span>Reproducing, selling, or redistributing the App without written permission.</span></li>
+      <li><i class="fa-solid fa-user-slash"></i><span>Violating the rights of others or breaching these Terms.</span></li>
     </ul>
 
-    <h2>8. Termination</h2>
+    <h2 class="section"><i class="fa-solid fa-door-closed"></i>8. Termination</h2>
     <p>We reserve the right to suspend or terminate your access to the App without notice if you violate these Terms. You may discontinue use at any time by uninstalling the App.</p>
 
-    <h2>9. Limitation of Liability</h2>
+    <h2 class="section"><i class="fa-solid fa-scale-unbalanced"></i>9. Limitation of Liability</h2>
     <p>To the extent permitted by law, we are not liable for any direct, indirect, or consequential damages arising from your use of the App, including loss of funds or access.</p>
 
-    <h2>10. Indemnification</h2>
+    <h2 class="section"><i class="fa-solid fa-handshake-angle"></i>10. Indemnification</h2>
     <p>You agree to indemnify and hold harmless the Bitcoin Wallet: Vault Team from any claims or liabilities resulting from your use of the App or violation of these Terms.</p>
 
-    <h2>11. Governing Law &amp; Jurisdiction</h2>
+    <h2 class="section"><i class="fa-solid fa-gavel"></i>11. Governing Law &amp; Jurisdiction</h2>
     <p>These Terms are governed by the laws of the United States or the jurisdiction where the App is operated. Any legal disputes will be resolved through local courts.</p>
 
-    <h2>12. No Financial Advice</h2>
+    <h2 class="section"><i class="fa-solid fa-comment-dollar"></i>12. No Financial Advice</h2>
     <p>This App does not provide financial, legal, or investment advice. You are solely responsible for your decisions and actions.</p>
 
-    <h2>13. Regulatory Disclaimer</h2>
+    <h2 class="section"><i class="fa-solid fa-scale-balanced"></i>13. Regulatory Disclaimer</h2>
     <p>Bitcoin Wallet: Vault is a non-custodial tool and does not fall under the classification of a financial service provider in most jurisdictions. No licensing is required as we do not hold or manage user funds.</p>
 
-    <h2>14. Force Majeure</h2>
+    <h2 class="section"><i class="fa-solid fa-cloud-bolt"></i>14. Force Majeure</h2>
     <p>We are not liable for delays or failures caused by events outside our control, such as natural disasters, regulatory actions, or network issues.</p>
 
-    <h2>15. Contact Us</h2>
+    <h2 class="section"><i class="fa-solid fa-phone-volume"></i>15. Contact Us</h2>
     <p>If you have any questions about these Terms, contact us at <a href="mailto:support@btcvaultwallet.com">support@btcvaultwallet.com</a> or by phone at +1 512 369 8743.</p>
 
-    <h2>16. Entire Agreement</h2>
+    <h2 class="section"><i class="fa-solid fa-file-signature"></i>16. Entire Agreement</h2>
     <p>These Terms, along with our <a href="privacy.html">Privacy Policy</a>, constitute the entire agreement between you and Bitcoin Wallet: Vault Team regarding the App.</p>
   </main>
 
   <footer>
-    &copy; 2025 Bitcoin Wallet: Vault | Built for freedom
+    <div>&copy; 2025 Bitcoin Wallet: Vault | Built for freedom</div>
+    <div class="footer-links">
+      <span><i class="fa-solid fa-user-shield"></i> <a href="privacy.html">Privacy</a></span>
+      <span><i class="fa-solid fa-file-contract"></i> <a href="terms.html">Terms</a></span>
+      <span><i class="fa-solid fa-envelope"></i> <a href="contact.html">Contact</a></span>
+    </div>
   </footer>
 
   <script>
