@@ -5,11 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Bitcoin Wallet – Vault | Secure & Lightning Fast</title>
 
-  <!-- SEO Meta Tags -->
+  <!-- SEO Meta Tags (أساسية فقط) -->
   <meta name="description" content="Bitcoin Wallet: Vault is the best self-custodial Bitcoin wallet, supporting Lightning payments with full control, privacy, and speed.">
   <meta name="keywords" content="Bitcoin Wallet, Lightning Wallet, Vault, Crypto Wallet, Self Custody, Multisig Wallet">
   <meta name="author" content="Bitcoin Wallet: Vault Team">
   <meta name="language" content="en">
+
+  <!-- Smart App Banner (iOS) -->
+  <meta name="apple-itunes-app" content="app-id=1234567890, app-argument=https://YOUR-DOMAIN">
+
+  <!-- Schema.org (مفيدة لمحركات البحث) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"SoftwareApplication",
+    "name":"Bitcoin Wallet: Vault",
+    "applicationCategory":"FinanceApplication",
+    "operatingSystem":"iOS",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}
+  }
+  </script>
 
   <style>
     :root{
@@ -47,6 +62,17 @@
       .nav-links a{padding:10px 0;border-bottom:1px solid #222}
       .nav-links a:last-child{border-bottom:none}
     }
+
+    /* Trust bar */
+    .trust-bar{
+      background:#0b1228; color:#cbd5e1; font-size:13px;
+      border-top:1px solid #0f172a; border-bottom:1px solid #0f172a;
+    }
+    .trust-wrap{
+      max-width:var(--container); margin:0 auto; padding:8px 20px;
+      display:flex; gap:14px; align-items:center; justify-content:center; flex-wrap:wrap;
+    }
+    .dot{width:6px;height:6px;border-radius:50%;background:#22c55e;display:inline-block;margin-right:6px}
 
     /* Hero */
     .hero{
@@ -92,7 +118,6 @@
 
     /* Footer */
     footer{background:#eee;text-align:center;padding:20px;font-size:14px;color:#333}
-
   </style>
 </head>
 <body>
@@ -117,15 +142,25 @@
     </div>
   </nav>
 
+  <!-- Trust Bar -->
+  <div class="trust-bar">
+    <div class="trust-wrap">
+      <span><i class="dot"></i>Non-custodial</span>
+      <span>•</span>
+      <span><i class="dot"></i>MSB Registered</span>
+      <span>•</span>
+      <span><i class="dot"></i>Lightning Ready</span>
+    </div>
+  </div>
+
   <!-- Hero Section -->
   <header class="hero">
     <div class="hero-content">
       <h1>Bitcoin Wallet: Vault</h1>
       <p>Secure & Lightning Fast. Take full control of your Bitcoin with Vault Wallet — privacy-first, self-custodial, and built for speed.</p>
       <div class="store-badges">
-        <!-- App Store فقط كما طلبت -->
         <a href="https://apps.apple.com/app/id1234567890" target="_blank" rel="noopener">
-          <img src="images/app-store-badge.png" alt="Download on the App Store">
+          <img src="images/app-store-badge.png" alt="Download on the App Store" loading="lazy">
         </a>
       </div>
     </div>
