@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact Us – Bitcoin Wallet: Vault (Activate)</title>
+  <title>Contact Us – Bitcoin Wallet: Vault</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
     :root{
       --container:1200px;--bg-grad-1:#0f172a;--bg-grad-2:#1b2140;--card:#111827aa;
       --card-border:#37415188;--accent:#ff9900;--accent-hover:#e08700;--muted:#a3a3a3;
-      --text:#ffffff;--focus:#60a5fa;
+      --text:#ffffff;--success:#10b981;--danger:#ef4444;--focus:#60a5fa;
     }
     *{box-sizing:border-box} html{scroll-behavior:smooth}
     body{margin:0;font-family:Arial,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--text);
@@ -46,6 +46,7 @@
     .actions{display:flex;align-items:center;gap:12px;margin-top:6px}
     .btn{appearance:none;border:none;border-radius:10px;padding:12px 16px;font-weight:700;background:var(--accent);color:#111;cursor:pointer;transition:transform .15s,background .2s,opacity .2s;width:fit-content}
     .btn:hover{background:var(--accent-hover)} .btn:active{transform:translateY(1px)}
+    .btn:disabled{opacity:.6;cursor:not-allowed}
     .small-note{color:var(--muted);font-size:12px;margin-left:auto}
     .info-title{font-size:18px;margin:0 0 8px}
     .info-item{display:flex;align-items:flex-start;gap:10px;margin:10px 0;color:#e5e7eb}
@@ -53,6 +54,11 @@
     .info-item a{color:#ffcc66;text-decoration:none}
     .info-item a:hover{text-decoration:underline}
     .divider{height:1px;background:#2b2f43;margin:16px 0}
+    .toast{position:fixed;right:20px;top:80px;z-index:60;display:none;min-width:260px;max-width:360px;padding:12px 14px;border-radius:12px;font-size:14px;background:#0b3327;color:#dcfce7;border:1px solid #14532d;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+    .toast.error{background:#3a1010;color:#fee2e2;border-color:#7f1d1d}
+    .toast.show{display:block;animation:fadeIn .25s ease,fadeOut .25s ease 4s forwards}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes fadeOut{to{opacity:0;transform:translateY(-6px)}}
     footer{color:#cbd5e1;text-align:center;padding:24px 12px;opacity:.9}
   </style>
 </head>
@@ -72,38 +78,31 @@
 
   <div class="wrap">
     <h1 class="page-title">Contact Us</h1>
-    <p class="page-sub">Send a quick test from this page to activate delivery to our new address.</p>
+    <p class="page-sub">Questions, feedback, or partnership ideas? We’d love to hear from you. Fill the form and we’ll get back shortly.</p>
 
     <div class="grid">
       <div class="card">
-        <!-- إرسال مباشر إلى FormSubmit لتفعيل البريد -->
-        <form action="https://formsubmit.co/support@bitcoin-voult.org" method="POST">
+        <form id="contactForm" novalidate>
           <div class="row">
-            <div class="field">
-              <i class="fa-solid fa-user"></i>
+            <div class="field"><i class="fa-solid fa-user"></i>
               <input class="input" type="text" name="name" placeholder="Full Name" required>
             </div>
-            <div class="field">
-              <i class="fa-solid fa-at"></i>
+            <div class="field"><i class="fa-solid fa-at"></i>
               <input class="input" type="email" name="email" placeholder="Email" required>
             </div>
           </div>
-          <div class="field">
-            <i class="fa-solid fa-message"></i>
+          <div class="field"><i class="fa-solid fa-message"></i>
             <textarea class="textarea" name="message" placeholder="Your Message" required></textarea>
           </div>
 
-          <!-- إعدادات FormSubmit -->
+          <!-- إعدادات FormSubmit (تُضاف إلى FormData في JS أيضاً) -->
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_subject" value="New message from Vault site">
           <input type="hidden" name="_template" value="table">
-          <!-- منع سبام (honeypot) -->
           <input type="text" name="_honey" style="display:none">
-          <!-- إعادة توجيه بعد الإرسال (اختياري) -->
-          <!-- <input type="hidden" name="_next" value="https://yourdomain.com/thanks.html"> -->
 
           <div class="actions">
-            <button class="btn" type="submit"><i class="fa-solid fa-paper-plane"></i> Send</button>
+            <button id="submitBtn" class="btn" type="submit"><i class="fa-solid fa-paper-plane"></i> Send</button>
             <span class="small-note">We reply within 24–48h.</span>
           </div>
         </form>
@@ -111,12 +110,8 @@
 
       <aside class="card">
         <h3 class="info-title"><i class="fa-solid fa-circle-info"></i> Company Info</h3>
-        <div class="info-item">
-          <i class="fa-solid fa-location-dot"></i>
-          <div>
-            <strong>Business Address</strong><br/>
-            Bitcoin Wallet: Vault<br/>1209 Mountain Road Pl NE #5438<br/>Albuquerque, NM 87110, USA
-          </div>
+        <div class="info-item"><i class="fa-solid fa-location-dot"></i>
+          <div><strong>Business Address</strong><br/>Bitcoin Wallet: Vault<br/>1209 Mountain Road Pl NE #5438<br/>Albuquerque, NM 87110, USA</div>
         </div>
         <div class="info-item"><i class="fa-solid fa-envelope"></i>
           <a href="mailto:support@bitcoin-voult.org">support@bitcoin-voult.org</a>
@@ -132,10 +127,52 @@
     </div>
   </div>
 
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <footer>&copy; 2025 Bitcoin Wallet: Vault — Built for Freedom</footer>
 
   <script>
     function toggleMenu(){document.getElementById('navLinks').classList.toggle('show');}
+    const toast=(msg,type='success')=>{
+      const el=document.getElementById('toast');
+      el.className='toast '+(type==='error'?'error':'');
+      el.textContent=msg; el.classList.add('show'); setTimeout(()=>el.classList.remove('show'),4500);
+    };
+
+    const form=document.getElementById('contactForm');
+    const btn=document.getElementById('submitBtn');
+
+    form.addEventListener('submit',async(e)=>{
+      e.preventDefault();
+      const name=form.elements['name'].value.trim();
+      const email=form.elements['email'].value.trim();
+      const message=form.elements['message'].value.trim();
+      if(!name||!email||!message){ toast('❌ الرجاء تعبئة جميع الحقول.', 'error'); return; }
+
+      btn.disabled=true;
+      try{
+        const data=new FormData(form);
+        // نضمن وجود القيم حتى لو تم التلاعب بالـ DOM
+        data.set('_captcha','false');
+        data.set('_subject','New message from Vault site');
+        data.set('_template','table');
+        // data.set('_next','https://yourdomain.com/thanks.html'); // اختياري
+
+        const res=await fetch('https://formsubmit.co/ajax/support@bitcoin-voult.org',{
+          method:'POST',
+          body:data,
+          headers:{ 'Accept':'application/json' } // مهم لطلبات AJAX
+        });
+        if(!res.ok) throw new Error('Network error');
+        const json=await res.json();
+        if(json.success!==true && !json.ok){ /* بعض الاستجابات ترجع شكل مختلف */ }
+        form.reset();
+        toast('✅ تم إرسال الرسالة بنجاح. سنعاود التواصل معك قريبًا.');
+      }catch(err){
+        toast('❌ حدث خطأ أثناء الإرسال. حاول لاحقًا.', 'error');
+      }finally{
+        btn.disabled=false;
+      }
+    });
   </script>
 </body>
 </html>
