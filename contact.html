@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact Us – Bitcoin Wallet: Vault</title>
+  <title>Contact Us – Vault: Bitcoin Wallet</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
     :root{
@@ -95,7 +95,7 @@
             <textarea class="textarea" name="message" placeholder="Your Message" required></textarea>
           </div>
 
-          <!-- إعدادات FormSubmit (تُضاف إلى FormData في JS أيضاً) -->
+          <!-- FormSubmit -->
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_subject" value="New message from Vault site">
           <input type="hidden" name="_template" value="table">
@@ -111,10 +111,13 @@
       <aside class="card">
         <h3 class="info-title"><i class="fa-solid fa-circle-info"></i> Company Info</h3>
         <div class="info-item"><i class="fa-solid fa-location-dot"></i>
-          <div><strong>Business Address</strong><br/>Bitcoin Wallet: Vault<br/>1209 Mountain Road Pl NE #5438<br/>Albuquerque, NM 87110, USA</div>
+          <div><strong>Business Address</strong><br/>
+            FAMILIES HELPING FAMILIES OF SOUTHWEST LOUISIANA<br/>
+            2927 Hodges St, Lake Charles, LA 70601-8562, United States
+          </div>
         </div>
         <div class="info-item"><i class="fa-solid fa-envelope"></i>
-          <a href="mailto:support@bitcoin-voult.org">support@bitcoin-voult.org</a>
+          <a href="mailto:support@vaultbitcoin.org">support@vaultbitcoin.org</a>
         </div>
         <div class="info-item"><i class="fa-solid fa-phone"></i><span>+1 512 369 8743</span></div>
         <div class="divider"></div>
@@ -128,7 +131,7 @@
   </div>
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <footer>&copy; 2025 Bitcoin Wallet: Vault — Built for Freedom</footer>
+  <footer>&copy; 2025 Vault: Bitcoin Wallet — All rights reserved</footer>
 
   <script>
     function toggleMenu(){document.getElementById('navLinks').classList.toggle('show');}
@@ -151,20 +154,20 @@
       btn.disabled=true;
       try{
         const data=new FormData(form);
-        // نضمن وجود القيم حتى لو تم التلاعب بالـ DOM
+        // enforce values
         data.set('_captcha','false');
         data.set('_subject','New message from Vault site');
         data.set('_template','table');
-        // data.set('_next','https://yourdomain.com/thanks.html'); // اختياري
+        // data.set('_next','https://vaultbitcoin.org/thanks.html'); // optional
 
-        const res=await fetch('https://formsubmit.co/ajax/support@bitcoin-voult.org',{
+        const res=await fetch('https://formsubmit.co/ajax/support@vaultbitcoin.org',{
           method:'POST',
           body:data,
-          headers:{ 'Accept':'application/json' } // مهم لطلبات AJAX
+          headers:{ 'Accept':'application/json' }
         });
         if(!res.ok) throw new Error('Network error');
         const json=await res.json();
-        if(json.success!==true && !json.ok){ /* بعض الاستجابات ترجع شكل مختلف */ }
+        if(json.success!==true && !json.ok){ /* handle variant responses */ }
         form.reset();
         toast('✅ تم إرسال الرسالة بنجاح. سنعاود التواصل معك قريبًا.');
       }catch(err){
