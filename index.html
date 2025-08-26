@@ -3,26 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bitcoin Wallet – Vault | Secure & Lightning Fast</title>
+  <title>Vault: Bitcoin Wallet | Secure & Lightning Fast</title>
 
   <!-- Meta أساسية -->
-  <meta name="description" content="Bitcoin Wallet: Vault is the best self-custodial Bitcoin wallet, supporting Lightning payments with full control, privacy, and speed.">
-  <meta name="keywords" content="Bitcoin Wallet, Lightning Wallet, Vault, Crypto Wallet, Self Custody, Multisig Wallet">
-  <meta name="author" content="Bitcoin Wallet: Vault Team">
+  <meta name="description" content="Vault: Bitcoin Wallet is a self-custodial Bitcoin wallet with Lightning support — privacy-first, secure, and fast.">
+  <meta name="keywords" content="Vault Bitcoin Wallet, Lightning Wallet, Crypto Wallet, Self Custody, Multisig Wallet, BTC">
+  <meta name="author" content="FAMILIES HELPING FAMILIES OF SOUTHWEST LOUISIANA">
   <meta name="language" content="en">
 
-  <!-- Smart App Banner (iOS) -->
-  <meta name="apple-itunes-app" content="app-id=1234567890, app-argument=https://YOUR-DOMAIN">
+  <!-- Smart App Banner (iOS) — استبدل app-id لاحقًا -->
+  <meta name="apple-itunes-app" content="app-id=1234567890, app-argument=https://vaultbitcoin.org">
 
-  <!-- Schema.org (خفيف) -->
+  <!-- Schema.org -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"SoftwareApplication",
-    "name":"Bitcoin Wallet: Vault",
+    "name":"Vault: Bitcoin Wallet",
     "applicationCategory":"FinanceApplication",
-    "operatingSystem":"iOS",
-    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}
+    "operatingSystem":"iOS, Android",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+    "publisher": {
+      "@type": "Organization",
+      "name": "FAMILIES HELPING FAMILIES OF SOUTHWEST LOUISIANA"
+    }
   }
   </script>
 
@@ -107,9 +111,9 @@
     .band h3 i{color:#2563eb}
     .band p{margin:0;color:#374151}
 
-    /* ===== BTC widget (نفس التصميم) لكن على الخلفية البيضاء فوق Features ===== */
+    /* BTC widget */
     .btc-inline{padding:0 20px 32px;background:#fff}
-    .btc-wrap{max-width:900px;margin:-20px auto 0} /* قربناه قليلاً من نهاية الهيرو */
+    .btc-wrap{max-width:900px;margin:-20px auto 0}
     .btc-card{
       border:1px solid rgba(148,163,184,.25);
       background:rgba(15,23,42,.6);
@@ -160,7 +164,7 @@
     <div class="trust-wrap">
       <span class="trust-item"><i class="fa-solid fa-key"></i>Non-custodial</span>
       <span>•</span>
-      <span class="trust-item"><i class="fa-solid fa-shield-halved"></i>MSB Registered</span>
+      <span class="trust-item"><i class="fa-solid fa-user-shield"></i>User-controlled keys</span>
       <span>•</span>
       <span class="trust-item"><i class="fa-solid fa-bolt"></i>Lightning Ready</span>
     </div>
@@ -169,7 +173,7 @@
   <!-- Hero -->
   <header class="hero">
     <div class="hero-content">
-      <h1><i class="fa-solid fa-bitcoin-sign"></i>Bitcoin Wallet: Vault</h1>
+      <h1><i class="fa-solid fa-bitcoin-sign"></i>Vault: Bitcoin Wallet</h1>
       <p><i class="fa-solid fa-lock"></i> Secure & Lightning Fast. Take full control of your Bitcoin with Vault Wallet — privacy-first, self-custodial, and built for speed.</p>
       <div class="store-badges">
         <a href="https://apps.apple.com/app/id1234567890" target="_blank" rel="noopener" aria-label="Download on the App Store">
@@ -179,7 +183,7 @@
     </div>
   </header>
 
-  <!-- ===== BTC widget فوق Features على الخلفية البيضاء ===== -->
+  <!-- BTC widget -->
   <section class="btc-inline">
     <div class="btc-wrap">
       <div class="btc-card">
@@ -245,7 +249,7 @@
   <section id="multisig">
     <div class="container">
       <div class="section-head"><i class="fa-solid fa-user-lock"></i><h2 class="section-title">Multisig Security</h2></div>
-      <p class="section-sub">Add an extra layer of protection with multi-signature flows that keep your funds safe even if a device is lost.</p>
+    <p class="section-sub">Add an extra layer of protection with multi-signature flows that keep your funds safe even if a device is lost.</p>
       <div class="band observe">
         <h3><i class="fa-solid fa-lock"></i>2-of-2 & 2-of-3 Options</h3>
         <p>Flexible policies for personal or team setups — security without friction.</p>
@@ -255,7 +259,7 @@
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Bitcoin Wallet: Vault | Built for Freedom</p>
+    <p>&copy; 2025 Vault: Bitcoin Wallet | All rights reserved</p>
     <div class="footer-links">
       <span><i class="fa-solid fa-user-shield"></i> <a href="privacy.html" style="color:#cbd5e1;text-decoration:none">Privacy</a></span>
       <span><i class="fa-solid fa-file-contract"></i> <a href="terms.html" style="color:#cbd5e1;text-decoration:none">Terms</a></span>
@@ -309,7 +313,7 @@
     async function sparkFromBinance(){
       const r=await fetch('https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1m&limit=90');
       const j=await r.json();
-      return j.map(k=>parseFloat(k[4])); // close
+      return j.map(k=>parseFloat(k[4]));
     }
 
     async function getPrice(){ try{ return await priceFromCoinGecko(); }catch{ return await priceFromBinance(); } }
