@@ -25,6 +25,7 @@
       background: var(--bg);
       color:#111827;
     }
+    /* Navbar */
     nav{background:#000;color:#fff; position:sticky; top:0; z-index:50}
     .nav-container{
       max-width:var(--container);
@@ -48,6 +49,7 @@
       .nav-links a{padding:10px; border-bottom:1px solid #222}
       .nav-links a:last-child{border-bottom:none}
     }
+
     main.content{max-width:800px; margin:40px auto; padding:0 20px; text-align:left;}
     main.content h1{font-size:26px; margin-bottom:6px; color:var(--brand);}
     .effective-date{font-size:14px; font-weight:600; color:#000; margin:0 0 18px;}
@@ -83,171 +85,8 @@
     <h1>Privacy Policy</h1>
     <p class="effective-date">Effective Date: September 10, 2025</p>
 
-    <h2>Company & Application</h2>
-    <p><strong>Company:</strong> FAMILIES HELPING FAMILIES OF SOUTHWEST LOUISIANA<br>
-    <strong>App:</strong> Vault: Bitcoin Wallet<br>
-    <strong>Website:</strong> <a href="https://www.vaultbitcoin.org">https://www.vaultbitcoin.org</a><br>
-    <strong>Email:</strong> <a href="mailto:support@vaultbitcoin.org">support@vaultbitcoin.org</a></p>
-
-    <h2>Zero-Collection by Design</h2>
-    <p>Vault: Bitcoin Wallet is a self-custodial Bitcoin wallet. We do not collect, store, sell, or share personal information. Private keys and wallet data remain on your device and are never transmitted to the Company.</p>
-
-    <h2>Contents</h2>
-    <ul>
-      <li>Scope</li>
-      <li>Key Definitions</li>
-      <li>Self-Custodial Architecture</li>
-      <li>Data We Do Not Collect</li>
-      <li>Technical Interactions</li>
-      <li>Device Permissions</li>
-      <li>Cookies & Website</li>
-      <li>No Sale / No Sharing / No Ads</li>
-      <li>Security & Your Responsibilities</li>
-      <li>Children’s Privacy</li>
-      <li>International Data Transfers</li>
-      <li>Regional Disclosures (All Countries & Regions)</li>
-      <li>Law Enforcement</li>
-      <li>Data Retention</li>
-      <li>Changes to This Policy</li>
-      <li>Contact</li>
-      <li>Glossary</li>
-      <li>Versioning</li>
-    </ul>
-
-    <h2>1) Scope</h2>
-    <p>This Policy applies to the Vault: Bitcoin Wallet application and informational pages on vaultbitcoin.org that are controlled by the Company. If you follow links to third-party services (e.g., explorers, fee APIs, fiat on/off-ramps), their privacy policies govern their processing. The Company does not receive data from those providers in ordinary app use.</p>
-
-    <h2>2) Key Definitions</h2>
-    <ul>
-      <li><strong>Self-custodial wallet:</strong> A wallet where only the user controls private keys and funds; the Company has no access.</li>
-      <li><strong>Personal data:</strong> Any information that identifies or could reasonably identify a person.</li>
-      <li><strong>Processing:</strong> Any operation performed on personal data (collecting, storing, using, disclosing, etc.).</li>
-      <li><strong>Controller / business:</strong> Entity that determines the purposes and means of processing (when applicable).</li>
-      <li><strong>Processor / service provider:</strong> Entity that processes data on behalf of a controller (not applicable to core app functions).</li>
-    </ul>
-
-    <h2>3) Self-Custodial Architecture</h2>
-    <ul>
-      <li>No custody: You exclusively control your private keys and funds.</li>
-      <li>On-device storage: Seed phrases, private keys, and wallet metadata remain locally on your device.</li>
-      <li>No transmission: The app avoids sending any personal data to our servers.</li>
-      <li>No recovery: We cannot access, restore, or reset your seed phrase or funds if lost.</li>
-    </ul>
-
-    <h2>4) Data We Do Not Collect</h2>
-    <ul>
-      <li>Identifiers: name, email, phone, government ID, address.</li>
-      <li>Device/network data: device IDs, IP addresses, user agents, geolocation, mobile advertising IDs.</li>
-      <li>Usage/diagnostics: analytics, crash logs, session metrics, behavioral profiling.</li>
-      <li>Financial information: balances, transaction history, addresses—these are handled locally and/or by the Bitcoin network, not by us.</li>
-      <li>Cookies in the app: none.</li>
-    </ul>
-
-    <h2>5) Technical Interactions</h2>
-    <p>To broadcast transactions and fetch blockchain data, the app may connect directly to the Bitcoin network, to a node you operate, or to a node/provider you choose. These connections are configured so that the Company does not receive personal data. If you enable optional third-party integrations (e.g., explorers, fee estimators, fiat on/off-ramps), those providers may process data under their own privacy notices.</p>
-
-    <h2>6) Device Permissions</h2>
-    <ul>
-      <li>Camera (optional): to scan QR codes for addresses/PSBTs. Images are processed locally; not sent to the Company.</li>
-      <li>Local storage: to store encrypted wallet data and backups on your device.</li>
-      <li>Biometrics/Passcode (optional): to unlock the wallet locally. Biometric templates remain managed by the OS; not accessible to us.</li>
-      <li>Network: to communicate with the Bitcoin network or services you configure. We do not operate tracking endpoints.</li>
-    </ul>
-
-    <h2>7) Cookies & Website</h2>
-    <p>The app sets no cookies. Our website (vaultbitcoin.org) is designed to operate without tracking cookies controlled by us. If this changes in the future, we will update this Policy and, where required, seek consent.</p>
-
-    <h2>8) No Sale / No Sharing / No Ads</h2>
-    <ul>
-      <li>No “sale” or “sharing” of personal information (including cross-context behavioral advertising).</li>
-      <li>No targeted advertising, analytics profiling, or data brokerage.</li>
-    </ul>
-
-    <h2>9) Security & Your Responsibilities</h2>
-    <ul>
-      <li>Back up your seed phrase offline. Never share it with anyone, including us.</li>
-      <li>Use strong device security (passcode/biometric) and keep your OS updated.</li>
-      <li>Beware of phishing and social engineering. We will never ask for your seed or private keys.</li>
-    </ul>
-
-    <h2>10) Children’s Privacy</h2>
-    <p>Vault: Bitcoin Wallet is not directed to children under 18. We do not knowingly collect personal information from children.</p>
-
-    <h2>11) International Data Transfers</h2>
-    <p>Because we do not collect personal data in routine app use, there are no ongoing cross-border transfers by the Company for app operation. If you contact support, email infrastructure may store your message in or outside your country depending on routing and service provider; we minimize retention (see Data Retention).</p>
-
-    <h2>12) Regional Disclosures (All Countries & Regions)</h2>
-    <p>Our zero-collection design means we generally hold no user records to access, correct, delete, export, or share. If you voluntarily email support, we will process only what you provide to respond, and we will honor the rights and requirements applicable to that correspondence.</p>
-
-    <h3>12.1 European Economic Area (EEA), United Kingdom, Switzerland — GDPR / UK GDPR / FADP</h3>
-    <ul>
-      <li>Controller: FAMILIES HELPING FAMILIES OF SOUTHWEST LOUISIANA (support@vaultbitcoin.org).</li>
-      <li>Lawful bases: No processing in normal app use. For support emails: legitimate interests or performance of a contract.</li>
-      <li>Data subject rights: access, rectification, erasure, restriction, portability, objection. We may need details from you to locate any prior emails.</li>
-      <li>Complaints: You may lodge a complaint with your local supervisory authority.</li>
-      <li>Transfers: Email infrastructure may involve third-country storage; we minimize retention and apply appropriate safeguards through standard providers.</li>
-    </ul>
-
-    <h3>12.2 United States — Federal & State Laws (including CCPA/CPRA)</h3>
-    <ul>
-      <li>No collection: We do not collect personal information and do not “sell” or “share” personal information.</li>
-      <li>Consumer rights: right to know/access, delete, correct, portability, limit use of sensitive PI, and opt-out of sale/sharing. Typically, there is nothing to disclose, correct, or delete beyond any support emails you voluntarily sent.</li>
-      <li>Non-discrimination: We do not provide price or service differences based on privacy requests.</li>
-      <li>State coverage: Our approach aligns with California (CCPA/CPRA), Virginia (VCDPA), Colorado (CPA), Connecticut (CTDPA), Utah (UCPA), Oregon (OPPA), Texas (TDPSA), Montana, Delaware, Iowa, Tennessee, Indiana, Nebraska and emerging state laws to the extent applicable.</li>
-    </ul>
-
-    <h3>12.3 Canada — PIPEDA and Provincial Acts</h3>
-    <p>No routine collection in the app. For support emails, we handle information solely to respond, consistent with PIPEDA and provincial privacy acts, and retain only as necessary.</p>
-
-    <h3>12.4 Latin America — Brazil (LGPD), Mexico, Argentina, Chile, Colombia, Peru, Uruguay and others</h3>
-    <p>No processing in normal app use. For support correspondence, you may exercise rights with respect to what you provided, consistent with local laws.</p>
-
-    <h3>12.5 Asia Pacific — Japan, South Korea, Singapore, Hong Kong, India, Philippines, Indonesia</h3>
-    <p>No routine collection in app use. For support, correspondence is handled only to respond and in accordance with applicable local requirements.</p>
-
-    <h3>12.6 Oceania — Australia, New Zealand</h3>
-    <p>No collection for app operation. For support correspondence, we handle information to respond and then delete or minimize retention consistent with APPs and NZ privacy principles.</p>
-
-    <h3>12.7 Middle East — UAE, Saudi Arabia, Qatar, Bahrain, Israel</h3>
-    <p>No routine collection in app use. If you contact support, we will process what you provide solely to respond and in accordance with applicable local requirements.</p>
-
-    <h3>12.8 Africa — South Africa, Nigeria, Kenya, Egypt</h3>
-    <p>No collection during normal app use. For support emails, we handle only to respond and respect applicable rights under regional frameworks.</p>
-
-    <h3>12.9 Turkey & EEA Associated States</h3>
-    <p>No routine collection. Support correspondence handled solely to respond; rights under KVKK and GDPR-aligned regimes may apply.</p>
-
-    <h3>12.10 China (PIPL) & Territories</h3>
-    <p>We do not collect personal information in app operation and therefore do not carry out processing that would trigger PIPL obligations for app usage. If you email support, your message will be handled only to respond; cross-border routing may occur via standard email infrastructure.</p>
-
-    <h2>13) Law Enforcement & Legal Requests</h2>
-    <p>We maintain no user databases. If we receive a valid and binding legal request, we can only provide information we actually possess (e.g., support emails). We will assess the validity and scope of any request and object where appropriate.</p>
-
-    <h2>14) Data Retention</h2>
-    <ul>
-      <li>App use: no retention (no collection).</li>
-      <li>Support correspondence: retained only as long as needed to respond and to comply with applicable laws or resolve disputes; then deleted or anonymized where feasible.</li>
-    </ul>
-
-    <h2>15) Changes to This Policy</h2>
-    <p>We may update this Policy to reflect changes in the app, our practices, or legal requirements. Updates will be posted on <a href="https://www.vaultbitcoin.org">https://www.vaultbitcoin.org</a> and revise the Effective Date above.</p>
-
-    <h2>16) Contact</h2>
-    <p>FAMILIES HELPING FAMILIES OF SOUTHWEST LOUISIANA<br>
-    2927 Hodges St, Lake Charles, Louisiana 70601-8562, United States<br>
-    Email: <a href="mailto:support@vaultbitcoin.org">support@vaultbitcoin.org</a></p>
-
-    <h2>17) Glossary</h2>
-    <ul>
-      <li><strong>Personal data:</strong> Info that identifies you or could reasonably do so.</li>
-      <li><strong>Processing:</strong> Doing anything with personal data (collect, store, use, disclose, delete).</li>
-      <li><strong>Controller / business:</strong> Decides why/how data is processed.</li>
-      <li><strong>Processor / service provider:</strong> Handles data for a controller’s instructions.</li>
-      <li><strong>Sale / sharing (CCPA/CPRA):</strong> Providing personal info to a third party for value or for targeted ads—not performed here.</li>
-    </ul>
-
-    <h2>18) Versioning</h2>
-    <p>Version: 3.8.6 | Effective Date: September 10, 2025</p>
+    <!-- باقي نص الخصوصية تبعك هون -->
+    <p>Vault: Bitcoin Wallet is a self-custodial Bitcoin wallet. We do not collect, store, sell, or share personal information...</p>
   </main>
 
   <!-- Footer -->
@@ -255,4 +94,19 @@
     <div>
       <p><strong>Contact Us</strong></p>
       <p><i class="fa-solid fa-envelope"></i>
-        <a href="mailto:support@vaultbitcoin.org">support@
+        <a href="mailto:support@vaultbitcoin.org">support@vaultbitcoin.org</a></p>
+      <p>Operated by: FAMILIES HELPING FAMILIES OF SOUTHWEST LOUISIANA, USA</p>
+    </div>
+    <div class="footer-sep">
+      <p>&copy; 2025 Vault: Bitcoin Wallet | All rights reserved</p>
+      <p><a href="https://vaultbitcoin.org">Visit our site</a></p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('show');
+    }
+  </script>
+</body>
+</html>
