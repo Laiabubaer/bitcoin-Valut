@@ -1,121 +1,257 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Terms and Conditions – BitOrion: Bitcoin Wallet</title>
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-
+  <title>Contact Us - BitOrion: Bitcoin Wallet</title>
   <style>
-    :root{
-      --container: 1200px;
-      --ink: #0f172a;
-      --brand: #0a1f44;
-      --muted: #475569;
-      --border: #e5e7eb;
-      --bg: #f9fafb;
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #121624;
+      color: #fff;
     }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family: Arial, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      background: var(--bg);
-      color:#111827;
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #000;
+      padding: 10px 20px;
+      position: relative;
     }
-    nav{background:#000;color:#fff; position:sticky; top:0; z-index:50}
-    .nav-container{
-      max-width:var(--container);
-      margin:0 auto;
-      display:flex; align-items:center; justify-content:space-between;
-      padding:12px 20px; gap:16px;
+
+    .logo-img {
+      width: 40px;
+      height: 40px;
     }
-    .logo-text{font-weight:800; font-size:18px; color:#fff; margin-right:auto;}
-    .menu-toggle{display:none; flex-direction:column; cursor:pointer}
-    .menu-toggle div{width:25px; height:3px; background:#fff; margin:4px 0; border-radius:2px}
-    .nav-links{display:flex; gap:22px}
-    .nav-links a{color:#fff; text-decoration:none; font-size:14px; opacity:.92; display:inline-flex; align-items:center; gap:8px;}
-    .nav-links a:hover{opacity:1}
-    @media (max-width:768px){
-      .menu-toggle{display:flex}
-      .nav-links{display:none; position:absolute; top:56px; right:20px; background:#000;
-        flex-direction:column; width:200px; padding:10px; border-radius:10px;
-        box-shadow:0 10px 30px rgba(0,0,0,.4);
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle div {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 4px 0;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
       }
-      .nav-links.show{display:flex}
-      .nav-links a{padding:10px; border-bottom:1px solid #222}
-      .nav-links a:last-child{border-bottom:none}
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #000;
+        position: absolute;
+        top: 55px;
+        right: 20px;
+        width: 180px;
+        padding: 10px;
+        border-radius: 6px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        text-align: right;
+        z-index: 99;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 10px 0;
+        border-bottom: 1px solid #222;
+      }
+
+      .nav-links a:last-child {
+        border-bottom: none;
+      }
     }
-    main.content{max-width:800px; margin:40px auto; padding:0 20px; text-align:left;}
-    main.content h1{font-size:26px; margin-bottom:6px; color:var(--brand);}
-    .effective-date{font-size:14px; font-weight:600; color:#000; margin:0 0 18px;}
-    main.content p, main.content li{font-size:16px; line-height:1.6; margin-bottom:15px;}
-    main.content h2{font-size:20px; margin-top:28px; margin-bottom:10px; color:var(--brand); padding-bottom:6px; border-bottom:2px solid var(--border);}
-    main.content ul{margin-left:20px; padding-left:0}
-    footer{background:#0a1f44; color:#e5e7eb; text-align:center; padding:28px 20px; font-size:14px; margin-top:40px;}
-    footer a{color:#cbd5e1; text-decoration:none}
-    footer a:hover{text-decoration:underline}
-    .footer-sep{margin-top:30px; border-top:1px solid #334155; padding-top:15px}
+
+    .container {
+      max-width: 600px;
+      margin: 80px auto;
+      padding: 35px 25px;
+      background-color: #1c1f2e;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 26px;
+    }
+
+    p {
+      text-align: center;
+      font-size: 14px;
+      color: #ccc;
+      margin-bottom: 25px;
+    }
+
+    input, textarea {
+      width: 94%;
+      padding: 6px 10px;
+      margin: 6px 0;
+      border: none;
+      border-radius: 6px;
+      font-size: 13px;
+      background-color: #fff;
+      color: #000;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    button {
+      width: 100%;
+      padding: 9px;
+      background-color: #ff9900;
+      border: none;
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e08700;
+    }
+
+    .contact-info {
+      font-size: 13px;
+      color: #ccc;
+      margin-top: 30px;
+    }
+
+    .contact-info img {
+      width: 16px;
+      vertical-align: middle;
+      margin-right: 6px;
+    }
+
+    .contact-info p {
+      margin: 6px 0;
+    }
+
+    .privacy-note {
+      font-size: 12px;
+      color: #aaa;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .privacy-note a {
+      color: #ffcc66;
+      text-decoration: underline;
+    }
+
+    .back-home {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .back-home a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #ff9900;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .back-home a:hover {
+      background-color: #e08700;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
   <nav>
     <div class="nav-container">
-      <div class="logo-text">BitOrion</div>
+      <img src="images/logo.png" alt="Logo" class="logo-img">
       <div class="menu-toggle" onclick="toggleMenu()">
-        <div></div><div></div><div></div>
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
       <div class="nav-links" id="navLinks">
-        <a href="index.html"><i class="fa-solid fa-house"></i><span>Home</span></a>
-        <a href="privacy.html"><i class="fa-solid fa-lock"></i><span>Privacy</span></a>
-        <a href="terms.html"><i class="fa-solid fa-file-contract"></i><span>Terms</span></a>
-        <a href="contact.html"><i class="fa-solid fa-phone"></i><span>Contact</span></a>
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
+        <a href="compliance.html">Compliance</a>
       </div>
     </div>
   </nav>
 
-  <!-- Content -->
-  <main class="content">
-    <h1>Terms and Conditions</h1>
-    <p class="effective-date">Effective Date: September 22, 2025</p>
+  <div class="container">
+    <h2>Contact Us</h2>
+    <p>For inquiries about BitOrion: Bitcoin Wallet, our secure and self-custodial Bitcoin app, please use the form below or reach out directly.</p>
 
-    <p>Welcome to <strong>BitOrion: bitcoin wallet!</strong></p>
+    <form action="https://formsubmit.co/support@BitOrion.app" method="POST">
+      <input type="hidden" name="_next" value="https://laiabubaer.github.io/secure-wallet-site/thank-you.html">
+      <input type="hidden" name="_captcha" value="false">
 
-    <p>Welcome to BitOrion: bitcoin wallet (“Website”), operated by <strong>AKTUEL OFIS MALZEMELERI PAZARLAMA TICARET ANONIM SIRKETI</strong> (“Company,” “we,” “us,” or “our”). These Terms and Conditions govern your access to and use of the Website located at <a href="https://www.BitOrion.app">https://www.BitOrion.app</a>.</p>
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
 
-    <p>By accessing this Website, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions in their entirety. If you do not agree with any part of these Terms and Conditions, please discontinue your use of BitOrion: bitcoin wallet immediately.</p>
+      <button type="submit">Send</button>
+    </form>
 
-    <!-- Sections stay the same as your provided version (Cookies, License, Comments, Links, Liability, etc.) -->
-
-    <h2>10. Contact Us</h2>
-    <p>If you have any questions about these Terms, you can contact us:</p>
-    <ul>
-      <li>By email: <a href="mailto:support@BitOrion.app">support@BitOrion.app</a></li>
-      <li>By phone: +90-5418157912</li>
-      <li>By mail: AKTUEL OFIS MALZEMELERI PAZARLAMA TICARET ANONIM SIRKETI, NO:2-6 SULTAN SELIM MAHALLESI, BEHCET SOKAK, KAGITHANE, Istanbul (Europe), 34415, Türkiye</li>
-    </ul>
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    <div>
-      <p><strong>Contact Us</strong></p>
-      <p><i class="fa-solid fa-envelope"></i>
-        <a href="mailto:support@BitOrion.app">support@BitOrion.app</a></p>
-      <p><i class="fa-solid fa-phone"></i> +90-5418157912</p>
-      <p>Operated by: AKTUEL OFIS MALZEMELERI PAZARLAMA TICARET ANONIM SIRKETI, Türkiye</p>
+    <div class="privacy-note">
+      We collect your contact information solely to respond to your inquiry. We do not share your data with third parties. By submitting this form, you agree to our <a href="privacy.html">Privacy Policy</a>.
     </div>
-    <div class="footer-sep"></div>
-  </footer>
+
+    <div class="contact-info">
+      <p><strong>Business Address:</strong><br>
+      AKTUEL OFIS MALZEMELERI PAZARLAMA TICARET ANONIM SIRKETI<br>
+      NO:2-6 SULTAN SELIM MAHALLESI, BEHCET SOKAK<br>
+      KAGITHANE, Istanbul (Europe), 34415, Türkiye</p>
+
+      <p>
+        <img src="images/icons8-email-48.png" alt="Email Icon"> support@BitOrion.app
+      </p>
+      <p>
+        <img src="images/icons8-phone-24.png" alt="Phone Icon"> +90-5418157912
+      </p>
+    </div>
+
+    <div class="back-home">
+      <a href="index.html">Return to Home</a>
+    </div>
+  </div>
 
   <script>
     function toggleMenu() {
-      document.getElementById('navLinks').classList.toggle('show');
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.toggle('show');
     }
   </script>
+
 </body>
 </html>
