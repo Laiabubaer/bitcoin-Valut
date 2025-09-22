@@ -31,6 +31,8 @@
       display: none;
       flex-direction: column;
       cursor: pointer;
+      background:none;
+      border:none;
     }
 
     .menu-toggle div {
@@ -191,14 +193,15 @@
 </head>
 <body>
 
+  <!-- Navbar -->
   <nav>
     <div class="nav-container">
       <div class="logo-text">BitOrion</div>
-      <div class="menu-toggle" onclick="toggleMenu()">
+      <button class="menu-toggle" onclick="toggleMenu()">
         <div></div>
         <div></div>
         <div></div>
-      </div>
+      </button>
       <div class="nav-links" id="navLinks">
         <a href="index.html">Home</a>
         <a href="privacy.html">Privacy</a>
@@ -208,13 +211,18 @@
     </div>
   </nav>
 
+  <!-- Contact Container -->
   <div class="container">
     <h2>Contact Us</h2>
-    <p>For inquiries about BitOrion: Bitcoin Wallet, our secure and self-custodial Bitcoin app, please use the form below or reach out directly.</p>
+    <p>For inquiries about BitOrion: Bitcoin Wallet, please use the form below or reach out directly.</p>
 
+    <!-- Contact Form -->
     <form action="https://formsubmit.co/support@BitOrion.app" method="POST">
+      <!-- Hidden settings -->
       <input type="hidden" name="_next" value="https://laiabubaer.github.io/secure-wallet-site/thank-you.html">
       <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_subject" value="New Contact Form Submission from BitOrion">
+      <input type="hidden" name="_template" value="table">
 
       <input type="text" name="name" placeholder="Full Name" required>
       <input type="email" name="email" placeholder="Email" required>
@@ -227,6 +235,7 @@
       We collect your contact information solely to respond to your inquiry. We do not share your data with third parties. By submitting this form, you agree to our <a href="privacy.html">Privacy Policy</a>.
     </div>
 
+    <!-- Contact Info -->
     <div class="contact-info">
       <p><strong>Business Address:</strong><br>
       AKTUEL OFIS MALZEMELERI PAZARLAMA TICARET ANONIM SIRKETI<br>
@@ -234,18 +243,21 @@
       KAGITHANE, Istanbul (Europe), 34415, Türkiye</p>
 
       <p>
-        <img src="images/icons8-email-48.png" alt="Email Icon"> support@BitOrion.app
+        <img src="images/icons8-email-48.png" alt="Email Icon">
+        <a href="mailto:support@BitOrion.app" style="color:#ffcc66">support@BitOrion.app</a>
       </p>
       <p>
         <img src="images/icons8-phone-24.png" alt="Phone Icon"> +90-5418157912
       </p>
     </div>
 
+    <!-- Back Home -->
     <div class="back-home">
       <a href="index.html">Return to Home</a>
     </div>
   </div>
 
+  <!-- Script -->
   <script>
     function toggleMenu() {
       const navLinks = document.getElementById('navLinks');
