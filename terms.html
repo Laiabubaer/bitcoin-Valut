@@ -1,179 +1,141 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Terms and Conditions – BitOrion </title>
+  <title>Terms and Conditions | BitOrion</title>
 
-  <!-- Font Awesome -->
+  <meta name="description" content="BitOrion Terms and Conditions – Please read carefully before using our services.">
+  <meta name="keywords" content="BitOrion Terms, Bitcoin Wallet Agreement, Crypto Usage Policy">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <style>
-    :root{
+    :root {
+      --bg-dark: #0f172a;
+      --bg-light: #ffffff;
+      --primary: #2563eb;
+      --secondary: #38bdf8;
+      --text: #1e293b;
+      --muted: #64748b;
+      --radius: 14px;
+      --shadow: 0 8px 24px rgba(0,0,0,0.08);
       --container: 1200px;
-      --ink: #0f172a;
-      --brand: #0a1f44;
-      --muted: #475569;
-      --border: #e5e7eb;
-      --bg: #f9fafb;
     }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family: Arial, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      background: var(--bg);
-      color:#111827;
+    * {margin:0;padding:0;box-sizing:border-box;}
+    body {font-family: "Inter", Arial, sans-serif; line-height:1.6; background: var(--bg-light); color: var(--text);}
+
+    /* Navbar */
+    nav {
+      background: var(--bg-dark);
+      color: #fff;
+      padding: 16px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 50;
     }
-    nav{background:#000;color:#fff; position:sticky; top:0; z-index:50}
-    .nav-container{
-      max-width:var(--container);
-      margin:0 auto;
-      display:flex; align-items:center; justify-content:space-between;
-      padding:12px 20px; gap:16px;
+    .nav-container {
+      max-width: var(--container);
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    .logo-text{font-weight:800; font-size:18px; color:#fff; margin-right:auto;}
-    .menu-toggle{display:none; flex-direction:column; cursor:pointer; background:none; border:none;}
-    .menu-toggle div{
-      width:25px;
-      height:3px;
-      background:#fff;
-      margin:4px 0;
+    .logo {font-weight: 700; font-size: 20px; color:#fff; display:flex;align-items:center; gap:8px;}
+    .nav-links {display: flex; gap: 20px;}
+    .nav-links a {color:#fff; text-decoration:none; font-size:15px; transition:0.2s;}
+    .nav-links a:hover {color: var(--secondary);}
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(160deg, var(--bg-dark) 40%, #1e293b 100%);
+      color: #fff;
+      text-align: center;
+      padding: 80px 20px;
     }
-    .nav-links{display:flex; gap:22px}
-    .nav-links a{color:#fff; text-decoration:none; font-size:14px; opacity:.92; display:inline-flex; align-items:center; gap:8px;}
-    .nav-links a:hover{opacity:1}
-    @media (max-width:768px){
-      .menu-toggle{display:flex}
-      .nav-links{display:none; position:absolute; top:56px; right:20px; background:#000;
-        flex-direction:column; width:220px; padding:10px; border-radius:10px;
-        box-shadow:0 10px 30px rgba(0,0,0,.4);
-      }
-      .nav-links.show{display:flex}
-      .nav-links a{padding:10px; border-bottom:1px solid #222}
-      .nav-links a:last-child{border-bottom:none}
+    .hero h1 {font-size: 36px; margin-bottom: 12px;}
+    .hero p {font-size: 17px; color: #cbd5e1;}
+
+    /* Content */
+    .content {max-width: 900px; margin:40px auto; padding:0 20px;}
+    .content h2 {font-size: 24px; margin-top:32px; margin-bottom:12px; color: var(--primary);}
+    .content h3 {font-size: 18px; margin-top:20px; margin-bottom:8px; color: var(--text);}
+    .content p, .content li {font-size:16px; margin-bottom:15px; color: var(--text);}
+    .content ul {margin-left:20px;}
+
+    .effective-date {
+      font-size:14px; 
+      font-weight:600; 
+      color:#555; 
+      margin-bottom:20px;
     }
-    main.content{max-width:800px; margin:40px auto; padding:0 20px; text-align:left;}
-    main.content h1{font-size:26px; margin-bottom:6px; color:var(--brand);}
-    .effective-date{font-size:14px; font-weight:600; color:#000; margin:0 0 18px;}
-    main.content p, main.content li{font-size:16px; line-height:1.6; margin-bottom:15px;}
-    main.content h2{font-size:20px; margin-top:28px; margin-bottom:10px; color:var(--brand); padding-bottom:6px; border-bottom:2px solid #ddd;}
-    main.content h3{font-size:18px; margin-top:18px; color:var(--ink);}
-    main.content ul{margin-left:20px; padding-left:0}
-    footer{background:#0a1f44; color:#e5e7eb; text-align:center; padding:28px 20px; font-size:14px; margin-top:40px;}
-    footer a{color:#cbd5e1; text-decoration:none}
-    footer a:hover{text-decoration:underline}
-    .footer-links{display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:10px}
+
+    /* Footer */
+    footer {
+      background: var(--bg-dark);
+      color:#cbd5e1;
+      text-align:center;
+      padding:30px 16px;
+      margin-top:40px;
+    }
+    footer a {color:#94a3b8; text-decoration:none; margin:0 10px; font-size:14px;}
+    footer a:hover {color:#fff;}
   </style>
 </head>
 <body>
 
   <!-- Navbar -->
-  <nav aria-label="Primary">
+  <nav>
     <div class="nav-container">
-      <div class="logo-text">BitOrion</div>
-      <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
-        <div></div><div></div><div></div>
-      </button>
+      <div class="logo"><i class="fa-solid fa-bitcoin-sign"></i> BitOrion</div>
       <div class="nav-links" id="navLinks">
-        <a href="index.html"><i class="fa-solid fa-house"></i><span>Home</span></a>
-        <a href="privacy.html"><i class="fa-solid fa-lock"></i><span>Privacy</span></a>
-        <a href="terms.html"><i class="fa-solid fa-file-contract"></i><span>Terms</span></a>
-        <a href="contact.html"><i class="fa-solid fa-phone"></i><span>Contact</span></a>
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
       </div>
     </div>
   </nav>
 
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Terms and Conditions</h1>
+    <p>Read the rules and guidelines for using BitOrion.</p>
+  </section>
+
   <!-- Content -->
   <main class="content">
-    <h1>Terms and Conditions</h1>
     <p class="effective-date">Effective Date: September 22, 2025</p>
 
-    <p>Welcome to <strong>BitOrion: bitcoin wallet</strong> (“Website”). The Website is operated by
-      <strong>AKTUEL OFIS MALZEMELERI PAZARLAMA TICARET ANONIM SIRKETI</strong> (“Company,” “we,” “us,” or “our”). These Terms and Conditions govern your access to and use of the Website located at
-      <a href="https://www.satguards.com" rel="noopener">https://www.bitorion.app</a>.
-    </p>
-
-    <p>By accessing this Website, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions in their entirety. If you do not agree with any part of these Terms, please discontinue your use of BitOrion: bitcoin wallet immediately.</p>
+    <p>Welcome to <strong>BitOrion</strong>. These Terms and Conditions govern your access to and use of our services.</p>
 
     <h2>1. Cookies</h2>
-    <p>We use cookies to personalize and enhance your browsing experience on the Website. By accessing BitOrion: bitcoin wallet, you consent to our use of the necessary cookies.</p>
-    <p>A cookie is a small text file placed on your device by a web server. Cookies cannot run programs or transmit viruses. Each cookie is uniquely assigned to you and can only be read by the web server that issued it.</p>
-    <p>We may use cookies to collect, store, and track information for statistical or marketing purposes. You can choose to accept or decline optional cookies. Some cookies are essential for the Website’s functionality, and their use does not require your consent. Accepting essential cookies may also include certain third-party cookies (e.g., embedded media) necessary for features to work.</p>
+    <p>By accessing <strong>BitOrion</strong>, you consent to the use of cookies essential for functionality. Optional cookies may be declined through your browser settings.</p>
 
     <h2>2. License</h2>
-    <p>Unless otherwise specified, <strong>AKTUEL OFIS MALZEMELERI PAZARLAMA TICARET ANONIM SIRKETI</strong> and/or its licensors hold all intellectual property rights to all material on BitOrion: bitcoin wallet.</p>
-    <p>You are granted a limited license to access and use the Website for your personal use, subject to the following restrictions. You must not:</p>
+    <p>Unless otherwise specified, the Company owns all intellectual property rights to all material on <strong>BitOrion</strong>. You may only use the Website for personal purposes and may not:</p>
     <ul>
-      <li>Copy or republish material from BitOrion: bitcoin wallet</li>
-      <li>Sell, rent, or sub-license material from BitOrion: bitcoin wallet</li>
-      <li>Reproduce, duplicate, or copy material from BitOrion: bitcoin wallet</li>
-      <li>Redistribute content from BitOrion: bitcoin wallet</li>
+      <li>Republish or redistribute content from BitOrion</li>
+      <li>Sell, rent, or sub-license material from BitOrion</li>
+      <li>Copy or duplicate material from BitOrion</li>
     </ul>
-    <p>This Agreement is effective from the date of publication.</p>
 
-    <h2>3. User Comments and Content</h2>
-    <p>Certain sections of this Website may allow users to post and exchange opinions, information, and other materials (“Comments”).</p>
-    <p>The Company does not pre-screen, edit, publish, or review Comments prior to their appearance. Comments reflect only the views of the individuals who post them. To the fullest extent permitted by law, the Company shall not be liable for any Comments or for any liabilities, damages, or expenses caused and/or suffered as a result of any use of and/or posting of and/or appearance of the Comments on this Website.</p>
-    <p>The Company reserves the right to monitor all Comments and to remove any Comments considered inappropriate, offensive, or otherwise in breach of these Terms.</p>
-    <p>By posting Comments, you warrant that:</p>
-    <ul>
-      <li>You have the necessary rights and licenses to post the Comments.</li>
-      <li>The Comments do not infringe the intellectual property rights of any third party.</li>
-      <li>The Comments are not defamatory, libelous, offensive, indecent, or otherwise unlawful.</li>
-      <li>The Comments will not be used for solicitation, promotion, or unlawful activity.</li>
-    </ul>
-    <p>You hereby grant the Company a non-exclusive, worldwide, irrevocable, royalty-free license to use, reproduce, and edit your Comments in any form or medium.</p>
+    <h2>3. User Content</h2>
+    <p>You are responsible for any content you post on <strong>BitOrion</strong>. The Company reserves the right to remove content that is inappropriate or violates these Terms.</p>
 
-    <h2>4. Hyperlinking to Our Content</h2>
-    <h3>4.1 Without Prior Written Approval</h3>
-    <p>The following organizations may link to our Website without prior written approval:</p>
-    <ul>
-      <li>Government agencies</li>
-      <li>Search engines</li>
-      <li>News organizations</li>
-      <li>Online directory distributors</li>
-      <li>Accredited businesses (except non-profits, charity malls, and fundraising groups)</li>
-    </ul>
-    <p>They may link to our homepage, publications, or other Website information provided that the link:
-      (a) is not deceptive; (b) does not falsely imply sponsorship or endorsement; and (c) fits within the linking party’s site context.</p>
+    <h2>4. Links</h2>
+    <p>You may link to our homepage as long as the link is not deceptive, does not imply sponsorship, and fits within the context of your site.</p>
 
-    <h3>4.2 With Prior Written Approval</h3>
-    <p>We may approve link requests from organizations such as:</p>
-    <ul>
-      <li>Consumer/business information sources</li>
-      <li>Community-based websites</li>
-      <li>Associations or charities</li>
-      <li>Internet portals</li>
-      <li>Accounting, law, and consulting firms</li>
-      <li>Educational institutions and trade associations</li>
-    </ul>
-    <p>Approval will be granted if: (a) the link does not reflect poorly on us; (b) the organization has no negative history with us; (c) the benefit of visibility outweighs risks; and (d) the link fits within the context of the site.</p>
-    <p>Approved organizations may link to our Website using: (i) our corporate name; (ii) the URL; or (iii) a descriptive name that makes sense within the linking party’s site context. No use of the Company’s logo or artwork is allowed without a trademark license.</p>
+    <h2>5. Liability</h2>
+    <p>The Company is not responsible for content appearing on external websites linked to from <strong>BitOrion</strong>.</p>
 
-    <h2>5. Content Liability</h2>
-    <p>We are not responsible for any content on websites that link to our Website. You agree to indemnify and defend us against all claims arising from your Website. No link(s) may appear on any site that could be interpreted as defamatory, obscene, criminal, or that infringes, otherwise violates, or advocates the infringement or other violation of any third-party rights.</p>
+    <h2>6. Disclaimer</h2>
+    <p>The services and information provided by <strong>BitOrion</strong> are offered “as is.” We disclaim all warranties to the maximum extent permitted by law.</p>
 
-    <h2>6. Reservation of Rights</h2>
-    <p>We reserve the right to request removal of any link to our Website. You agree to remove links immediately upon request. We may also amend these Terms and our linking policy at any time. By continuously linking to our Website, you agree to be bound by these Terms.</p>
-
-    <h2>7. Removal of Links from Our Website</h2>
-    <p>If you find any link on our Website offensive, you may contact us. We will consider removal requests but are not obligated to act or respond directly. We do not guarantee that the information on this Website is correct, we do not warrant its completeness or accuracy; nor do we promise to ensure that the Website remains available or that the material on the Website is kept up to date.</p>
-
-    <h2>8. Disclaimer</h2>
-    <p>To the maximum extent permitted by law, we exclude all representations, warranties, and conditions relating to this Website and the use of this Website. Nothing in this disclaimer will:</p>
-    <ul>
-      <li>Limit or exclude liability for death or personal injury;</li>
-      <li>Limit or exclude liability for fraud or fraudulent misrepresentation;</li>
-      <li>Limit any liabilities in any way that is not permitted under applicable law; or</li>
-      <li>Exclude any liabilities that may not be excluded under applicable law.</li>
-    </ul>
-    <p>The limitations and prohibitions of liability set in this Section and elsewhere in this disclaimer: (a) are subject to the preceding paragraph; and (b) govern all liabilities arising under the disclaimer, including liabilities arising in contract, in tort, and for breach of statutory duty. As long as the Website and the information and services on the Website are provided free of charge, we will not be liable for any loss or damage of any nature.</p>
-
-    <h2>9. Governing Law</h2>
+    <h2>7. Governing Law</h2>
     <p>These Terms and Conditions are governed by the laws of Türkiye.</p>
 
-    <h2>10. Contact Us</h2>
+    <h2>8. Contact Us</h2>
     <p>If you have any questions about these Terms, you can contact us:</p>
     <ul>
       <li>By email: <a href="mailto:support@BitOrion.app">support@BitOrion.app</a></li>
@@ -183,29 +145,13 @@
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 BitOrion  | All rights reserved</p>
-    <div class="footer-links">
-      <span><i class="fa-solid fa-user-shield"></i>
-        <a href="privacy.html">Privacy Policy</a>
-      </span>
-      <span><i class="fa-solid fa-file-contract"></i>
-        <a href="terms.html">Terms &amp; Conditions</a>
-      </span>
-      <span><i class="fa-solid fa-envelope"></i>
-        <a href="mailto:support@BitOrion.app">support@BitOrion.app</a>
-      </span>
+    <p>&copy; 2025 BitOrion. All rights reserved.</p>
+    <div>
+      <a href="privacy.html">Privacy</a> | 
+      <a href="terms.html">Terms</a> | 
+      <a href="contact.html">Contact</a>
     </div>
   </footer>
 
-  <!-- Mobile menu script -->
-  <script>
-    function toggleMenu() {
-      const nav = document.getElementById('navLinks');
-      nav.classList.toggle('show');
-      // update aria-expanded for accessibility
-      const btn = document.querySelector('.menu-toggle');
-      if (btn) btn.setAttribute('aria-expanded', nav.classList.contains('show') ? 'true' : 'false');
-    }
-  </script>
 </body>
 </html>
