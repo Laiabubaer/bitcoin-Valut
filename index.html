@@ -5,214 +5,146 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>BitOrion | Secure & Lightning Fast</title>
 
-  <!-- Meta أساسية -->
   <meta name="description" content="BitOrion is a self-custodial Bitcoin wallet with Lightning support — privacy-first, secure, and fast.">
   <meta name="keywords" content="BitOrion Wallet, Lightning Wallet, Crypto Wallet, Self Custody, Multisig Wallet, BTC">
-  <meta name="author" content="FAMILIES HELPING FAMILIES OF SOUTHWEST LOUISIANA">
-  <meta name="language" content="en">
 
-  <!-- Smart App Banner (iOS) — استبدل app-id لاحقًا -->
-  <meta name="apple-itunes-app" content="app-id=1234567890, app-argument=https://bitorion.app">
-
-  <!-- Schema.org -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"SoftwareApplication",
-    "name":"BitOrion",
-    "applicationCategory":"FinanceApplication",
-    "operatingSystem":"iOS, Android",
-    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
-    "publisher": {
-      "@type": "Organization",
-      "name": "FAMILIES HELPING FAMILIES OF SOUTHWEST LOUISIANA"
-    }
-  }
-  </script>
-
-  <!-- أيقونات + Chart.js -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 
   <style>
-    :root{
-      --container:1200px;
-      --brand:#0a1f44;
-      --hero-bg:#121624;
-      --muted:#556070;
-      --trust:#22c55e;
-      --card:#ffffff;
-      --border:#e5e7eb;
-      --shadow:0 8px 24px rgba(0,0,0,.08);
-      --ink:#0f172a;
-      --up:#22c55e; --down:#ef4444;
+    :root {
+      --bg-dark: #0f172a;
+      --bg-light: #ffffff;
+      --primary: #2563eb;
+      --secondary: #38bdf8;
+      --text: #1e293b;
+      --muted: #64748b;
+      --radius: 14px;
+      --shadow: 0 8px 24px rgba(0,0,0,0.08);
+      --container: 1200px;
     }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;font-family:Arial,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#fff;color:var(--ink)}
+    * {margin:0;padding:0;box-sizing:border-box;}
+    body {font-family: "Inter", Arial, sans-serif; line-height:1.6; background: var(--bg-light); color: var(--text);}
 
     /* Navbar */
-    nav{background:#000;color:#fff;position:sticky;top:0;z-index:50}
-    .nav-container{max-width:var(--container);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 20px;gap:16px}
-    .logo-text{font-weight:800;font-size:18px;letter-spacing:.3px;color:#fff;display:flex;align-items:center;gap:8px}
-    .logo-text i{color:#60a5fa}
-    .menu-toggle{display:none;flex-direction:column;cursor:pointer}
-    .menu-toggle div{width:25px;height:3px;background:#fff;margin:4px 0;border-radius:2px}
-    .nav-links{display:flex;gap:18px}
-    .nav-links a{color:#fff;text-decoration:none;font-size:14px;opacity:.92;display:inline-flex;align-items:center;gap:6px}
-    .nav-links a:hover{opacity:1}
-    @media (max-width:768px){
-      .menu-toggle{display:flex}
-      .nav-links{display:none;position:absolute;top:56px;right:20px;background:#000;flex-direction:column;width:200px;padding:10px;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.4)}
-      .nav-links.show{display:flex}
-      .nav-links a{padding:10px;border-bottom:1px solid #222}
-      .nav-links a:last-child{border-bottom:none}
+    nav {
+      background: var(--bg-dark);
+      color: #fff;
+      padding: 16px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 50;
     }
-
-    /* Trust bar */
-    .trust-bar{background:#0b1228;color:#cbd5e1;font-size:13px;border-top:1px solid #0f172a;border-bottom:1px solid #0f172a}
-    .trust-wrap{max-width:var(--container);margin:0 auto;padding:8px 20px;display:flex;gap:14px;align-items:center;justify-content:center;flex-wrap:wrap}
-    .trust-item{display:inline-flex;align-items:center;gap:8px}
-    .trust-item i{color:var(--trust)}
+    .nav-container {
+      max-width: var(--container);
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {font-weight: 700; font-size: 20px; color:#fff; display:flex;align-items:center; gap:8px;}
+    .nav-links {display: flex; gap: 20px;}
+    .nav-links a {color:#fff; text-decoration:none; font-size:15px; transition:0.2s;}
+    .nav-links a:hover {color: var(--secondary);}
 
     /* Hero */
-    .hero{background:radial-gradient(1200px 500px at 50% -10%, #1b2140, transparent 70%), var(--hero-bg);color:#fff;text-align:center;padding:84px 20px 70px}
-    .hero-content{max-width:900px;margin:0 auto}
-    .hero h1{font-size:36px;margin:0 0 10px;display:flex;gap:10px;align-items:center;justify-content:center}
-    .hero h1 i{color:#60a5fa}
-    .hero p{font-size:16px;color:#d7d7d7;margin:0 auto 22px;max-width:720px;line-height:1.7}
-    .store-badges{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-    .store-badges a{display:inline-flex;align-items:center;justify-content:center}
-    .store-badges img{height:56px;display:block;transition:transform .25s}
-    .store-badges img:hover{transform:scale(1.04)}
+    .hero {
+      background: linear-gradient(160deg, var(--bg-dark) 40%, #1e293b 100%);
+      color: #fff;
+      text-align: center;
+      padding: 100px 20px;
+    }
+    .hero h1 {font-size: 42px; margin-bottom: 16px;}
+    .hero p {font-size: 18px; color: #cbd5e1; margin-bottom: 28px;}
+    .cta-btn {
+      display:inline-block;
+      background: var(--primary);
+      color:#fff;
+      padding:14px 28px;
+      border-radius: var(--radius);
+      font-weight:600;
+      text-decoration:none;
+      transition:.3s;
+    }
+    .cta-btn:hover {background: var(--secondary);}
 
-    /* Sections */
-    section{padding:54px 20px}
-    .container{max-width:var(--container);margin:0 auto}
-    .section-head{display:flex;align-items:center;justify-content:center;gap:10px;margin:0 0 10px}
-    .section-head i{color:var(--brand)}
-    h2.section-title{text-align:center;font-size:26px;color:var(--brand);margin:0}
-    p.section-sub{color:var(--muted);text-align:center;max-width:760px;margin:8px auto 28px;line-height:1.7}
+    /* Section */
+    section {padding:70px 20px;}
+    .container {max-width:var(--container); margin:auto;}
+    .section-head {text-align:center; margin-bottom: 50px;}
+    .section-head h2 {font-size: 28px; margin-bottom:10px; color: var(--primary);}
+    .section-head p {color: var(--muted); font-size:16px;}
 
     /* Cards */
-    .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-    @media (max-width:1000px){.cards{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width:600px){.cards{grid-template-columns:1fr}}
-    .card{border:1px solid var(--border);border-radius:14px;padding:18px;background:var(--card);box-shadow:var(--shadow);transition:transform .2s, box-shadow .2s, border-color .2s;opacity:0;transform:translateY(14px)}
-    .card h3{margin:0 0 8px;font-size:18px;color:#111;display:flex;align-items:center;gap:8px}
-    .card h3 i{color:var(--brand)}
-    .card p{margin:0;color:#475569;line-height:1.6}
-    .card:hover{transform:translateY(-2px);box-shadow:0 12px 34px rgba(0,0,0,.1);border-color:#d1d5db}
-    .in-view{opacity:1 !important;transform:translateY(0) !important;transition:opacity .5s ease, transform .5s ease}
+    .cards {display:grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap:20px;}
+    .card {
+      background:#fff;
+      border-radius: var(--radius);
+      padding:28px 20px;
+      box-shadow: var(--shadow);
+      text-align:center;
+      transition:.25s;
+    }
+    .card:hover {transform:translateY(-5px);}
+    .card i {font-size:28px; color: var(--primary); margin-bottom:12px;}
+    .card h3 {margin-bottom:10px; font-size:20px;}
 
     /* Multisig band */
-    .band{margin-top:28px;background:#f1f5f9;border-left:5px solid #2563eb;border-radius:14px;padding:26px 20px;text-align:center}
-    .band h3{margin:0 0 8px;font-size:20px;color:#1e3a8a;display:inline-flex;align-items:center;gap:8px}
-    .band h3 i{color:#2563eb}
-    .band p{margin:0;color:#374151}
-
-    /* BTC widget */
-    .btc-inline{padding:0 20px 32px;background:#fff}
-    .btc-wrap{max-width:900px;margin:-20px auto 0}
-    .btc-card{
-      border:1px solid rgba(148,163,184,.25);
-      background:rgba(15,23,42,.6);
-      color:#e5e7eb;
-      border-radius:18px;
-      padding:14px 16px;
-      backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
-      box-shadow:0 18px 40px rgba(0,0,0,.12);
+    .band {
+      background:#f1f5f9;
+      border-left:5px solid var(--primary);
+      border-radius: var(--radius);
+      padding:26px 20px;
+      text-align:center;
+      margin-top:20px;
     }
-    .btc-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
-    .btc-left{display:flex;align-items:center;gap:12px}
-    .btc-coin{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:999px;background:#0f172a;border:1px solid rgba(148,163,184,.25)}
-    .btc-price{font-weight:800;font-size:20px;letter-spacing:.2px}
-    .btc-change{font-weight:700;font-size:12px;padding:4px 8px;border-radius:8px;border:1px solid transparent;display:inline-flex;align-items:center;gap:6px}
-    .up{background:rgba(34,197,94,.12);color:var(--up);border-color:rgba(34,197,94,.35)}
-    .down{background:rgba(239,68,68,.12);color:var(--down);border-color:rgba(239,68,68,.35)}
-    .btc-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:6px}
-    .btc-time{font-size:12px;opacity:.85}
-    .btc-chart{height:60px;margin-top:8px}
-    #btcSpark{width:100%;height:60px}
+    .band h3 {margin-bottom:8px; font-size:20px; color: var(--primary);}
+    .band p {color: var(--muted);}
 
     /* Footer */
-    footer{background:#0f172a;text-align:center;padding:24px 16px;font-size:14px;color:#cbd5e1}
-    .footer-links{display:flex;gap:16px;justify-content:center;align-items:center;margin-top:6px;font-size:13px}
-    .footer-links span{display:inline-flex;align-items:center;gap:6px;opacity:.9}
-    .footer-links i{color:#94a3b8}
+    footer {
+      background: var(--bg-dark);
+      color:#cbd5e1;
+      text-align:center;
+      padding:30px 16px;
+      margin-top:40px;
+    }
+    footer a {color:#94a3b8; text-decoration:none; margin:0 10px; font-size:14px;}
+    footer a:hover {color:#fff;}
   </style>
 </head>
 <body>
 
-  <!-- Navigation -->
+  <!-- Navbar -->
   <nav>
     <div class="nav-container">
-      <div class="logo-text"><i class="fa-solid fa-vault"></i>BitOrion</div>
-      <div class="menu-toggle" onclick="toggleMenu()">
-        <div></div><div></div><div></div>
-      </div>
-      <div class="nav-links" id="navLinks">
-        <a href="privacy.html"><i class="fa-solid fa-user-shield"></i> Privacy</a>
-        <a href="terms.html"><i class="fa-solid fa-file-contract"></i> Terms</a>
-        <a href="contact.html"><i class="fa-solid fa-envelope-open-text"></i> Contact</a>
+      <div class="logo"><i class="fa-solid fa-bitcoin-sign"></i> BitOrion</div>
+      <div class="nav-links">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
       </div>
     </div>
   </nav>
 
-  <!-- Trust Bar -->
-  <div class="trust-bar">
-    <div class="trust-wrap">
-      <span class="trust-item"><i class="fa-solid fa-key"></i>Non-custodial</span>
-      <span>•</span>
-      <span class="trust-item"><i class="fa-solid fa-user-shield"></i>User-controlled keys</span>
-      <span>•</span>
-      <span class="trust-item"><i class="fa-solid fa-bolt"></i>Lightning Ready</span>
-    </div>
-  </div>
-
   <!-- Hero -->
-  <header class="hero">
-    <div class="hero-content">
-      <h1><i class="fa-solid fa-bitcoin-sign"></i>BitOrion</h1>
-      <p><i class="fa-solid fa-lock"></i> Secure & Lightning Fast. Take full control of your Bitcoin with BitOrion — privacy-first, self-custodial, and built for speed.</p>
-      <div class="store-badges">
-        <a href="https://apps.apple.com/app/id1234567890" target="_blank" rel="noopener" aria-label="Download on the App Store">
-          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
-        </a>
-      </div>
-    </div>
-  </header>
-
-  <!-- BTC widget -->
-  <section class="btc-inline">
-    <div class="btc-wrap">
-      <div class="btc-card">
-        <div class="btc-top">
-          <div class="btc-left">
-            <div class="btc-coin"><i class="fa-brands fa-bitcoin"></i></div>
-            <div class="btc-price" id="btcPrice">$--</div>
-          </div>
-          <div class="btc-change" id="btcChange">--%</div>
-        </div>
-        <div class="btc-bottom">
-          <small class="btc-time" id="btcTime">Initializing…</small>
-          <small class="btc-time">USD</small>
-        </div>
-        <div class="btc-chart"><canvas id="btcSpark"></canvas></div>
-      </div>
-    </div>
+  <section class="hero">
+    <h1>BitOrion</h1>
+    <p>Secure & Lightning Fast. Take full control of your Bitcoin — privacy-first, self-custodial, and built for speed.</p>
+    <a href="#" class="cta-btn">Download Now</a>
   </section>
 
   <!-- Features -->
   <section id="features">
     <div class="container">
-      <div class="section-head"><i class="fa-solid fa-sparkles"></i><h2 class="section-title">Features</h2></div>
-      <p class="section-sub">BitOrion offers unmatched security, speed, and privacy for your Bitcoin journey.</p>
+      <div class="section-head">
+        <h2>Features</h2>
+        <p>BitOrion offers unmatched security, speed, and privacy for your Bitcoin journey.</p>
+      </div>
       <div class="cards">
-        <div class="card observe"><h3><i class="fa-solid fa-key"></i>Self Custody</h3><p>You hold the keys. Full control over your assets at all times.</p></div>
-        <div class="card observe"><h3><i class="fa-solid fa-gauge-high"></i>Fast & Reliable</h3><p>Optimized for instant, smooth performance with minimal fees.</p></div>
-        <div class="card observe"><h3><i class="fa-solid fa-user-shield"></i>Private by Design</h3><p>No tracking or analytics. Your data stays with you.</p></div>
-        <div class="card observe"><h3><i class="fa-solid fa-circle-check"></i>Simple UX</h3><p>A clean interface that works for beginners and pros alike.</p></div>
+        <div class="card"><i class="fa-solid fa-key"></i><h3>Self Custody</h3><p>You hold the keys. Full control over your assets at all times.</p></div>
+        <div class="card"><i class="fa-solid fa-gauge-high"></i><h3>Fast & Reliable</h3><p>Optimized for instant, smooth performance with minimal fees.</p></div>
+        <div class="card"><i class="fa-solid fa-user-shield"></i><h3>Private by Design</h3><p>No tracking or analytics. Your data stays with you.</p></div>
+        <div class="card"><i class="fa-solid fa-circle-check"></i><h3>Simple UX</h3><p>A clean interface that works for beginners and pros alike.</p></div>
       </div>
     </div>
   </section>
@@ -220,13 +152,15 @@
   <!-- Security -->
   <section id="security">
     <div class="container">
-      <div class="section-head"><i class="fa-solid fa-shield"></i><h2 class="section-title">Security</h2></div>
-      <p class="section-sub">Advanced encryption and best-practice key management — no one can access your funds but you.</p>
+      <div class="section-head">
+        <h2>Security</h2>
+        <p>Advanced encryption and best-practice key management — no one can access your funds but you.</p>
+      </div>
       <div class="cards">
-        <div class="card observe"><h3><i class="fa-solid fa-lock"></i>Local Encryption</h3><p>Keys are generated and stored on-device with robust encryption.</p></div>
-        <div class="card observe"><h3><i class="fa-solid fa-cloud-arrow-up"></i>Backup Ready</h3><p>Protect access with secure backups and recovery options.</p></div>
-        <div class="card observe"><h3><i class="fa-solid fa-code-branch"></i>Open Standards</h3><p>Built on well-tested Bitcoin standards for maximum compatibility.</p></div>
-        <div class="card observe"><h3><i class="fa-regular fa-hand"></i>No Custody</h3><p>We never touch your coins or keys — ever.</p></div>
+        <div class="card"><i class="fa-solid fa-lock"></i><h3>Local Encryption</h3><p>Keys are generated and stored on-device with robust encryption.</p></div>
+        <div class="card"><i class="fa-solid fa-cloud-arrow-up"></i><h3>Backup Ready</h3><p>Protect access with secure backups and recovery options.</p></div>
+        <div class="card"><i class="fa-solid fa-code-branch"></i><h3>Open Standards</h3><p>Built on well-tested Bitcoin standards for maximum compatibility.</p></div>
+        <div class="card"><i class="fa-regular fa-hand"></i><h3>No Custody</h3><p>We never touch your coins or keys — ever.</p></div>
       </div>
     </div>
   </section>
@@ -234,13 +168,15 @@
   <!-- Lightning -->
   <section id="lightning">
     <div class="container">
-      <div class="section-head"><i class="fa-solid fa-bolt"></i><h2 class="section-title">Lightning Network</h2></div>
-      <p class="section-sub">Send and receive instantly with low fees. BitOrion integrates Lightning seamlessly for everyday payments.</p>
+      <div class="section-head">
+        <h2>Lightning Network</h2>
+        <p>Send and receive instantly with low fees. BitOrion integrates Lightning seamlessly for everyday payments.</p>
+      </div>
       <div class="cards">
-        <div class="card observe"><h3><i class="fa-solid fa-bolt"></i>Instant Payments</h3><p>Settle transactions in seconds, not minutes.</p></div>
-        <div class="card observe"><h3><i class="fa-solid fa-coins"></i>Low Fees</h3><p>Keep more of your sats with efficient routing.</p></div>
-        <div class="card observe"><h3><i class="fa-solid fa-globe"></i>Global Ready</h3><p>Pay anyone, anywhere, with interoperable invoices.</p></div>
-        <div class="card observe"><h3><i class="fa-solid fa-wand-magic-sparkles"></i>Smooth UX</h3><p>Lightning without the complexity — it just works.</p></div>
+        <div class="card"><i class="fa-solid fa-bolt"></i><h3>Instant Payments</h3><p>Settle transactions in seconds, not minutes.</p></div>
+        <div class="card"><i class="fa-solid fa-coins"></i><h3>Low Fees</h3><p>Keep more of your sats with efficient routing.</p></div>
+        <div class="card"><i class="fa-solid fa-globe"></i><h3>Global Ready</h3><p>Pay anyone, anywhere, with interoperable invoices.</p></div>
+        <div class="card"><i class="fa-solid fa-wand-magic-sparkles"></i><h3>Smooth UX</h3><p>Lightning without the complexity — it just works.</p></div>
       </div>
     </div>
   </section>
@@ -248,10 +184,12 @@
   <!-- Multisig -->
   <section id="multisig">
     <div class="container">
-      <div class="section-head"><i class="fa-solid fa-user-lock"></i><h2 class="section-title">Multisig Security</h2></div>
-    <p class="section-sub">Add an extra layer of protection with multi-signature flows that keep your funds safe even if a device is lost.</p>
-      <div class="band observe">
-        <h3><i class="fa-solid fa-lock"></i>2-of-2 & 2-of-3 Options</h3>
+      <div class="section-head">
+        <h2>Multisig Security</h2>
+        <p>Add an extra layer of protection with multi-signature flows that keep your funds safe even if a device is lost.</p>
+      </div>
+      <div class="band">
+        <h3><i class="fa-solid fa-lock"></i> 2-of-2 & 2-of-3 Options</h3>
         <p>Flexible policies for personal or team setups — security without friction.</p>
       </div>
     </div>
@@ -259,5 +197,13 @@
 
   <!-- Footer -->
   <footer>
-    <div class="footer-links">
-      <span><i class="fa-solid fa-user-shield"></i> <a
+    <p>&copy; 2025 BitOrion. All rights reserved.</p>
+    <div>
+      <a href="privacy.html">Privacy</a> | 
+      <a href="terms.html">Terms</a> | 
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+
+</body>
+</html>
