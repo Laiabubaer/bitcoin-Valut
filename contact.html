@@ -9,7 +9,129 @@
   <meta name="keywords" content="BitOrion Contact, Bitcoin Wallet Support, Crypto Help">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <link rel="stylesheet" href="style.css"/> <!-- نفس ملف CSS تبع الصفحة الرئيسية -->
+
+  <style>
+    :root {
+      --bg-dark: #0f172a;
+      --bg-light: #ffffff;
+      --primary: #2563eb;
+      --secondary: #38bdf8;
+      --text: #1e293b;
+      --muted: #64748b;
+      --radius: 14px;
+      --shadow: 0 8px 24px rgba(0,0,0,0.08);
+      --container: 1200px;
+    }
+    * {margin:0;padding:0;box-sizing:border-box;}
+    body {font-family: "Inter", Arial, sans-serif; line-height:1.6; background: var(--bg-light); color: var(--text);}
+
+    /* Navbar */
+    nav {
+      background: var(--bg-dark);
+      color: #fff;
+      padding: 16px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .nav-container {
+      max-width: var(--container);
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {font-weight: 700; font-size: 20px; color:#fff; display:flex;align-items:center; gap:8px;}
+    .nav-links {display: flex; gap: 20px;}
+    .nav-links a {color:#fff; text-decoration:none; font-size:15px; transition:0.2s;}
+    .nav-links a:hover {color: var(--secondary);}
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(160deg, var(--bg-dark) 40%, #1e293b 100%);
+      color: #fff;
+      text-align: center;
+      padding: 80px 20px;
+    }
+    .hero h1 {font-size: 36px; margin-bottom: 12px;}
+    .hero p {font-size: 17px; color: #cbd5e1;}
+
+    /* Section */
+    section {padding:60px 20px;}
+    .container {max-width:var(--container); margin:auto;}
+    .section-head {text-align:center; margin-bottom: 40px;}
+    .section-head h2 {font-size: 26px; margin-bottom:10px; color: var(--primary);}
+    .section-head p {color: var(--muted); font-size:16px;}
+
+    /* Card */
+    .card {
+      background:#fff;
+      border-radius: var(--radius);
+      padding:28px 24px;
+      box-shadow: var(--shadow);
+      transition:.25s;
+    }
+
+    /* Form */
+    form input, 
+    form textarea {
+      width: 100%;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+      border: 1px solid #e2e8f0;
+      border-radius: var(--radius);
+      font-size: 15px;
+      font-family: "Inter", Arial, sans-serif;
+      outline: none;
+      transition: 0.25s;
+    }
+    form input:focus,
+    form textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
+    }
+    form textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+    form button.cta-btn {
+      display: inline-block;
+      width: 100%;
+      border: none;
+      cursor: pointer;
+      background: var(--primary);
+      color:#fff;
+      padding:14px 28px;
+      border-radius: var(--radius);
+      font-weight:600;
+      text-decoration:none;
+      transition:.3s;
+    }
+    form button.cta-btn:hover {background: var(--secondary);}
+
+    /* Band */
+    .band {
+      background:#f1f5f9;
+      border-left:5px solid var(--primary);
+      border-radius: var(--radius);
+      padding:26px 20px;
+      text-align:left;
+      margin-top:40px;
+    }
+    .band h3 {margin-bottom:8px; font-size:20px; color: var(--primary);}
+    .band p {color: var(--muted); margin-bottom:6px;}
+
+    /* Footer */
+    footer {
+      background: var(--bg-dark);
+      color:#cbd5e1;
+      text-align:center;
+      padding:30px 16px;
+      margin-top:40px;
+    }
+    footer a {color:#94a3b8; text-decoration:none; margin:0 10px; font-size:14px;}
+    footer a:hover {color:#fff;}
+  </style>
 </head>
 <body>
 
@@ -39,7 +161,7 @@
         <h2>We’re Here to Help</h2>
         <p>Fill out the form and our support team will get back to you shortly.</p>
       </div>
-      <div class="card" style="max-width:600px; margin:auto; text-align:left">
+      <div class="card" style="max-width:600px; margin:auto;">
         <form action="https://formsubmit.co/support@BitOrion.app" method="POST">
           <!-- Hidden settings -->
           <input type="hidden" name="_next" value="https://laiabubaer.github.io/secure-wallet-site/thank-you.html">
@@ -51,12 +173,12 @@
           <input type="email" name="email" placeholder="Email" required>
           <textarea name="message" placeholder="Your Message" required></textarea>
 
-          <button type="submit" class="cta-btn" style="width:100%; border:none;">Send Message</button>
+          <button type="submit" class="cta-btn">Send Message</button>
         </form>
       </div>
 
       <!-- Contact Info -->
-      <div class="band" style="margin-top:40px;">
+      <div class="band">
         <h3><i class="fa-solid fa-envelope"></i> Contact Details</h3>
         <p>Email: <a href="mailto:support@BitOrion.app">support@BitOrion.app</a></p>
         <p>Phone: +90-5418157912</p>
