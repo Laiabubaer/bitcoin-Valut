@@ -1,69 +1,85 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Privacy Policy – BitOrion </title>
+  <title>Privacy Policy | BitOrion</title>
 
-  <!-- Font Awesome -->
+  <meta name="description" content="BitOrion Privacy Policy – Learn how we handle your personal data and protect your privacy.">
+  <meta name="keywords" content="BitOrion Privacy, Bitcoin Wallet Security, Crypto Data Policy">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <style>
-    :root{
+    :root {
+      --bg-dark: #0f172a;
+      --bg-light: #ffffff;
+      --primary: #2563eb;
+      --secondary: #38bdf8;
+      --text: #1e293b;
+      --muted: #64748b;
+      --radius: 14px;
+      --shadow: 0 8px 24px rgba(0,0,0,0.08);
       --container: 1200px;
-      --ink: #0f172a;
-      --brand: #0a1f44;
-      --muted: #475569;
-      --border: #e5e7eb;
-      --bg: #f9fafb;
     }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family: Arial, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      background: var(--bg);
-      color:#111827;
+    * {margin:0;padding:0;box-sizing:border-box;}
+    body {font-family: "Inter", Arial, sans-serif; line-height:1.6; background: var(--bg-light); color: var(--text);}
+
+    /* Navbar */
+    nav {
+      background: var(--bg-dark);
+      color: #fff;
+      padding: 16px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 50;
     }
-    nav{background:#000;color:#fff; position:sticky; top:0; z-index:50}
-    .nav-container{
-      max-width:var(--container);
-      margin:0 auto;
-      display:flex; align-items:center; justify-content:space-between;
-      padding:12px 20px; gap:16px;
+    .nav-container {
+      max-width: var(--container);
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    .logo-text{font-weight:800; font-size:18px; color:#fff; margin-right:auto;}
-    .menu-toggle{display:none; flex-direction:column; cursor:pointer; background:none; border:none;}
-    .menu-toggle div{
-      width:25px;
-      height:3px;
-      background:#fff;
-      margin:4px 0;
+    .logo {font-weight: 700; font-size: 20px; color:#fff; display:flex;align-items:center; gap:8px;}
+    .nav-links {display: flex; gap: 20px;}
+    .nav-links a {color:#fff; text-decoration:none; font-size:15px; transition:0.2s;}
+    .nav-links a:hover {color: var(--secondary);}
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(160deg, var(--bg-dark) 40%, #1e293b 100%);
+      color: #fff;
+      text-align: center;
+      padding: 80px 20px;
     }
-    .nav-links{display:flex; gap:22px}
-    .nav-links a{color:#fff; text-decoration:none; font-size:14px; opacity:.92; display:inline-flex; align-items:center; gap:8px;}
-    .nav-links a:hover{opacity:1}
-    @media (max-width:768px){
-      .menu-toggle{display:flex}
-      .nav-links{display:none; position:absolute; top:56px; right:20px; background:#000;
-        flex-direction:column; width:200px; padding:10px; border-radius:10px;
-        box-shadow:0 10px 30px rgba(0,0,0,.4);
-      }
-      .nav-links.show{display:flex}
-      .nav-links a{padding:10px; border-bottom:1px solid #222}
-      .nav-links a:last-child{border-bottom:none}
+    .hero h1 {font-size: 36px; margin-bottom: 12px;}
+    .hero p {font-size: 17px; color: #cbd5e1;}
+
+    /* Content */
+    .content {max-width: 900px; margin:40px auto; padding:0 20px;}
+    .content h2 {font-size: 24px; margin-top:32px; margin-bottom:12px; color: var(--primary);}
+    .content h3 {font-size: 18px; margin-top:20px; margin-bottom:8px; color: var(--text);}
+    .content p, .content li {font-size:16px; margin-bottom:15px; color: var(--text);}
+    .content ul {margin-left:20px;}
+
+    .effective-date {
+      font-size:14px; 
+      font-weight:600; 
+      color:#555; 
+      margin-bottom:20px;
     }
-    main.content{max-width:800px; margin:40px auto; padding:0 20px; text-align:left;}
-    main.content h1{font-size:26px; margin-bottom:6px; color:var(--brand);}
-    .effective-date{font-size:14px; font-weight:600; color:#000; margin:0 0 18px;}
-    main.content p, main.content li{font-size:16px; line-height:1.6; margin-bottom:15px;}
-    main.content h2{font-size:20px; margin-top:28px; margin-bottom:10px; color:var(--brand); padding-bottom:6px; border-bottom:2px solid var(--border);}
-    main.content h3{font-size:18px; margin-top:20px; color:var(--ink);}
-    main.content ul{margin-left:20px; padding-left:0}
-    footer{background:#0a1f44; color:#e5e7eb; text-align:center; padding:28px 20px; font-size:14px; margin-top:40px;}
-    footer a{color:#cbd5e1; text-decoration:none}
-    footer a:hover{text-decoration:underline}
-    .footer-sep{margin-top:30px; border-top:1px solid #334155; padding-top:15px}
+
+    /* Footer */
+    footer {
+      background: var(--bg-dark);
+      color:#cbd5e1;
+      text-align:center;
+      padding:30px 16px;
+      margin-top:40px;
+    }
+    footer a {color:#94a3b8; text-decoration:none; margin:0 10px; font-size:14px;}
+    footer a:hover {color:#fff;}
   </style>
 </head>
 <body>
@@ -71,22 +87,24 @@
   <!-- Navbar -->
   <nav>
     <div class="nav-container">
-      <div class="logo-text">BitOrion</div>
-      <div class="menu-toggle" onclick="toggleMenu()">
-        <div></div><div></div><div></div>
-      </div>
-      <div class="nav-links" id="navLinks">
-        <a href="index.html"><i class="fa-solid fa-house"></i><span>Home</span></a>
-        <a href="privacy.html"><i class="fa-solid fa-lock"></i><span>Privacy</span></a>
-        <a href="terms.html"><i class="fa-solid fa-file-contract"></i><span>Terms</span></a>
-        <a href="contact.html"><i class="fa-solid fa-phone"></i><span>Contact</span></a>
+      <div class="logo"><i class="fa-solid fa-bitcoin-sign"></i> BitOrion</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html">Contact</a>
       </div>
     </div>
   </nav>
 
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Privacy Policy</h1>
+    <p>Learn how BitOrion handles your personal data and protects your privacy.</p>
+  </section>
+
   <!-- Content -->
   <main class="content">
-    <h1>Privacy Policy</h1>
     <p class="effective-date">Last updated: September 22, 2025</p>
 
     <p>This Privacy Policy describes Our policies and procedures on the collection, use, and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.</p>
@@ -94,106 +112,62 @@
 
     <h2>Interpretation and Definitions</h2>
     <h3>Interpretation</h3>
-    <p>The words of which the initial letter is capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.</p>
+    <p>The words of which the initial letter is capitalized have meanings defined under the following conditions.</p>
 
     <h3>Definitions</h3>
     <ul>
-      <li><strong>Account:</strong> a unique account created for You to access our Service.</li>
-      <li><strong>Affiliate:</strong> an entity under common control (ownership of 50% or more).</li>
       <li><strong>Application:</strong> refers to <strong>BitOrion: bitcoin wallet</strong>, the software program provided by the Company.</li>
-      <li><strong>Company:</strong> AKTUEL OFIS MALZEMELERI PAZARLAMA TICARET ANONIM SIRKETI, NO:2-6 SULTAN SELIM MAHALLESI, BEHCET SOKAK, KAGITHANE, Istanbul (Europe), 34415, Türkiye. Phone: +90-5418157912.</li>
+      <li><strong>Company:</strong> AKTUEL OFIS MALZEMELERI PAZARLAMA TICARET ANONIM SIRKETI, Istanbul, Türkiye. Phone: +90-5418157912.</li>
       <li><strong>Country:</strong> Türkiye.</li>
-      <li><strong>Device:</strong> any device that can access the Service.</li>
       <li><strong>Personal Data:</strong> information that relates to an identified or identifiable individual.</li>
       <li><strong>Service:</strong> the Application.</li>
-      <li><strong>Service Provider:</strong> third-party companies/individuals providing or analyzing the Service.</li>
-      <li><strong>Usage Data:</strong> data collected automatically (IP, browser, pages visited, time spent, etc.).</li>
       <li><strong>You:</strong> the individual or entity using the Service.</li>
     </ul>
 
     <h2>Collecting and Using Your Personal Data</h2>
-    <h3>Types of Data Collected</h3>
-    <p><strong>Personal Data:</strong> We may ask You to provide certain personally identifiable information that can be used to contact or identify You.</p>
-    <p><strong>Usage Data:</strong> Collected automatically when using the Service. Includes IP, browser, pages visited, device, and diagnostics.</p>
-
     <h3>Wallet Data and Security</h3>
     <p>We do not collect, store, or have access to your private keys, recovery phrase, or any data related to your transactions.</p>
     <p>All sensitive information is stored locally on your device only and remains fully under your control.</p>
-    <p>If you lose your recovery phrase, we will not be able to restore or recover your wallet.</p>
+    <p>If you lose your recovery phrase, we cannot restore your wallet.</p>
 
     <h2>Use of Your Personal Data</h2>
     <ul>
       <li>To provide and maintain our Service.</li>
-      <li>To manage Your Account and registration.</li>
-      <li>To perform a contract.</li>
+      <li>To manage Your Account.</li>
       <li>To contact You (email, phone, SMS).</li>
       <li>To provide updates or offers (unless opted out).</li>
-      <li>To manage Your requests.</li>
-      <li>For business transfers (merger, acquisition, asset sale).</li>
     </ul>
 
-    <h2>Retention of Your Personal Data</h2>
-    <p>The Company will retain Your Personal Data only for as long as necessary for the purposes in this Privacy Policy. Usage Data may be retained longer for security or functionality improvements, or as required by law.</p>
-
-    <h2>Transfer of Your Personal Data</h2>
-    <p>Your data may be transferred to computers outside of Your jurisdiction. By using the Service, You consent to such transfers, with safeguards in place.</p>
-
-    <h2>Delete Your Personal Data</h2>
-    <p>You may delete or request deletion of Your Personal Data. Contact us at <a href="mailto:support@BitOrion.app">support@BitOrion.app</a>. Some data may be retained as required by law.</p>
-    <p><strong>Your Privacy Rights (GDPR/CCPA):</strong> Depending on your location, you may have rights under data protection laws (such as the General Data Protection Regulation (GDPR) or the California Consumer Privacy Act (CCPA)) to request access, update, or deletion of your personal data.</p>
+    <h2>Retention & Deletion</h2>
+    <p>We retain Personal Data only as long as necessary. You may request deletion at any time via <a href="mailto:support@BitOrion.app">support@BitOrion.app</a>.</p>
 
     <h2>Disclosure of Your Personal Data</h2>
-    <p>The Company may disclose Personal Data in the good faith belief that it is necessary to:</p>
+    <p>We may disclose Personal Data only if required to:</p>
     <ul>
       <li>Comply with a legal obligation</li>
       <li>Protect rights or property</li>
       <li>Prevent wrongdoing</li>
-      <li>Protect the safety of Users or the public</li>
-      <li>Protect against legal liability</li>
     </ul>
 
-    <h2>Security of Your Personal Data</h2>
-    <p>We use commercially acceptable means to protect Personal Data but cannot guarantee 100% security.</p>
-
     <h2>Children’s Privacy</h2>
-    <p>Our Service does not address anyone under the age of 13. We do not knowingly collect data from children. If we discover such data, we delete it.</p>
+    <p>We do not knowingly collect data from children under 13. If such data is found, it will be deleted.</p>
 
-    <h2>Links to Other Websites</h2>
-    <p>Our Service may contain links to third-party sites. We are not responsible for their privacy practices.</p>
-
-    <h2>Changes to This Privacy Policy</h2>
+    <h2>Changes to This Policy</h2>
     <p>We may update this Privacy Policy. Updates will be posted here with a new date.</p>
 
     <h2>Contact Us</h2>
-    <p>If you have questions, contact us:</p>
-    <ul>
-      <li>By email: <a href="mailto:support@BitOrion.app">support@BitOrion.app</a></li>
-      <li>By phone: +90-5418157912</li>
-    </ul>
+    <p>For questions: <a href="mailto:support@BitOrion.app">support@BitOrion.app</a> | Phone: +90-5418157912</p>
   </main>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 BitOrion | All rights reserved</p>
-    <div class="footer-links">
-      <span><i class="fa-solid fa-user-shield"></i> 
-        <a href="privacy.html">Privacy Policy</a>
-      </span>
-      <span><i class="fa-solid fa-file-contract"></i> 
-        <a href="terms.html">Terms & Conditions</a>
-      </span>
-      <span><i class="fa-solid fa-envelope"></i> 
-        <a href="mailto:support@BitOrion.app">support@BitOrion.app</a>
-      </span>
+    <p>&copy; 2025 BitOrion. All rights reserved.</p>
+    <div>
+      <a href="privacy.html">Privacy</a> | 
+      <a href="terms.html">Terms</a> | 
+      <a href="contact.html">Contact</a>
     </div>
   </footer>
 
-  <!-- Mobile menu script -->
-  <script>
-    function toggleMenu() {
-      const nav = document.getElementById('navLinks');
-      nav.classList.toggle('show');
-    }
-  </script>
 </body>
 </html>
