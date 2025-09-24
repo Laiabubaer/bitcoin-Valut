@@ -3,206 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact Us - BitOrion </title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #121624;
-      color: #fff;
-    }
+  <title>Contact | BitOrion</title>
 
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #000;
-      padding: 10px 20px;
-      position: relative;
-    }
+  <meta name="description" content="Get in touch with BitOrion support team for inquiries, assistance, or feedback.">
+  <meta name="keywords" content="BitOrion Contact, Bitcoin Wallet Support, Crypto Help">
 
-    .logo-text {
-      font-size: 18px;
-      font-weight: bold;
-      color: #fff;
-    }
-
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      background:none;
-      border:none;
-    }
-
-    .menu-toggle div {
-      width: 25px;
-      height: 3px;
-      background-color: white;
-      margin: 4px 0;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 15px;
-    }
-
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      font-size: 14px;
-    }
-
-    @media (max-width: 768px) {
-      .menu-toggle {
-        display: flex;
-      }
-
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        background-color: #000;
-        position: absolute;
-        top: 55px;
-        right: 20px;
-        width: 180px;
-        padding: 10px;
-        border-radius: 6px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        text-align: right;
-        z-index: 99;
-      }
-
-      .nav-links.show {
-        display: flex;
-      }
-
-      .nav-links a {
-        padding: 10px 0;
-        border-bottom: 1px solid #222;
-      }
-
-      .nav-links a:last-child {
-        border-bottom: none;
-      }
-    }
-
-    .container {
-      max-width: 600px;
-      margin: 80px auto;
-      padding: 35px 25px;
-      background-color: #1c1f2e;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 10px;
-      font-size: 26px;
-    }
-
-    p {
-      text-align: center;
-      font-size: 14px;
-      color: #ccc;
-      margin-bottom: 25px;
-    }
-
-    input, textarea {
-      width: 94%;
-      padding: 6px 10px;
-      margin: 6px 0;
-      border: none;
-      border-radius: 6px;
-      font-size: 13px;
-      background-color: #fff;
-      color: #000;
-    }
-
-    textarea {
-      resize: vertical;
-      min-height: 80px;
-    }
-
-    button {
-      width: 100%;
-      padding: 9px;
-      background-color: #ff9900;
-      border: none;
-      color: white;
-      font-size: 14px;
-      font-weight: bold;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #e08700;
-    }
-
-    .contact-info {
-      font-size: 13px;
-      color: #ccc;
-      margin-top: 30px;
-    }
-
-    .contact-info img {
-      width: 16px;
-      vertical-align: middle;
-      margin-right: 6px;
-    }
-
-    .contact-info p {
-      margin: 6px 0;
-    }
-
-    .privacy-note {
-      font-size: 12px;
-      color: #aaa;
-      text-align: center;
-      margin-top: 10px;
-    }
-
-    .privacy-note a {
-      color: #ffcc66;
-      text-decoration: underline;
-    }
-
-    .back-home {
-      margin-top: 30px;
-      text-align: center;
-    }
-
-    .back-home a {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #ff9900;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: bold;
-      transition: background 0.3s ease;
-    }
-
-    .back-home a:hover {
-      background-color: #e08700;
-    }
-  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css"/> <!-- نفس ملف CSS تبع الصفحة الرئيسية -->
 </head>
 <body>
 
   <!-- Navbar -->
   <nav>
     <div class="nav-container">
-      <div class="logo-text">BitOrion</div>
-      <button class="menu-toggle" onclick="toggleMenu()">
-        <div></div>
-        <div></div>
-        <div></div>
-      </button>
-      <div class="nav-links" id="navLinks">
+      <div class="logo"><i class="fa-solid fa-bitcoin-sign"></i> BitOrion</div>
+      <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
@@ -211,59 +26,56 @@
     </div>
   </nav>
 
-  <!-- Contact Container -->
-  <div class="container">
-    <h2>Contact Us</h2>
-    <p>For inquiries about BitOrion: Bitcoin Wallet, please use the form below or reach out directly.</p>
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Contact Us</h1>
+    <p>For inquiries about <strong>BitOrion</strong>, please use the form below or reach out directly.</p>
+  </section>
 
-    <!-- Contact Form -->
-    <form action="https://formsubmit.co/support@BitOrion.app" method="POST">
-      <!-- Hidden settings -->
-      <input type="hidden" name="_next" value="https://laiabubaer.github.io/secure-wallet-site/thank-you.html">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_subject" value="New Contact Form Submission from BitOrion">
-      <input type="hidden" name="_template" value="table">
+  <!-- Contact Form -->
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <h2>We’re Here to Help</h2>
+        <p>Fill out the form and our support team will get back to you shortly.</p>
+      </div>
+      <div class="card" style="max-width:600px; margin:auto; text-align:left">
+        <form action="https://formsubmit.co/support@BitOrion.app" method="POST">
+          <!-- Hidden settings -->
+          <input type="hidden" name="_next" value="https://laiabubaer.github.io/secure-wallet-site/thank-you.html">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="New Contact Form Submission from BitOrion">
+          <input type="hidden" name="_template" value="table">
 
-      <input type="text" name="name" placeholder="Full Name" required>
-      <input type="email" name="email" placeholder="Email" required>
-      <textarea name="message" placeholder="Your Message" required></textarea>
+          <input type="text" name="name" placeholder="Full Name" required>
+          <input type="email" name="email" placeholder="Email" required>
+          <textarea name="message" placeholder="Your Message" required></textarea>
 
-      <button type="submit">Send</button>
-    </form>
+          <button type="submit" class="cta-btn" style="width:100%; border:none;">Send Message</button>
+        </form>
+      </div>
 
-    <div class="privacy-note">
-      We collect your contact information solely to respond to your inquiry. We do not share your data with third parties. By submitting this form, you agree to our <a href="privacy.html">Privacy Policy</a>.
+      <!-- Contact Info -->
+      <div class="band" style="margin-top:40px;">
+        <h3><i class="fa-solid fa-envelope"></i> Contact Details</h3>
+        <p>Email: <a href="mailto:support@BitOrion.app">support@BitOrion.app</a></p>
+        <p>Phone: +90-5418157912</p>
+        <p>Address: AKTUEL OFIS MALZEMELERI PAZARLAMA TICARET ANONIM SIRKETI,  
+        NO:2-6 SULTAN SELIM MAHALLESI, BEHCET SOKAK,  
+        KAGITHANE, Istanbul (Europe), 34415, Türkiye</p>
+      </div>
     </div>
+  </section>
 
-    <!-- Contact Info -->
-    <div class="contact-info">
-      <p><strong>Business Address:</strong><br>
-      AKTUEL OFIS MALZEMELERI PAZARLAMA TICARET ANONIM SIRKETI<br>
-      NO:2-6 SULTAN SELIM MAHALLESI, BEHCET SOKAK<br>
-      KAGITHANE, Istanbul (Europe), 34415, Türkiye</p>
-
-      <p>
-        <img src="images/icons8-email-48.png" alt="Email Icon">
-        <a href="mailto:support@BitOrion.app" style="color:#ffcc66">support@BitOrion.app</a>
-      </p>
-      <p>
-        <img src="images/icons8-phone-24.png" alt="Phone Icon"> +90-5418157912
-      </p>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 BitOrion. All rights reserved.</p>
+    <div>
+      <a href="privacy.html">Privacy</a> | 
+      <a href="terms.html">Terms</a> | 
+      <a href="contact.html">Contact</a>
     </div>
-
-    <!-- Back Home -->
-    <div class="back-home">
-      <a href="index.html">Return to Home</a>
-    </div>
-  </div>
-
-  <!-- Script -->
-  <script>
-    function toggleMenu() {
-      const navLinks = document.getElementById('navLinks');
-      navLinks.classList.toggle('show');
-    }
-  </script>
+  </footer>
 
 </body>
 </html>
